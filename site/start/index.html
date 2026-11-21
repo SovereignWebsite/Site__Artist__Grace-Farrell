@@ -3,68 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; frame-src https://mediaviewer.spotlight.com https://www.instagram.com; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Start here: Grace Farrell</title>
 <meta name="description" content="Where to start, for the owner of this site: connecting GitHub, the first change, and asking for more.">
+<link rel="canonical" href="https://grace-farrell.artist.sovereignweb.site/start/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Grace Farrell">
 <meta property="og:locale" content="en_GB">
-<meta property="og:url" content="https://grace-farrell.artist.sovereignweb.site/start/">
 <meta property="og:title" content="Start here: Grace Farrell">
 <meta property="og:description" content="Where to start, for the owner of this site: connecting GitHub, the first change, and asking for more.">
+<meta property="og:url" content="https://grace-farrell.artist.sovereignweb.site/start/">
 <meta property="og:image" content="https://grace-farrell.artist.sovereignweb.site/assets/share/card-1200x630.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Grace Farrell">
+<meta property="og:image:alt" content="Grace Farrell, actor-singer and soprano, beside her headshot (photo Jennie Scott)">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Start here: Grace Farrell">
 <meta name="twitter:description" content="Where to start, for the owner of this site: connecting GitHub, the first change, and asking for more.">
 <meta name="twitter:image" content="https://grace-farrell.artist.sovereignweb.site/assets/share/card-1200x630.jpg">
-<link rel="canonical" href="https://grace-farrell.artist.sovereignweb.site/start/">
-<style>
-:root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#5d5c57;--accent:#2f6b4f;--line:#e4e1d8}
-@media (prefers-color-scheme:dark){:root{--bg:#141513;--fg:#ecebe6;--muted:#a8a69e;--accent:#7fc3a0;--line:#2c2d29}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}
-main{max-width:44rem;margin:0 auto;padding:10vh 1rem 4rem}
-.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem}
-.mark{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
-h1{font-size:clamp(2rem,6vw,3rem);line-height:1.1;margin:.4rem 0 1rem}
-p{color:var(--muted);margin:0 0 1rem}a{color:var(--accent)}
-footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
-/* The Sovereign Website credit on a customer's site: one small, muted control at the far top right that opens a
-   pop-up menu of the family links. Not a strip and not a menu bar: the site is about its owner (Dinis, 20 November
-   2026: "It needs to fundamentally be about the site and who is it about ... top right pop-up menu").
-   CSS only (details/summary), so no script and no CSP issue. It sits in the page's corner, above the owner's header;
-   a site whose own header uses that corner moves it with --family-top / --family-right.
-   To remove it, the owner sets one attribute: <html data-family-credit="off">. */
-.family-credit{--fam-fg:var(--family-fg,#5a5a5a);--fam-strong:var(--family-fg-strong,#111);--fam-bg:var(--family-bg,#fff);
-  position:absolute;top:var(--family-top,.4rem);right:var(--family-right,.75rem);z-index:50;font-size:.75rem;line-height:1.4}
-@media (prefers-color-scheme:dark){.family-credit{--fam-fg:var(--family-fg,#b5b5b5);--fam-strong:var(--family-fg-strong,#fff);--fam-bg:var(--family-bg,#1c1c1c)}}
-.family-credit summary{display:inline-flex;align-items:center;gap:.3rem;cursor:pointer;color:var(--fam-fg);list-style:none;min-height:24px;padding:.15rem .3rem;border-radius:4px}
-.family-credit summary::-webkit-details-marker{display:none}
-.family-credit summary::after{content:"";width:.35rem;height:.35rem;border:solid currentColor;border-width:0 1px 1px 0;transform:rotate(45deg) translateY(-2px)}
-.family-credit summary:hover,.family-credit summary:focus-visible,.family-credit[open] summary{color:var(--fam-strong)}
-.family-credit ul{position:absolute;right:0;top:100%;margin:.25rem 0 0;padding:.35rem 0;list-style:none;min-width:11rem;
-  background:var(--fam-bg);border:1px solid rgba(127,127,127,.3);border-radius:6px;box-shadow:0 4px 16px rgba(0,0,0,.12)}
-.family-credit a{display:block;padding:.3rem .8rem;min-height:24px;color:var(--fam-fg);text-decoration:none}
-.family-credit a:hover,.family-credit a:focus-visible{color:var(--fam-strong);background:rgba(127,127,127,.1)}
-.family-credit .family-gap{border-bottom:1px solid rgba(127,127,127,.25);padding-bottom:.3rem;margin-bottom:.3rem}
-[data-family-credit="off"] .family-credit{display:none}
-@media print{.family-credit{display:none}}
-.top{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1.5rem;max-width:44rem;margin:0 auto;padding:2.2rem 1rem 0}
-.top .name{font-weight:600;color:var(--fg);text-decoration:none}
-.own{display:flex;gap:1rem;margin-left:auto;font-size:.95rem}
-.own a,.site-links a{color:var(--accent);font-weight:600}
-.site-links{display:flex;flex-wrap:wrap;gap:.25rem 1.25rem;margin-bottom:.8rem;font-size:.95rem}
-@media (max-width:40rem){.own{margin:0;width:100%}}
-h2{font-size:1.25rem;margin:2rem 0 .5rem}ol,ul.plain{color:var(--muted);padding-left:1.2rem}li{margin:.35rem 0}
-pre{background:rgba(127,127,127,.1);padding:.8rem 1rem;border-radius:6px;white-space:pre-wrap;font-size:.9rem;color:var(--fg)}
-code{font-size:.9em}main a,main code{overflow-wrap:anywhere}
-</style>
+<meta name="twitter:image:alt" content="Grace Farrell, actor-singer and soprano, beside her headshot (photo Jennie Scott)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../base.css">
+<link rel="stylesheet" href="../theme.css">
+<script src="../site.js" defer></script>
 </head>
-<body>
+<body class="doc-page">
 <a class="skip" href="#main">Skip to content</a>
-<details class="family-credit">
+<header class="bar">
+  <a class="brand" href="../">Grace Farrell</a>
+  <nav aria-label="Sections"><a href="../#about">About</a><a href="../#credits">Credits</a><a href="../#reels">Reels</a><a href="../#tour">Tour</a><a href="../#skills">Skills</a><a href="../#contact">Contact</a></nav>
+  <div class="bar-right"><details class="chooser">
+    <summary>Choose a design</summary>
+    <div class="chooser-panel">
+      <ul class="cards"><li><a href="../designs/1.html" aria-current="page"><img src="../images/shots/d1-640.webp" alt="" width="640" height="400" loading="lazy" decoding="async"><strong>1. Footlights</strong><span>A dark stage, one warm light</span></a></li><li><a href="../designs/2.html"><img src="../images/shots/d2-640.webp" alt="" width="640" height="400" loading="lazy" decoding="async"><strong>2. Fringe flyer</strong><span>An Edinburgh poster</span></a></li><li><a href="../designs/3.html"><img src="../images/shots/d3-640.webp" alt="" width="640" height="400" loading="lazy" decoding="async"><strong>3. Libretto</strong><span>An opera libretto</span></a></li><li><a href="../designs/4.html"><img src="../images/shots/d4-640.webp" alt="" width="640" height="400" loading="lazy" decoding="async"><strong>4. Tour diary</strong><span>A road map and ticket stubs</span></a></li><li><a href="../designs/5.html"><img src="../images/shots/d5-640.webp" alt="" width="640" height="400" loading="lazy" decoding="async"><strong>5. Editorial</strong><span>A magazine profile</span></a></li></ul>
+      <p class="all"><a href="../designs/">All five, side by side</a></p>
+    </div>
+  </details>
+  <details class="family-credit">
   <summary>Sovereign Website</summary>
   <ul>
     <li><a href="/start/">Start here</a></li>
@@ -80,16 +58,11 @@ code{font-size:.9em}main a,main code{overflow-wrap:anywhere}
     <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
     <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
   </ul>
-</details>
-<header class="top">
-  <a class="name" href="/">Grace Farrell</a>
-  <nav class="own" aria-label="This site">
-    <a href="/start/">Start here</a>
-    <a href="/agents/">Use with your AI</a>
-  </nav>
+</details></div>
 </header>
-<main id="main">
-<div class="mark">Start here</div>
+<main id="main" class="doc" tabindex="-1">
+<!-- content -->
+<p class="kicker">Start here</p>
 <h1>Your site, and how to take it over</h1>
 <p>This page is for the owner of Grace Farrell. The site is static files in one GitHub repository, <a href="https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell">SovereignWebsite/Site__Artist__Grace-Farrell</a>. It is served at <a href="https://grace-farrell.artist.sovereignweb.site/">https://grace-farrell.artist.sovereignweb.site</a> from the <code>site/</code> folder on the <code>dev</code> branch.</p>
 <h2>1. Connect GitHub</h2>
@@ -111,15 +84,11 @@ code{font-size:.9em}main a,main code{overflow-wrap:anywhere}
 <p>Open an issue at <a href="https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell/issues/new">https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell/issues/new</a> saying what you would like changed, or ask the person who made the site. The site's agents work from the repository, so the issue is the record.</p>
 <h2>4. It is yours</h2>
 <p>The files, the history and the address are in a repository you control. You can move it anywhere, at any time: it is plain HTML with no server code, no cookies and no tracking.</p>
-
-<footer>
-<nav class="site-links" aria-label="About this site">
-  <a href="/start/">Start here</a>
-  <a href="/agents/">Use with your AI</a>
-  <a href="/admin/">How this site was made</a>
-</nav>
-A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell">github.com/SovereignWebsite/Site__Artist__Grace-Farrell</a>.
-</footer>
+<!-- /content -->
 </main>
+<footer>
+  <p class="foot-links"><a href="../start/">Start here</a> <span aria-hidden="true">·</span> <a href="../agents/">Use this site with your AI</a> <span aria-hidden="true">·</span> <a href="../llms.txt">llms.txt</a> <span aria-hidden="true">·</span> <a href="../admin/">How this site was made</a> <span aria-hidden="true">·</span> <a href="../designs/">All five designs</a></p>
+  <p>A sovereign website: Grace's own files, history and address. No cookies, no tracking, no third-party scripts. The videos come from Spotlight and Instagram only when you press play. Text licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; photographs remain their photographers'. Source: <a href="https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell">SovereignWebsite/Site__Artist__Grace-Farrell</a>.</p>
+</footer>
 </body>
 </html>

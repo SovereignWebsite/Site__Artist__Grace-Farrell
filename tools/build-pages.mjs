@@ -128,16 +128,22 @@ function head({ title, url, css, rel }) {
 </head>`;
 }
 
+const bar = (cur, rel, home) => `<header class="bar">
+  <a class="brand" href="${rel || './'}">${NAME}</a>
+  <nav aria-label="Sections">${[['about', 'About'], ['credits', 'Credits'], ['reels', 'Reels'], ['tour', 'Tour'], ['skills', 'Skills'], ['contact', 'Contact']].map(([id, t]) => `<a href="${home}#${id}">${t}</a>`).join('')}</nav>
+  <div class="bar-right">${chooser(cur, rel)}
+  ${family}</div>
+</header>`;
+const footer = (rel) => `<footer>
+  <p class="foot-links"><a href="${rel}start/">Start here</a>${dot}<a href="${rel}agents/">Use this site with your AI</a>${dot}<a href="${rel}llms.txt">llms.txt</a>${dot}<a href="${rel}admin/">How this site was made</a>${dot}<a href="${rel}designs/">All five designs</a></p>
+  <p>A sovereign website: Grace's own files, history and address. No cookies, no tracking, no third-party scripts. The videos come from Spotlight and Instagram only when you press play. Text licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; photographs remain their photographers'. Source: <a href="https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell">SovereignWebsite/Site__Artist__Grace-Farrell</a>.</p>
+</footer>`;
+
 function page(cur, rel) {
   const img = (n, w) => `${rel}images/${n}-${w}.webp`;
   return `<body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="bar">
-  <a class="brand" href="${rel || './'}">${NAME}</a>
-  <nav aria-label="Sections"><a href="#about">About</a><a href="#credits">Credits</a><a href="#reels">Reels</a><a href="#tour">Tour</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav>
-  <div class="bar-right">${chooser(cur, rel)}
-  ${family}</div>
-</header>
+${bar(cur, rel, '')}
 <main id="main" tabindex="-1">
 <section class="cover" id="top" aria-labelledby="name">
   <figure class="cover-photo"><img src="${img('headshot', 960)}" srcset="${img('headshot', 640)} 640w, ${img('headshot', 960)} 960w" sizes="(max-width: 50rem) 100vw, 45vw" alt="Grace Farrell, head and shoulders, in a black top against a dark backdrop" width="960" height="1440" fetchpriority="high"><figcaption class="photo-credit">Photo © Jennie Scott</figcaption></figure>
@@ -216,10 +222,7 @@ function page(cur, rel) {
   <p><a href="${SPOTLIGHT}">Spotlight profile</a>${dot}<a href="${INSTAGRAM}">Instagram @gracexfarrellx</a></p>
 </section>
 </main>
-<footer>
-  <p class="foot-links"><a href="${rel}start/">Start here</a>${dot}<a href="${rel}agents/">Use this site with your AI</a>${dot}<a href="${rel}llms.txt">llms.txt</a>${dot}<a href="${rel}admin/">How this site was made</a>${dot}<a href="${rel}designs/">All five designs</a></p>
-  <p>A sovereign website: Grace's own files, history and address. No cookies, no tracking, no third-party scripts. The videos come from Spotlight and Instagram only when you press play. Text licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; photographs remain their photographers'. Source: <a href="https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell">SovereignWebsite/Site__Artist__Grace-Farrell</a>.</p>
-</footer>
+${footer(rel)}
 </body>
 </html>
 `;
@@ -229,6 +232,18 @@ mkdirSync('site/designs', { recursive: true });
 writeFileSync('site/index.html', head({ title: NAME, url: `${ORIGIN}/`, css: 'theme.css', rel: '' }) + '\n' + page(HOME, ''));
 for (const d of DESIGNS) writeFileSync(`site/designs/${d.n}.html`, head({ title: `${d.name} design, ${NAME}`, url: `${ORIGIN}/designs/${d.n}.html`, css: `d${d.n}.css`, rel: '../' }) + '\n' + page(d.n, '../'));
 copyFileSync(`site/designs/d${HOME}.css`, 'site/theme.css');
+
+// The owner pages (start, agents, admin): their words stay in the page between <!-- content --> markers, so the
+// owner can edit them directly; this wraps them in the site's bar, styles and footer.
+for (const name of ['start', 'agents', 'admin']) {
+  const f = `site/${name}/index.html`; const h = readFileSync(f, 'utf8');
+  const pick = (re) => (h.match(re) || [])[1];
+  let body = pick(/<!-- content -->\n([\s\S]*?)<!-- \/content -->/);
+  if (!body) body = pick(/<main id="main"[^>]*>\n?([\s\S]*?)<\/main>/).replace(/<footer>[\s\S]*?<\/footer>\s*$/, '').replace(/<div class="mark">([^<]*)<\/div>/, '<p class="kicker">$1</p>');
+  const title = pick(/<title>([^<]*)<\/title>/), desc = pick(/<meta name="description" content="([^"]*)">/);
+  const top = head({ title: title.replace(/&amp;/g, '&'), url: `${ORIGIN}/${name}/`, css: '../theme.css', rel: '../' }).replace(/(<meta (?:name|property)="(?:description|og:description|twitter:description)" content=")[^"]*(">)/g, `$1${desc}$2`);
+  writeFileSync(f, `${top}\n<body class="doc-page">\n<a class="skip" href="#main">Skip to content</a>\n${bar(HOME, '../', '../')}\n<main id="main" class="doc" tabindex="-1">\n<!-- content -->\n${body.trim()}\n<!-- /content -->\n</main>\n${footer('../')}\n</body>\n</html>\n`);
+}
 
 // The side-by-side page.
 writeFileSync('site/designs/index.html', head({ title: `Five designs, ${NAME}`, url: `${ORIGIN}/designs/`, css: 'gallery.css', rel: '../' }).replace(/<script[^>]*><\/script>\n/, '') + `

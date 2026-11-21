@@ -136,3 +136,12 @@ footer p{max-width:52rem}
 .designs-page main{max-width:var(--wide);margin:0 auto;padding:2.5rem 1rem}
 .cards.big{grid-template-columns:repeat(auto-fill,minmax(min(100%,19rem),1fr));gap:1.2rem;margin-top:1.5rem}
 .cards.big strong{font-size:1.05rem}
+
+/* the owner pages: start, agents, admin */
+main.doc{max-width:46rem;margin:0 auto;padding:clamp(2rem,6vw,4rem) 1rem}
+main.doc h1{font-size:clamp(2.2rem,6vw,3.4rem);margin-bottom:1rem}
+main.doc h2{font-size:1.5rem;margin:2.2rem 0 .6rem}
+main.doc ol,main.doc ul{padding-left:1.3rem}main.doc li{margin:.4rem 0}
+main.doc pre{background:var(--surface);border:1px solid var(--line);padding:.9rem 1rem;border-radius:var(--radius);white-space:pre-wrap;font:.88rem/1.5 var(--mono)}
+main.doc code{font-family:var(--mono);font-size:.9em}
+main.doc a,main.doc code{overflow-wrap:anywhere}
