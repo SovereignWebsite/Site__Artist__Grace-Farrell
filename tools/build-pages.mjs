@@ -147,7 +147,7 @@ const LABELS = {
   1: { about: 'The biography', credits: 'The programme', reels: 'On screen', tour: 'On the road', skills: 'Notes', contact: 'Representation' },
   2: { about: 'The back of the flyer', credits: 'Front of the flyer', reels: 'On screen', tour: 'Touring now', skills: 'Small print', contact: 'Tear off and keep' },
   3: { about: 'Front matter', credits: 'Performances', reels: 'Interlude', tour: 'The journey', skills: 'Back matter', contact: 'Enquiries' },
-  4: { about: 'About me', credits: 'Ticket stubs', reels: 'Footage', tour: 'Where the tour goes', skills: 'Packed for the road', contact: 'Agent' },
+  4: { about: 'About', credits: 'Ticket stubs', reels: 'Footage', tour: 'Where the tour goes', skills: 'Packed for the road', contact: 'Agent' },
   5: { about: 'Profile', credits: 'The work', reels: 'In motion', tour: 'On tour', skills: 'Range', contact: 'Representation' },
 };
 
@@ -165,27 +165,28 @@ function page(cur, rel) {
 
   // the opening, five ways
   const covers = {
-    1: `<section class="cover cover-spot" id="top" aria-labelledby="name">
-  <figure class="cover-photo">${headshot('(max-width: 50rem) 80vw, 26rem', ' fetchpriority="high"')}${credit}</figure>
-  <div class="cover-text">
-    <p class="kicker">On tour now</p>
-    <p class="role-line">Debut as Mary Bennet in <em>Pride and Prejudice* (*sort&nbsp;of)</em></p>
-    <h1 id="name"><span>Grace</span> <span>Farrell</span></h1>
-    <p class="sub">Actor-singer and soprano</p>
-    ${facts}${cta}
-    <p class="lead">${headline}</p>
+    1: `<section class="cover cover-stage" id="top" aria-labelledby="name">
+  <div class="proscenium">
+    <div class="stage-centre">
+      <p class="kicker">On tour now</p>
+      <p class="role-line">Debut as Mary Bennet in <em>Pride and Prejudice* (*sort&nbsp;of)</em></p>
+      <h1 id="name"><span>Grace</span> <span>Farrell</span></h1>
+      <p class="sub">Actor-singer and soprano</p>
+      ${facts}${cta}
+    </div>
+    <figure class="cover-photo programme-photo">${headshot('(max-width: 50rem) 40vw, 12rem', ' fetchpriority="high"')}${credit}</figure>
   </div>
+  <p class="lead">${headline}</p>
 </section>`,
     2: `<section class="cover cover-poster" id="top" aria-labelledby="name">
-  <div class="poster-type">
-    <p class="kicker sticker">${nowOn}</p>
+  <div class="a5">
     <h1 id="name"><span>Grace</span> <span>Farrell</span></h1>
+    <p class="kicker sticker">${nowOn}</p>
     <p class="sub">Actor-singer <span aria-hidden="true">/</span> soprano</p>
+    <figure class="cover-photo">${headshot('(max-width: 50rem) 70vw, 20rem', ' fetchpriority="high"')}${credit}</figure>
+    <p class="lead strip">A cover in the UK and Ireland tour of <em>Pride and Prejudice* (*sort&nbsp;of)</em>, with her debut as Mary Bennet.</p>
     ${facts}${cta}
   </div>
-  <figure class="cover-photo">${headshot('(max-width: 50rem) 90vw, 30rem', ' fetchpriority="high"')}${credit}</figure>
-  <div class="flyer-show"><p class="fs-top">Edinburgh Fringe 2025<span aria-hidden="true"> · </span>International premiere</p><p class="fs-title"><em>Falling in Love with Mr Dellamort</em></p><p class="fs-cast">Grace Farrell as Sue Grimshaw. Directed by Abigail Zealey-Bess. MTTM Theatrics.</p></div>
-  <p class="lead strip">Now: a cover in the UK and Ireland tour of <em>Pride and Prejudice* (*sort&nbsp;of)</em>, with her debut as Mary Bennet.</p>
 </section>`,
     3: `<section class="cover cover-title" id="top" aria-labelledby="name">
   <p class="kicker">${nowOn}</p>
@@ -196,8 +197,9 @@ function page(cur, rel) {
   <p class="lead">${headline}</p>
 </section>`,
     4: `<section class="cover cover-passport" id="top" aria-labelledby="name">
+  <div class="ticket-now">${nowVenue()}<p class="tk-show"><em>Pride and Prejudice* (*sort&nbsp;of)</em>, UK and Ireland tour</p><p class="tk-small">The production's venue this week. <a href="https://prideandprejudicesortof.com/tour-dates/">Tickets on the tour's page</a></p></div>
   <div class="passport">
-    <figure class="cover-photo">${headshot('(max-width: 50rem) 40vw, 14rem', ' fetchpriority="high"')}${credit}</figure>
+    <figure class="cover-photo">${headshot('(max-width: 50rem) 90vw, 14rem', ' fetchpriority="high"')}${credit}</figure>
     <div class="cover-text">
       <p class="kicker">${nowOn}</p>
       <h1 id="name"><span>Grace</span> <span>Farrell</span></h1>
@@ -205,17 +207,18 @@ function page(cur, rel) {
       <dl class="id-lines"><div><dt>Occupation</dt><dd>Actor-singer, soprano</dd></div><div><dt>Based</dt><dd>Greater London and the West Midlands</dd></div><div><dt>Languages</dt><dd>English, French, Italian</dd></div></dl>
     </div>
   </div>
-  <div class="cover-aside">${nowVenue()}<details class="map-box" open><summary>Show the map</summary>${tourMap()}</details><p class="lead">${headline}</p></div>
+  <div class="cover-aside"><details class="map-box" open><summary>Show the map</summary>${tourMap()}</details><p class="lead">${headline}</p></div>
 </section>`,
     5: `<section class="cover cover-mag" id="top" aria-labelledby="name">
-  <figure class="cover-photo">${headshot('100vw', ' fetchpriority="high"')}${credit}</figure>
-  <div class="masthead">
-    <p class="kicker">${nowOn}</p>
-    <h1 id="name"><span>Grace</span> <span>Farrell</span></h1>
-    <p class="sub">Actor-singer and soprano</p>
-    ${facts}${cta}
+  <div class="mag-cover">
+    <figure class="cover-photo">${headshot('100vw', ' fetchpriority="high"')}${credit}</figure>
+    <div class="masthead">
+      <h1 id="name"><span>Grace</span> <span>Farrell</span></h1>
+      <p class="sub">Actor-singer and soprano</p>
+    </div>
+    <ul class="cover-lines" aria-label="In this profile"><li><em>The Crucible</em> at the Gielgud</li><li>Voice of <em>Diablo IV</em></li><li>Debut as Mary Bennet</li><li class="cl-tour">${nowOn}</li></ul>
   </div>
-  <ul class="cover-lines" aria-label="In this profile"><li><em>The Crucible</em> at the Gielgud</li><li>Voice of <em>Diablo IV</em></li><li>Debut as Mary Bennet</li></ul>
+  <div class="mag-bar">${facts}${cta}</div>
   <div class="standfirst"><p class="lead">${headline}</p></div>
 </section>`,
   };
@@ -233,7 +236,7 @@ function page(cur, rel) {
   const row1 = (x) => `<li><span class="role">${x.role}</span><span class="dots" aria-hidden="true"></span><span class="prod"><em>${x.prod}</em></span><span class="by">${x.by}</span></li>`;
   const creditsInner = {
     1: `<div class="acts">${[['Act one', 'Stage'], ['Act two', 'Screen'], ['Act three', 'Studio']].map(([act, m]) => `<div class="act"><h3><span>${act}</span> ${m}</h3><ol class="cast cast-dots">${c.filter((x) => x.medium === m).map(row1).join('')}</ol></div>`).join('')}</div>`,
-    2: `<ol class="cast cast-flyers">${c.map((x) => `<li><span class="year">${x.year}</span><span class="prod"><em>${x.prod}</em></span><span class="role">${x.role}</span><span class="by">${x.by}</span></li>`).join('')}</ol>`,
+    2: `<div class="flyer-show"><p class="fs-top">Edinburgh Fringe 2025<span aria-hidden="true"> · </span>International premiere</p><p class="fs-title"><em>Falling in Love with Mr Dellamort</em></p><p class="fs-cast">Grace Farrell as Sue Grimshaw (lead). Directed by Abigail Zealey-Bess. MTTM Theatrics.</p></div><ol class="cast cast-flyers">${c.map((x) => `<li><span class="year">${x.year}</span><span class="prod"><em>${x.prod}</em></span><span class="role">${x.role}</span><span class="by">${x.by}</span></li>`).join('')}</ol>`,
     3: `<ol class="cast cast-personae">${c.map((x) => `<li><span class="year">${x.year}</span><span class="role">${x.role}</span><span class="prod">in <em>${x.prod}</em></span><span class="by">${x.by}</span></li>`).join('')}</ol>`,
     4: `<ol class="cast cast-stubs">${c.map((x, i) => `<li><span class="stub-no" aria-hidden="true">No. ${String(i + 1).padStart(3, '0')}</span><span class="prod"><em>${x.prod}</em></span><span class="role">${x.role}</span><span class="by">${x.by}</span><span class="year">${x.year}</span></li>`).join('')}</ol>`,
     5: `<ol class="cast cast-index">${c.map((x) => `<li><span class="year">${x.year}</span><span class="prod"><em>${x.prod}</em></span><span class="role">${x.role}</span><span class="by">${x.by}</span></li>`).join('')}</ol>`,

@@ -35,3 +35,27 @@
 .act h3{color:var(--brass)}
 .about{background:radial-gradient(ellipse 55% 70% at 50% 0%,rgba(240,194,122,.16),transparent 70%),var(--stage)}
 .about h2{color:var(--brass)}
+
+/* round 5: a proscenium. Dark stage, curtain edges and a valance; name and role centre stage; the portrait a
+   small programme photo to one side. */
+.cover-stage{background:var(--stage);color:#f6e9da;padding:0!important}
+.proscenium{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:2rem;min-height:min(88vh,48rem);
+  padding:5rem max(5rem,calc((100% - var(--wide))/2)) 3rem;
+  background:radial-gradient(ellipse 45% 60% at 45% 55%,rgba(255,205,140,.22),transparent 70%),
+    linear-gradient(90deg,#4a0a16 0,#6e1426 2.5%,#3a0810 5%,#6e1426 7%,transparent 10%,transparent 90%,#6e1426 93%,#3a0810 95%,#6e1426 97.5%,#4a0a16 100%),var(--stage)}
+.proscenium::before{content:"";position:absolute;left:0;right:0;top:0;height:3.2rem;background:repeating-radial-gradient(circle at 50% -1.2rem,#7a1a2c 0 1.6rem,#4a0a16 1.6rem 1.9rem);border-bottom:3px solid var(--brass)}
+.proscenium::after{content:"";position:absolute;left:8%;right:8%;bottom:0;height:10px;background:linear-gradient(#3a2418,#1a0d0a);border-top:2px solid rgba(240,194,122,.5)}
+.stage-centre{text-align:center}
+.stage-centre h1{font-weight:400;font-size:clamp(3rem,9vw,6.5rem);margin:.6rem 0}
+.stage-centre h1 span{display:inline}
+.stage-centre h1 span:last-child{font-style:italic;color:var(--brass)}
+.stage-centre .kicker{color:var(--brass)}
+.stage-centre .role-line,.stage-centre .sub{color:#efdcc8}
+.stage-centre .cta{justify-content:center}
+.stage-centre .btn.primary{background:var(--brass);color:#1b1008}
+.stage-centre a,.cover-stage .agent-line a{color:#f6d9a8}
+.programme-photo{width:12rem;margin:0;background:#f7efe1;padding:.5rem .5rem .3rem;transform:rotate(2deg);box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.programme-photo img{aspect-ratio:3/4;object-position:50% 25%}
+.programme-photo .photo-credit{color:#4a3a30;margin:.2rem 0 0;text-align:center}
+.cover-stage>.lead{max-width:40rem;margin:0 auto;padding:1.5rem 1rem 2.5rem;text-align:center;color:#e9d9c8}
+@media (max-width:50rem){.proscenium{grid-template-columns:1fr;padding:4.2rem 2.2rem 2rem}.programme-photo{width:9rem;justify-self:center;order:-1}.programme-photo img{max-height:none}}
