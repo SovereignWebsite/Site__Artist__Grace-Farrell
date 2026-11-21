@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self' https://dev.send.sgraph.ai; frame-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self' https://dev.send.sgraph.ai; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="robots" content="noindex">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Message Grace's site agent</title>
@@ -64,11 +64,21 @@
 <main id="main" class="doc send" tabindex="-1">
 <p class="kicker">Message</p>
 <h1>Message your site agent</h1>
-<p>Check the message, change it if you like, then press Send. It is encrypted on this device before it leaves, so only the site's agent can read it. Nothing is kept on this device.</p>
-<label for="text">Your message</label>
-<textarea id="text" maxlength="8000" placeholder="Write your message here"></textarea>
-<div class="send-row"><button id="send" class="btn primary" type="button">Send</button><span id="status" role="status"></span></div>
-<p class="note">Messages from this page are not signed, so before acting the agent will ask you to confirm. It reads its inbox every hour from 10:00 to 22:00 UK time and replies on your site.</p>
+<section id="nokey" hidden>
+  <p>To send a message here, scan the QR code the site's owner gave you. There is no other way in: messages without one are not accepted.</p>
+</section>
+<section id="form" class="stack">
+  <p>Check the message, change it if you like, then press Send. It is encrypted and signed on this device before it leaves, so only the site's agent can read it and it knows it came from this browser.</p>
+  <label for="text">Your message</label>
+  <textarea id="text" maxlength="8000" placeholder="Write your message here"></textarea>
+  <div class="send-row"><button id="send" class="btn primary" type="button">Send</button><span id="status" role="status"></span></div>
+  <section id="history" class="stack" hidden>
+    <h2>Sent from this device</h2>
+    <ol id="sent"></ol>
+  </section>
+  <p class="note">This device keeps the QR code's details, its own key (<code id="device"></code>) and the list above, so you can follow your messages; none of it leaves this device except your own messages. No cookies. The agent reads its inbox every hour from 10:00 to 22:00 UK time.</p>
+  <div><button id="forget" class="btn ghost" type="button">Forget this device</button></div>
+</section>
 </main>
 <footer>
   <p class="foot-links"><a href="../start/">Start here</a> <span aria-hidden="true">·</span> <a href="../agents/">Use this site with your AI</a> <span aria-hidden="true">·</span> <a href="../llms.txt">llms.txt</a> <span aria-hidden="true">·</span> <a href="../admin/">How this site was made</a> <span aria-hidden="true">·</span> <a href="../designs/">All five designs</a></p>

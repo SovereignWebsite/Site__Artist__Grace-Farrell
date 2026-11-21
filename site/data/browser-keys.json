@@ -1,0 +1,4 @@
+{
+ "about": "Browsers confirmed by Grace (or Dinis) as hers, for the message page /send/. Each entry is a browser's public keys and fingerprint only, as feedback.b receives them; an agent adds one only after Grace or Dinis confirms it. Messages from a listed browser are known to be hers.",
+ "browsers": []
+}

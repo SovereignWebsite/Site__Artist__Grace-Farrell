@@ -327,7 +327,7 @@ for (const name of ['start', 'agents', 'admin']) {
 
 // The link page: a chat assistant writes /send/#m=<message>; Grace checks it and presses Send (site/send/send.js).
 writeFileSync('site/send/index.html', head({ title: `Message Grace's site agent`, url: `${ORIGIN}/send/`, css: '../theme.css', rel: '../' })
-  .replace("frame-src https://mediaviewer.spotlight.com https://www.instagram.com;", "connect-src 'self' https://dev.send.sgraph.ai; frame-src 'none';")
+  .replace("frame-src https://mediaviewer.spotlight.com https://www.instagram.com;", "connect-src 'self' https://dev.send.sgraph.ai; frame-src 'none'; object-src 'none';")
   .replace('<meta name="referrer"', '<meta name="robots" content="noindex">\n<meta name="referrer"')
   .replace(/<script src="[^"]*site\.js" defer><\/script>/, '<script src="send.js" defer></script>') + `
 <body class="doc-page">
@@ -336,11 +336,21 @@ ${bar(HOME, '../', '../')}
 <main id="main" class="doc send" tabindex="-1">
 <p class="kicker">Message</p>
 <h1>Message your site agent</h1>
-<p>Check the message, change it if you like, then press Send. It is encrypted on this device before it leaves, so only the site's agent can read it. Nothing is kept on this device.</p>
-<label for="text">Your message</label>
-<textarea id="text" maxlength="8000" placeholder="Write your message here"></textarea>
-<div class="send-row"><button id="send" class="btn primary" type="button">Send</button><span id="status" role="status"></span></div>
-<p class="note">Messages from this page are not signed, so before acting the agent will ask you to confirm. It reads its inbox every hour from 10:00 to 22:00 UK time and replies on your site.</p>
+<section id="nokey" hidden>
+  <p>To send a message here, scan the QR code the site's owner gave you. There is no other way in: messages without one are not accepted.</p>
+</section>
+<section id="form" class="stack">
+  <p>Check the message, change it if you like, then press Send. It is encrypted and signed on this device before it leaves, so only the site's agent can read it and it knows it came from this browser.</p>
+  <label for="text">Your message</label>
+  <textarea id="text" maxlength="8000" placeholder="Write your message here"></textarea>
+  <div class="send-row"><button id="send" class="btn primary" type="button">Send</button><span id="status" role="status"></span></div>
+  <section id="history" class="stack" hidden>
+    <h2>Sent from this device</h2>
+    <ol id="sent"></ol>
+  </section>
+  <p class="note">This device keeps the QR code's details, its own key (<code id="device"></code>) and the list above, so you can follow your messages; none of it leaves this device except your own messages. No cookies. The agent reads its inbox every hour from 10:00 to 22:00 UK time.</p>
+  <div><button id="forget" class="btn ghost" type="button">Forget this device</button></div>
+</section>
 </main>
 ${footer('../')}
 </body>

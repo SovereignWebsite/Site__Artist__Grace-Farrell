@@ -29,9 +29,11 @@ Then:
 Use plain British English.
 ```
 
-Tap the link ChatGPT gives you. Your site's message page opens with the message already in it: check it, change it if you like, and press **Send**. It is encrypted on your phone before it leaves, so only the site's agent can read it. You can also open https://grace-farrell.artist.sovereignweb.site/send/ and type a message yourself.
+**First, once:** scan the QR code Dinis gives you, on the phone you will use. It opens your site's message page and sets it up for you: your phone makes its own key and keeps it, so the site's agent knows messages from it are yours. Without the QR code the page does not accept messages.
+
+**Then:** tap the link ChatGPT gives you, on that same phone. Your message page opens with the message already in it: check it, change it if you like, and press **Send**. It is encrypted and signed on your phone before it leaves, so only the site's agent can read it. Answers appear under "Sent from this device". You can also open https://grace-farrell.artist.sovereignweb.site/send/ and type a message yourself.
 
 What to know:
 - ChatGPT never holds any key or address: it only writes the link.
-- Messages from this page are not signed by you, so the site's agents treat them as notes, not instructions, and ask you to confirm before acting.
-- Once your private QR code is ready, the signed message box on your site will prove a message is yours.
+- The first time your phone sends, the agent asks you (or Dinis) to confirm it is yours; from then on, that phone is known.
+- "Forget this device" on the page removes everything it kept.

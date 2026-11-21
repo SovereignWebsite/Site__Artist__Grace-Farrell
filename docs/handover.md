@@ -47,8 +47,7 @@ From then on, you instruct the site's agents; until then, Dinis does.
 
 ## Talking to the site's agent
 
-- **Now:** type a message at https://grace-farrell.artist.sovereignweb.site/send/ (or let ChatGPT write it and give you the link: `docs/prompt-for-chatgpt.md`). It is encrypted on your phone; it is not signed, so the agent asks you to confirm before acting. Or tell Dinis.
-- **Soon:** a private QR code, just for you, that lets you send messages to the site's agent from the site itself, signed by your phone and sealed so only the agent can read them, with replies only you can open. It is being built (by feedback.b) for every site; yours is one of the first.
+- **Your message page:** https://grace-farrell.artist.sovereignweb.site/send/ . Scan the QR code Dinis gives you once, on your phone; from then on you can write there, or let ChatGPT write the message and give you the link (`docs/prompt-for-chatgpt.md`). Messages are encrypted and signed on your phone, and answers appear on the page. The first time, the agent asks you to confirm the phone is yours. Or tell Dinis.
 
 ## Open questions
 
