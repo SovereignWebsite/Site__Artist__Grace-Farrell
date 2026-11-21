@@ -141,7 +141,7 @@ const bar = (cur, rel, home) => `<header class="bar">
   ${family}</div>
 </header>`;
 const footer = (rel) => `<footer>
-  <p class="foot-links"><a href="${rel}start/">Start here</a>${dot}<a href="${rel}agents/">Use this site with your AI</a>${dot}<a href="${rel}llms.txt">llms.txt</a>${dot}<a href="${rel}admin/">How this site was made</a>${dot}<a href="${rel}designs/">All five designs</a>${dot}<a href="/send/">Messages</a></p>
+  <p class="foot-links"><a href="${rel}start/">Start here</a>${dot}<a href="${rel}agents/">Use this site with your AI</a>${dot}<a href="${rel}llms.txt">llms.txt</a>${dot}<a href="${rel}admin/">How this site was made</a>${dot}<a href="${rel}designs/">All five designs</a>${dot}<a href="/send/">Messages</a>${dot}<a href="${rel}policy/">How the agents are governed</a></p>
   <p>A sovereign website: Grace's own files, history and address. No cookies, no tracking, no third-party scripts. The videos come from Spotlight and Instagram only when you press play. Text licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; photographs remain their photographers'. Source: <a href="https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell">SovereignWebsite/Site__Artist__Grace-Farrell</a>.</p>
 </footer>`;
 
@@ -319,7 +319,7 @@ copyFileSync(`site/designs/d${HOME}.css`, 'site/theme.css');
 
 // The owner pages (start, agents, admin): their words stay in the page between <!-- content --> markers, so the
 // owner can edit them directly; this wraps them in the site's bar, styles and footer.
-for (const name of ['start', 'agents', 'admin']) {
+for (const name of ['start', 'agents', 'admin', 'policy']) {
   const f = `site/${name}/index.html`; const h = readFileSync(f, 'utf8');
   const pick = (re) => (h.match(re) || [])[1];
   let body = pick(/<!-- content -->\n([\s\S]*?)<!-- \/content -->/);
