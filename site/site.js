@@ -23,7 +23,10 @@ document.querySelectorAll('.frame[data-src]').forEach(function (frame) {
   var today = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
   var now = null;
   document.querySelectorAll('[data-end]').forEach(function (el) {
-    if (el.getAttribute('data-end') < today) el.classList.add('past');
+    if (el.getAttribute('data-end') < today) {
+      el.classList.add('past');
+      if (el.tagName === 'LI') { var p = document.createElement('span'); p.className = 'played'; p.textContent = ' (played)'; el.querySelector('strong').after(p) }
+    }
     else if (el.getAttribute('data-start') <= today) {
       el.classList.add('now');
       if (el.tagName === 'LI') {

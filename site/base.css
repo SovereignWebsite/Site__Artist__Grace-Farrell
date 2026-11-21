@@ -3,7 +3,7 @@
 :root{--bg:#faf8f5;--surface:#fff;--fg:#1c1a1a;--muted:#55504c;--accent:#7a2342;--on-accent:#fff;--line:#e2ddd6;
   --bar-bg:var(--bg);--bar-fg:var(--fg);--cover-bg:var(--bg);--cover-fg:var(--fg);
   --land:#e8e2da;--land-edge:#c9c0b5;--route:var(--accent);--stop:var(--accent);--stop-fg:#fff;
-  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --serif:"Iowan Old Style",Charter,"Bitstream Charter","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
   --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   --head:var(--serif);--body:var(--sans);--wide:68rem;--radius:6px}
@@ -113,7 +113,7 @@ main>section{padding:clamp(2.5rem,7vw,5rem) max(1rem,calc((100% - var(--wide))/2
 .map .stop.past{opacity:.45}
 .stops{margin:0;padding-left:2rem;columns:2 13rem;column-gap:1.5rem;font-size:.92rem}
 .stops li{break-inside:avoid;margin:0 0 .45rem}
-.stops li.past strong::after{content:" (played)";font-weight:400;font-size:.85em;color:var(--muted)}
+
 .stops .when{display:block;color:var(--muted);font-size:.85rem}
 .map-note{margin-top:1rem}
 
@@ -222,3 +222,7 @@ main.send textarea:focus-visible{outline:3px solid var(--accent);outline-offset:
 
 /* round 5: small text at body colour */
 .stops li.past strong::after,.note-cols p,.cast .by,.stops .when{color:color-mix(in srgb,var(--fg) 82%,var(--bg))}
+
+/* closing round */
+.stops .played{font-weight:400;font-size:.85em;color:color-mix(in srgb,var(--fg) 82%,var(--bg))}
+.to-tour{color:inherit;text-decoration:none}.to-tour:hover,.to-tour:focus-visible{text-decoration:underline}

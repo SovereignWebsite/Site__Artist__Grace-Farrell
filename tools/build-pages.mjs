@@ -156,10 +156,10 @@ function page(cur, rel) {
   const img = (n, w) => `${rel}images/${n}-${w}.webp`;
   const headshot = (sizes, extra = '') => `<img src="${img('headshot', 960)}" srcset="${img('headshot', 640)} 640w, ${img('headshot', 960)} 960w" sizes="${sizes}" alt="Grace Farrell, head and shoulders, in a black top against a dark backdrop" width="960" height="1440"${extra}>`;
   const credit = '<figcaption class="photo-credit">Photo © Jennie Scott</figcaption>';
-  const nowOn = `On tour${dot}<em>Pride and Prejudice* (*sort&nbsp;of)</em>`;
+  const nowOn = `<a class="to-tour" href="#tour">On tour${dot}<em>Pride and Prejudice* (*sort&nbsp;of)</em></a>`;
   const headline = `Grace is a cover in the 2026 to 2027 UK and Ireland tour of <em>Pride and Prejudice* (*sort&nbsp;of)</em>, and made her debut as Mary Bennet on it. In 2025 she starred as Sue Grimshaw in the international premiere of <em>Falling in Love with Mr Dellamort</em> at the Edinburgh Fringe.`;
   const facts = `<p class="strip-facts">Range D3 to F6${dot}violin, guitar, piano${dot}English, French, Italian</p>`;
-  const cta = `<p class="cta"><a class="btn primary" href="#contact">Contact her agent</a> <a class="btn ghost" href="#reels">Showreel</a> <span class="links"><a href="${SPOTLIGHT}">Spotlight profile</a>${dot}<a href="${INSTAGRAM}">Instagram</a></span></p>\n    <p class="agent-line">Agent: Amy McGivern, Collective Agents${dot}<a href="tel:+442046354212">Call</a>${dot}<a href="mailto:info@collectiveagents.co.uk">Email</a></p>`;
+  const cta = `<p class="cta"><a class="btn primary" href="#contact">Contact her agent</a> <a class="btn ghost" href="#reels">Showreel</a> <span class="links"><a href="${SPOTLIGHT}">Spotlight profile</a>${dot}<a href="${INSTAGRAM}">Instagram</a></span></p>\n    <p class="agent-line">Agent: Amy McGivern, Collective Agents${dot}<a href="tel:+442046354212" aria-label="Call her agent">Call</a>${dot}<a href="mailto:info@collectiveagents.co.uk" aria-label="Email her agent">Email</a></p>`;
   const plain = (t) => t.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').trim().toLowerCase();
   const sec = (id, cls, title, inner) => `<section id="${id}" class="${cls}" aria-labelledby="${id}-h">\n  ${plain(L[id]) === plain(title) ? '' : `<p class="kicker">${L[id]}</p>`}\n  <h2 id="${id}-h">${title}</h2>\n${inner}\n</section>`;
 
