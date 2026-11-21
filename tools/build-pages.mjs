@@ -34,7 +34,7 @@ const CREDITS = [
   ['Amber', 'Champion', 'New Pictures and Balloon for BBC, television, 2022. Directed by John Ogunmuyiwa.', 'Screen'],
   ['Melissa', 'Left Behind', 'Pretty Hate Productions, short film, 2021. Directed by Matthew Ford.', 'Screen'],
   ['Megara the Jealous', 'Orfeus: A House Music Opera', 'Young Vic Theatre, 2020. Directed by Charles Randolph-Wright.', 'Stage'],
-  ['Eliza Doolittle', 'My Fair Lady', 'National Theatre Studio, workshop, 2019. Directed by Joel Fram.', 'Studio'],
+  ['Eliza Doolittle', 'My Fair Lady', 'National Theatre Studio, workshop, 2019. Directed by Joel Fram.', 'Stage'],
   ['Ensemble; 1st Fantine; 2nd Cosette', 'Les Misérables', 'Cameron Mackintosh, 2018. Directed by Sam Hiller.', 'Stage'],
 ];
 
@@ -64,6 +64,9 @@ function tourMap() {
   const dots = tour.venues.map((v, i) => { const [x, y] = pts[i]; return `<g class="stop" data-start="${v.start}" data-end="${v.end}"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="8"/><text aria-hidden="true" x="${x.toFixed(1)}" y="${(y + 3.3).toFixed(1)}">${i + 1}</text><title>${i + 1}. ${esc(v.town)}, ${esc(v.venue)}: ${esc(v.when)}</title></g>`; }).join('');
   return `<svg class="map" viewBox="0 0 ${map.w} ${map.h}" role="img" aria-labelledby="map-t"><title id="map-t">Map of Britain and Ireland with the ${tour.venues.length} venues of the tour, numbered in order; the list beside it gives each one.</title><path class="land" d="${map.d}"/><path class="route" d="${route}"/>${dots}</svg>`;
 }
+const todayISO = new Date().toISOString().slice(0, 10);
+const current = () => tour.venues.find((v) => v.start <= todayISO && todayISO <= v.end) || tour.venues.find((v) => v.start > todayISO);
+const nowVenue = () => { const v = current(); return v ? `<p class="now-venue" data-now-venue><span class="nv-label">${v.start <= todayISO ? 'This week' : 'Next stop'}</span> <strong>${esc(v.town)}</strong>, ${esc(v.venue)} <span class="when">${esc(v.when)}</span></p>` : ''; };
 const tourList = () => `<ol class="stops">${tour.venues.map((v) => `<li data-start="${v.start}" data-end="${v.end}"><strong>${esc(v.town)}</strong>, ${esc(v.venue)} <span class="when">${esc(v.when)}</span></li>`).join('')}</ol>`;
 
 const chooser = (cur, rel) => `<details class="chooser">
@@ -142,7 +145,7 @@ const footer = (rel) => `<footer>
 // its own order and its own section names. The words, photographs and facts are the same in all five.
 const LABELS = {
   1: { about: 'The biography', credits: 'The programme', reels: 'On screen', tour: 'On the road', skills: 'Notes', contact: 'Representation' },
-  2: { about: 'The back of the flyer', credits: 'Front of the flyer', reels: 'Watch', tour: 'Touring now', skills: 'Small print', contact: 'Tear off and keep' },
+  2: { about: 'The back of the flyer', credits: 'Front of the flyer', reels: 'On screen', tour: 'Touring now', skills: 'Small print', contact: 'Tear off and keep' },
   3: { about: 'Front matter', credits: 'Performances', reels: 'Interlude', tour: 'The journey', skills: 'Back matter', contact: 'Enquiries' },
   4: { about: 'About me', credits: 'Ticket stubs', reels: 'Footage', tour: 'Where the tour goes', skills: 'Packed for the road', contact: 'Agent' },
   5: { about: 'Profile', credits: 'The work', reels: 'In motion', tour: 'On tour', skills: 'Range', contact: 'Representation' },
@@ -156,7 +159,7 @@ function page(cur, rel) {
   const nowOn = `On tour${dot}<em>Pride and Prejudice* (*sort&nbsp;of)</em>`;
   const headline = `Grace is a cover in the 2026 to 2027 UK and Ireland tour of <em>Pride and Prejudice* (*sort&nbsp;of)</em>, and made her debut as Mary Bennet on it. In 2025 she starred as Sue Grimshaw in the international premiere of <em>Falling in Love with Mr Dellamort</em> at the Edinburgh Fringe.`;
   const facts = `<p class="strip-facts">Range D3 to F6${dot}violin, guitar, piano${dot}English, French, Italian</p>`;
-  const cta = `<p class="cta"><a class="btn primary" href="#contact">Contact her agent</a> <a class="btn ghost" href="#reels">Showreel</a> <span class="links"><a href="${SPOTLIGHT}">Spotlight profile</a>${dot}<a href="${INSTAGRAM}">Instagram</a></span></p>`;
+  const cta = `<p class="cta"><a class="btn primary" href="#contact">Contact her agent</a> <a class="btn ghost" href="#reels">Showreel</a> <span class="links"><a href="${SPOTLIGHT}">Spotlight profile</a>${dot}<a href="${INSTAGRAM}">Instagram</a></span></p>\n    <p class="agent-line">Agent: Amy McGivern, Collective Agents${dot}<a href="tel:+442046354212">Call</a>${dot}<a href="mailto:info@collectiveagents.co.uk">Email</a></p>`;
   const plain = (t) => t.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').trim().toLowerCase();
   const sec = (id, cls, title, inner) => `<section id="${id}" class="${cls}" aria-labelledby="${id}-h">\n  ${plain(L[id]) === plain(title) ? '' : `<p class="kicker">${L[id]}</p>`}\n  <h2 id="${id}-h">${title}</h2>\n${inner}\n</section>`;
 
@@ -165,7 +168,8 @@ function page(cur, rel) {
     1: `<section class="cover cover-spot" id="top" aria-labelledby="name">
   <figure class="cover-photo">${headshot('(max-width: 50rem) 80vw, 26rem', ' fetchpriority="high"')}${credit}</figure>
   <div class="cover-text">
-    <p class="kicker">${nowOn}</p>
+    <p class="kicker">On tour now</p>
+    <p class="role-line">Debut as Mary Bennet in <em>Pride and Prejudice* (*sort&nbsp;of)</em></p>
     <h1 id="name"><span>Grace</span> <span>Farrell</span></h1>
     <p class="sub">Actor-singer and soprano</p>
     ${facts}${cta}
@@ -201,7 +205,7 @@ function page(cur, rel) {
       <dl class="id-lines"><div><dt>Occupation</dt><dd>Actor-singer, soprano</dd></div><div><dt>Based</dt><dd>Greater London and the West Midlands</dd></div><div><dt>Languages</dt><dd>English, French, Italian</dd></div></dl>
     </div>
   </div>
-  <div class="cover-aside">${tourMap()}<p class="lead">${headline}</p></div>
+  <div class="cover-aside">${nowVenue()}<details class="map-box" open><summary>Show the map</summary>${tourMap()}</details><p class="lead">${headline}</p></div>
 </section>`,
     5: `<section class="cover cover-mag" id="top" aria-labelledby="name">
   <figure class="cover-photo">${headshot('100vw', ' fetchpriority="high"')}${credit}</figure>
@@ -218,7 +222,7 @@ function page(cur, rel) {
 
   const aboutText = `<div class="prose">
   <p>Grace Farrell is an actor-singer and soprano, based in Greater London and the West Midlands. Her stage work runs from <em>Les Misérables</em> for Cameron Mackintosh and the Young Vic's <em>Orfeus: A House Music Opera</em> to Susanna Walcott in the National Theatre's <em>The Crucible</em> at the Gielgud Theatre, and Eliza Doolittle in a National Theatre Studio workshop of <em>My Fair Lady</em>.</p>
-  <p>On screen she played Amber in the BBC's <em>Champion</em>, and her voice is in Blizzard's <em>Diablo IV</em>. In 2025 she led the international premiere of <em>Falling in Love with Mr Dellamort</em> at the Edinburgh Fringe. In 2026 she played Klytaimestra in <em>Flowers for Kassandra</em>, and joined the UK tour of <em>Pride and Prejudice* (*sort of)</em> as a cover, making her debut as Mary Bennet.</p>
+  <p>On screen she played Amber in the BBC's <em>Champion</em>, and her voice is in Blizzard's <em>Diablo IV</em>. In 2025 she led the international premiere of <em>Falling in Love with Mr Dellamort</em> at the Edinburgh Fringe. In 2026 she played Klytaimestra in <em>Flowers for Kassandra</em>, and joined the UK tour of <em>Pride and Prejudice* (*sort of)</em>, making her debut as Mary Bennet.</p>
   <p>She sings classical, opera, folk, pop and cabaret, plays violin, guitar and piano, speaks English, French and Italian, and teaches singing.</p>
 </div>`;
   const pull = cur === 5 ? `<blockquote class="pull"><p>From the National Theatre to Blizzard's <em>Diablo IV</em>, and on tour as Mary Bennet.</p></blockquote>` : '';
@@ -260,8 +264,8 @@ function page(cur, rel) {
   <div class="gallery">${GALLERY.map(([n, alt, w, h, cap]) => `<figure><a href="${img(n, 1400)}"><img src="${img(n, 640)}" srcset="${img(n, 640)} 640w, ${img(n, 1400)} 1400w" sizes="(max-width: 50rem) 100vw, 33vw" alt="${esc(alt)}" width="${w}" height="${h}" loading="lazy" decoding="async"></a><figcaption>${cap}</figcaption></figure>`).join('')}</div>`;
   const reels = sec('reels', 'reels-sec', { 1: 'Showreel and video', 2: 'Watch her', 3: 'Showreel and song', 4: 'Showreel and video', 5: 'Showreel and video' }[cur], reelsInner);
 
-  const tourInner = `  <p class="tour-intro">Grace is a cover in the 2026 to 2027 UK and Ireland tour of Isobel McArthur's Olivier Award-winning comedy, and made her debut as Mary Bennet on it. These are the production's ${tour.venues.length} venues; dates for 2027 are from <a href="https://prideandprejudicesortof.com/tour-dates/">the tour's own page</a>, where tickets are sold.</p>
-  <div class="tour-grid${cur === 4 ? ' list-only' : ''}">${cur === 4 ? '' : tourMap()}${tourList()}</div>
+  const tourInner = `  <p class="tour-intro">Isobel McArthur's Olivier Award-winning comedy tours the UK and Ireland from September 2026 to May 2027. These are the production's ${tour.venues.length} venues; dates for 2027 are from <a href="https://prideandprejudicesortof.com/tour-dates/">the tour's own page</a>, where tickets are sold.</p>
+  <div class="tour-grid${cur === 4 ? ' list-only' : ''}">${cur === 4 ? '' : `<details class="map-box" open><summary>Show the map</summary>${tourMap()}</details>`}${tourList()}</div>
   <p class="note map-note">Map: Natural Earth (public domain). Venues already played are faded on the map and marked "played" in the list.</p>`;
   const tourSec = sec('tour', 'tour', `<em>Pride and Prejudice* (*sort of)</em>${cur === 4 ? ', town by town' : ' on tour'}`, tourInner);
 

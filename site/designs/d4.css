@@ -32,3 +32,4 @@ h1,h2{font-weight:700;letter-spacing:-.02em}
 .cover-aside .map{max-width:26rem;margin:0 auto 1rem}
 .cover-passport{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
 @media (max-width:50rem){.cover-passport{grid-template-columns:1fr}}
+@media (max-width:50rem){.passport{grid-template-columns:1fr}.passport .cover-photo{max-width:none}.passport .cover-photo img{width:100%;max-height:none}}

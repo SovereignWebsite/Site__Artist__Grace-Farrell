@@ -45,3 +45,4 @@ h2{font-size:clamp(2.4rem,7vw,4.5rem)}
  #skills .note-cols{grid-template-columns:1fr}
  #skills .facts{flex-direction:column;gap:.8rem}
 }
+@media (min-width:50.01rem){.cover-mag{grid-template-areas:"mast" "hero" "stand"}.cover-mag .masthead{grid-area:mast;background:#0d0d0d;padding-top:2rem;padding-bottom:1.5rem}.cover-mag .cover-photo{height:min(78vh,52rem)}.cover-mag .cover-photo::after{display:none}.masthead h1{font-size:clamp(4rem,11vw,10rem)}}
