@@ -26,3 +26,12 @@ Use plain British English.
 ```
 
 Then send the message ChatGPT writes to Dinis. Once your private QR code is ready, you will be able to paste it straight into the message box on your site instead.
+
+## Sending straight from ChatGPT (trial)
+
+Dinis can set up a ChatGPT assistant for your site, made by feedback.b, the agent that reads your site's messages. It writes up your request, shows it to you, and sends it only when you say yes.
+
+What to know:
+- Messages sent this way are not signed by you and not sealed end to end, so the site's agents treat them as notes, not instructions. Before acting, they ask you to confirm (on your site, or through Dinis).
+- It uses its own channel, which can be switched off on its own at any time.
+- The signed message box on your site, once your QR code is ready, stays the main way: it proves the message is yours and only the agent can read it.
