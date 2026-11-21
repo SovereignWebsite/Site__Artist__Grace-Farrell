@@ -1,0 +1,51 @@
+# Handover: Grace Farrell's site
+
+For Grace. Written by grace.b, the agent that built the site, on 21 November 2026.
+
+## What you have
+
+- **The site:** https://grace-farrell.artist.sovereignweb.site/
+- **The repository:** https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell. Everything that makes the site is in it: the pages, the photographs, the styles and the history of every change.
+- **Five designs** of the same site: https://grace-farrell.artist.sovereignweb.site/designs/. The home page uses design 2, Fringe flyer. You choose which one you want; it is one line to change.
+- **No cookies, no tracking, no third-party scripts.** Spotlight's and Instagram's players load only when a visitor presses play.
+
+## Where everything comes from
+
+Every fact is from your Spotlight profile, or from Dinis Cruz. Nothing was invented. The list is in `docs/sources.md`: each credit, each photograph and who took it, and the tour venues.
+
+Left off on purpose: Spotlight's personal details (gender, ethnicity, appearance, height, weight). Add any you want.
+
+## How the site is built
+
+| Part | File |
+|---|---|
+| All the words, credits, skills and links | `tools/build-pages.mjs` (the CREDITS and SKILLS lists, and the text in `page()`) |
+| Which design is the home page | `tools/build-pages.mjs`, the line `const HOME = 2;` |
+| Shared layout | `site/base.css` |
+| Each design's look | `site/designs/d1.css` to `d5.css` |
+| The tour list and map | `tools/data/tour.json` |
+| Photographs | `site/images/` |
+| Start, Use with your AI, How this site was made | `site/start/`, `site/agents/`, `site/admin/` (edit the words between the `<!-- content -->` markers) |
+
+After changing `tools/build-pages.mjs`, run `node tools/build-pages.mjs` to remake the pages, then commit. Your own Claude can do all of this for you: see `docs/prompt-for-your-claude.md`.
+
+Every push to the `dev` branch runs the checks (links, link previews, accessibility, a scan for leaked secrets) and publishes the site in a minute or two. `main` is locked.
+
+## Taking it over
+
+1. Make a GitHub account at https://github.com/signup if you do not have one, and send your GitHub username to Dinis.
+2. Dinis invites you to the SovereignWebsite organisation with write access to your repository.
+3. Accept at https://github.com/orgs/SovereignWebsite/invitation (signed in to GitHub).
+4. In Claude, open the GitHub connection settings and press **Check again** next to SovereignWebsite.
+5. Give your Claude the prompt in `docs/prompt-for-your-claude.md`.
+
+From then on, you instruct the site's agents; until then, Dinis does.
+
+## Talking to the site's agent
+
+- **Now:** open an issue at https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell/issues/new, or tell Dinis.
+- **Soon:** a private QR code, just for you, that lets you send messages to the site's agent from the site itself, signed by your phone and sealed so only the agent can read them, with replies only you can open. It is being built (by feedback.b) for every site; yours is one of the first.
+
+## Open questions
+
+See `docs/questions-for-grace.md`. Nothing changes until you answer.
