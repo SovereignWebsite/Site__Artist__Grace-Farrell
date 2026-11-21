@@ -31,7 +31,11 @@ After changing `tools/build-pages.mjs`, run `node tools/build-pages.mjs` to rema
 
 Every push to the `dev` branch runs the checks (links, link previews, accessibility, a scan for leaked secrets) and publishes the site in a minute or two. `main` is locked.
 
-## Taking it over
+## No GitHub needed
+
+You do not need GitHub to have changes made. Use ChatGPT or Claude with `docs/prompt-for-chatgpt.md`: it asks you the open questions and writes up what you want as one message, which you send to Dinis (and, soon, to the site's agent from the site itself). GitHub is only needed if you want to edit the files yourself or have your own AI do it.
+
+## Taking it over (optional: to edit it yourself)
 
 1. Make a GitHub account at https://github.com/signup if you do not have one, and send your GitHub username to Dinis.
 2. Dinis invites you to the SovereignWebsite organisation with write access to your repository.
