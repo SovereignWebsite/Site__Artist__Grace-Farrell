@@ -4,7 +4,7 @@
 // Grace's Spotlight profile or from Dinis Cruz; see docs/sources.md. Never add one that is not there.
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
 
-const HOME = 1; // the design the home page uses; site/theme.css is a copy of site/designs/d<HOME>.css
+const HOME = 2; // the design the home page uses; site/theme.css is a copy of site/designs/d<HOME>.css
 const ORIGIN = 'https://grace-farrell.artist.sovereignweb.site';
 const NAME = 'Grace Farrell';
 const DESC = 'Grace Farrell, actor-singer and soprano. National Theatre, Les Misérables, BBC Champion, Diablo IV, and the UK tour of Pride and Prejudice* (*sort of). Represented by Collective Agents.';
@@ -26,16 +26,16 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const dot = ' <span aria-hidden="true">·</span> ';
 
 const CREDITS = [
-  ['Cover; debut as Mary Bennet', 'Pride and Prejudice* (*sort of)', 'UK tour, 2026. Directed by Isobel McArthur. Produced by David Pugh.'],
-  ['Klytaimestra', 'Flowers for Kassandra', 'Crazy Alter Ego, 2026. Directed by Hariet Isidor.'],
-  ['Sue Grimshaw (lead)', 'Falling in Love with Mr Dellamort', 'MTTM Theatrics, Edinburgh Fringe, 2025. International premiere. Directed by Abigail Zealey-Bess.'],
-  ['Various (voice)', 'Diablo IV', 'Blizzard, 2025. Directed by Adam Chapman.'],
-  ['Susanna Walcott', 'The Crucible', 'National Theatre, Gielgud Theatre, 2023. Directed by Lindsey Turner.'],
-  ['Amber', 'Champion', 'New Pictures and Balloon for BBC, television, 2022. Directed by John Ogunmuyiwa.'],
-  ['Melissa', 'Left Behind', 'Pretty Hate Productions, short film, 2021. Directed by Matthew Ford.'],
-  ['Megara the Jealous', 'Orfeus: A House Music Opera', 'Young Vic Theatre, 2020. Directed by Charles Randolph-Wright.'],
-  ['Eliza Doolittle', 'My Fair Lady', 'National Theatre Studio, workshop, 2019. Directed by Joel Fram.'],
-  ['Ensemble; 1st Fantine; 2nd Cosette', 'Les Misérables', 'Cameron Mackintosh, 2018. Directed by Sam Hiller.'],
+  ['Cover; debut as Mary Bennet', 'Pride and Prejudice* (*sort of)', 'UK tour, 2026. Directed by Isobel McArthur. Produced by David Pugh.', 'Stage'],
+  ['Klytaimestra', 'Flowers for Kassandra', 'Crazy Alter Ego, 2026. Directed by Hariet Isidor.', 'Stage'],
+  ['Sue Grimshaw (lead)', 'Falling in Love with Mr Dellamort', 'MTTM Theatrics, Edinburgh Fringe, 2025. International premiere. Directed by Abigail Zealey-Bess.', 'Stage'],
+  ['Various (voice)', 'Diablo IV', 'Blizzard, 2025. Directed by Adam Chapman.', 'Studio'],
+  ['Susanna Walcott', 'The Crucible', 'National Theatre, Gielgud Theatre, 2023. Directed by Lindsey Turner.', 'Stage'],
+  ['Amber', 'Champion', 'New Pictures and Balloon for BBC, television, 2022. Directed by John Ogunmuyiwa.', 'Screen'],
+  ['Melissa', 'Left Behind', 'Pretty Hate Productions, short film, 2021. Directed by Matthew Ford.', 'Screen'],
+  ['Megara the Jealous', 'Orfeus: A House Music Opera', 'Young Vic Theatre, 2020. Directed by Charles Randolph-Wright.', 'Stage'],
+  ['Eliza Doolittle', 'My Fair Lady', 'National Theatre Studio, workshop, 2019. Directed by Joel Fram.', 'Studio'],
+  ['Ensemble; 1st Fantine; 2nd Cosette', 'Les Misérables', 'Cameron Mackintosh, 2018. Directed by Sam Hiller.', 'Stage'],
 ];
 
 const SKILLS = [
@@ -62,7 +62,7 @@ const xy = (lon, lat) => [((lon - map.lon0) * map.k * map.s), ((map.lat1 - lat) 
 function tourMap() {
   const pts = tour.venues.map((v) => xy(v.lon, v.lat));
   const route = pts.map(([x, y], i) => `${i ? 'L' : 'M'}${x.toFixed(1)} ${y.toFixed(1)}`).join('');
-  const dots = tour.venues.map((v, i) => { const [x, y] = pts[i]; return `<g class="stop" data-end="${v.end}"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="8"/><text x="${x.toFixed(1)}" y="${(y + 3.3).toFixed(1)}">${i + 1}</text><title>${i + 1}. ${esc(v.town)}, ${esc(v.venue)}: ${esc(v.when)}</title></g>`; }).join('');
+  const dots = tour.venues.map((v, i) => { const [x, y] = pts[i]; return `<g class="stop" data-end="${v.end}"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="8"/><text aria-hidden="true" x="${x.toFixed(1)}" y="${(y + 3.3).toFixed(1)}">${i + 1}</text><title>${i + 1}. ${esc(v.town)}, ${esc(v.venue)}: ${esc(v.when)}</title></g>`; }).join('');
   return `<svg class="map" viewBox="0 0 ${map.w} ${map.h}" role="img" aria-labelledby="map-t"><title id="map-t">Map of Britain and Ireland with the ${tour.venues.length} venues of the tour, numbered in order; the list beside it gives each one.</title><path class="land" d="${map.d}"/><path class="route" d="${route}"/>${dots}</svg>`;
 }
 const tourList = () => `<ol class="stops">${tour.venues.map((v) => `<li data-end="${v.end}"><strong>${esc(v.town)}</strong>, ${esc(v.venue)} <span class="when">${esc(v.when)}</span></li>`).join('')}</ol>`;
@@ -154,9 +154,10 @@ function page(cur, rel) {
   const img = (n, w) => `${rel}images/${n}-${w}.webp`;
   const headshot = (sizes, extra = '') => `<img src="${img('headshot', 960)}" srcset="${img('headshot', 640)} 640w, ${img('headshot', 960)} 960w" sizes="${sizes}" alt="Grace Farrell, head and shoulders, in a black top against a dark backdrop" width="960" height="1440"${extra}>`;
   const credit = '<figcaption class="photo-credit">Photo © Jennie Scott</figcaption>';
-  const nowOn = `On tour${dot}<em>Pride and Prejudice* (*sort of)</em>`;
-  const headline = `Grace finished a run at the 2025 Edinburgh Fringe starring as lead Sue Grimshaw in the international premiere of <em>Falling in Love with Mr Dellamort</em>, directed by Abigail Zealey-Bess.`;
-  const cta = `<p class="cta"><a class="btn primary" href="#contact">Contact her agent</a> <span class="links"><a href="${SPOTLIGHT}">Spotlight profile</a>${dot}<a href="${INSTAGRAM}">Instagram</a></span></p>`;
+  const nowOn = `On tour${dot}<em>Pride and Prejudice* (*sort&nbsp;of)</em>`;
+  const headline = `Grace is a cover in the 2026 to 2027 UK and Ireland tour of <em>Pride and Prejudice* (*sort&nbsp;of)</em>, and made her debut as Mary Bennet on it. In 2025 she starred as Sue Grimshaw in the international premiere of <em>Falling in Love with Mr Dellamort</em> at the Edinburgh Fringe.`;
+  const facts = `<p class="strip-facts">Soprano${dot}range D3 to F6${dot}actor-singer</p>`;
+  const cta = `<p class="cta"><a class="btn primary" href="#contact">Contact her agent</a> <a class="btn ghost" href="#reels">Showreel</a> <span class="links"><a href="${SPOTLIGHT}">Spotlight profile</a>${dot}<a href="${INSTAGRAM}">Instagram</a></span></p>`;
   const sec = (id, cls, title, inner) => `<section id="${id}" class="${cls}" aria-labelledby="${id}-h">\n  <p class="kicker">${L[id]}</p>\n  <h2 id="${id}-h">${title}</h2>\n${inner}\n</section>`;
 
   // the opening, five ways
@@ -167,8 +168,8 @@ function page(cur, rel) {
     <p class="kicker">${nowOn}</p>
     <h1 id="name"><span>Grace</span> <span>Farrell</span></h1>
     <p class="sub">Actor-singer and soprano</p>
+    ${facts}${cta}
     <p class="lead">${headline}</p>
-    ${cta}
   </div>
 </section>`,
     2: `<section class="cover cover-poster" id="top" aria-labelledby="name">
@@ -176,18 +177,19 @@ function page(cur, rel) {
     <p class="kicker sticker">${nowOn}</p>
     <h1 id="name"><span>Grace</span> <span>Farrell</span></h1>
     <p class="sub">Actor-singer <span aria-hidden="true">/</span> soprano</p>
+    ${facts}${cta}
   </div>
   <figure class="cover-photo">${headshot('(max-width: 50rem) 90vw, 30rem', ' fetchpriority="high"')}${credit}</figure>
-  <p class="lead strip">${headline}</p>
-  <div class="poster-cta">${cta}</div>
+  <div class="flyer-show"><p class="fs-top">Edinburgh Fringe 2025<span aria-hidden="true"> · </span>International premiere</p><p class="fs-title"><em>Falling in Love with Mr Dellamort</em></p><p class="fs-cast">Grace Farrell as Sue Grimshaw. Directed by Abigail Zealey-Bess. MTTM Theatrics.</p></div>
+  <p class="lead strip">Now: a cover in the UK and Ireland tour of <em>Pride and Prejudice* (*sort&nbsp;of)</em>, with her debut as Mary Bennet.</p>
 </section>`,
     3: `<section class="cover cover-title" id="top" aria-labelledby="name">
   <p class="kicker">${nowOn}</p>
   <h1 id="name"><span>Grace</span> <span>Farrell</span></h1>
   <p class="sub">Actor-singer and soprano</p>
+    ${facts}${cta}
   <figure class="cover-photo oval">${headshot('(max-width: 50rem) 60vw, 18rem', ' fetchpriority="high"')}${credit}</figure>
   <p class="lead">${headline}</p>
-  ${cta}
 </section>`,
     4: `<section class="cover cover-passport" id="top" aria-labelledby="name">
   <div class="passport">
@@ -195,10 +197,11 @@ function page(cur, rel) {
     <div class="cover-text">
       <p class="kicker">${nowOn}</p>
       <h1 id="name"><span>Grace</span> <span>Farrell</span></h1>
+      ${facts}${cta}
       <dl class="id-lines"><div><dt>Occupation</dt><dd>Actor-singer, soprano</dd></div><div><dt>Based</dt><dd>Greater London and the West Midlands</dd></div><div><dt>Languages</dt><dd>English, French, Italian</dd></div></dl>
     </div>
   </div>
-  <div class="cover-aside"><p class="lead">${headline}</p>${cta}</div>
+  <div class="cover-aside"><p class="lead">${headline}</p></div>
 </section>`,
     5: `<section class="cover cover-mag" id="top" aria-labelledby="name">
   <figure class="cover-photo">${headshot('100vw', ' fetchpriority="high"')}${credit}</figure>
@@ -206,8 +209,10 @@ function page(cur, rel) {
     <p class="kicker">${nowOn}</p>
     <h1 id="name"><span>Grace</span> <span>Farrell</span></h1>
     <p class="sub">Actor-singer and soprano</p>
+    ${facts}${cta}
   </div>
-  <div class="standfirst"><p class="lead">${headline}</p>${cta}</div>
+  <ul class="cover-lines" aria-label="In this profile"><li><em>The Crucible</em> at the Gielgud</li><li>Voice of <em>Diablo IV</em></li><li>Debut as Mary Bennet</li></ul>
+  <div class="standfirst"><p class="lead">${headline}</p></div>
 </section>`,
   };
 
@@ -220,12 +225,13 @@ function page(cur, rel) {
   const about = sec('about', 'about', { 1: 'Stage, screen and studio', 2: 'Sings. Acts. Plays.', 3: 'In which our soprano is introduced', 4: 'Stage, screen and studio', 5: 'Stage, screen and studio' }[cur], pull + aboutText);
 
   // the credits, five ways
-  const c = CREDITS.map(([role, prod, by]) => ({ role: esc(role), prod: esc(prod), by: esc(by), year: (by.match(/20\d\d/) || [''])[0] }));
+  const c = CREDITS.map(([role, prod, by, medium]) => ({ role: esc(role), prod: esc(prod), by: esc(by), medium, year: (by.match(/20\d\d/) || [''])[0] }));
+  const row1 = (x) => `<li><span class="role">${x.role}</span><span class="dots" aria-hidden="true"></span><span class="prod"><em>${x.prod}</em></span><span class="by">${x.by}</span></li>`;
   const creditsInner = {
-    1: `<ol class="cast cast-dots">${c.map((x) => `<li><span class="role">${x.role}</span><span class="dots" aria-hidden="true"></span><span class="prod"><em>${x.prod}</em></span><span class="by">${x.by}</span></li>`).join('')}</ol>`,
+    1: `<div class="acts">${[['Act one', 'Stage'], ['Act two', 'Screen'], ['Act three', 'Studio']].map(([act, m]) => `<div class="act"><h3><span>${act}</span> ${m}</h3><ol class="cast cast-dots">${c.filter((x) => x.medium === m).map(row1).join('')}</ol></div>`).join('')}</div>`,
     2: `<ol class="cast cast-flyers">${c.map((x) => `<li><span class="year">${x.year}</span><span class="prod"><em>${x.prod}</em></span><span class="role">${x.role}</span><span class="by">${x.by}</span></li>`).join('')}</ol>`,
     3: `<ol class="cast cast-personae">${c.map((x) => `<li><span class="role">${x.role}</span><span class="prod">in <em>${x.prod}</em></span><span class="by">${x.by}</span></li>`).join('')}</ol>`,
-    4: `<ol class="cast cast-stubs">${c.map((x, i) => `<li><span class="stub-no" aria-hidden="true">No. ${String(i + 1).padStart(3, '0')}</span><span class="prod"><em>${x.prod}</em></span><span class="role">${x.role}</span><span class="by">${x.by}</span><span class="year">${x.year}</span></li>`).join('')}</ol>`,
+    4: `<ol class="cast cast-stubs">${[...c].reverse().map((x, i) => `<li><span class="stub-no" aria-hidden="true">No. ${String(i + 1).padStart(3, '0')}</span><span class="prod"><em>${x.prod}</em></span><span class="role">${x.role}</span><span class="by">${x.by}</span><span class="year">${x.year}</span></li>`).join('')}</ol>`,
     5: `<ol class="cast cast-index">${c.map((x) => `<li><span class="year">${x.year}</span><span class="prod"><em>${x.prod}</em></span><span class="role">${x.role}</span><span class="by">${x.by}</span></li>`).join('')}</ol>`,
   }[cur];
   const credits = sec('credits', 'credits', { 1: 'Credits', 2: 'Shows', 3: 'Dramatis personae', 4: 'Credits', 5: 'Selected credits' }[cur], creditsInner);
@@ -261,7 +267,8 @@ function page(cur, rel) {
   <p class="note map-note">Map: Natural Earth (public domain). Venues already played are faded on the map and marked "played" in the list.</p>`;
   const tourSec = sec('tour', 'tour', `<em>Pride and Prejudice* (*sort of)</em>${cur === 4 ? ', town by town' : ' on tour'}`, tourInner);
 
-  const skills = sec('skills', 'skills', { 1: 'Skills', 2: 'Can do', 3: 'The voice, and the rest', 4: 'Skills', 5: 'Skills' }[cur], `  <div class="note-cols">${SKILLS.map(([h, xs]) => `<div><h3>${h}</h3><p>${xs.map(esc).join(dot)}</p></div>`).join('')}</div>
+  const voice = cur === 3 ? `  <p class="voice-line">Voice: soprano, D3 to F6. Instruments: violin, guitar, piano, keyboards.</p>\n` : '';
+  const skills = sec('skills', 'skills', { 1: 'Skills', 2: 'Can do', 3: 'The voice, and the rest', 4: 'Skills', 5: 'Skills' }[cur], `${voice}  <div class="note-cols">${SKILLS.map(([h, xs]) => `<div><h3>${h}</h3><p>${xs.map(esc).join(dot)}</p></div>`).join('')}</div>
   <dl class="facts"><div><dt>Playing age</dt><dd>20 to 30</dd></div><div><dt>Nationalities</dt><dd>British, Italian</dd></div><div><dt>Location</dt><dd>Greater London and the West Midlands</dd></div></dl>`);
 
   const contact = sec('contact', 'contact', 'Collective Agents', `  <p>For casting and all enquiries, please contact Grace's agent, Amy McGivern.</p>
@@ -272,7 +279,8 @@ function page(cur, rel) {
     <a href="tel:+442046354212">020 4635 4212</a><br>
     <a href="mailto:info@collectiveagents.co.uk">info@collectiveagents.co.uk</a>
   </address>
-  <p><a href="${SPOTLIGHT}">Spotlight profile</a>${dot}<a href="${INSTAGRAM}">Instagram @gracexfarrellx</a></p>`);
+  <p><a href="${SPOTLIGHT}">Spotlight profile</a>${dot}<a href="${INSTAGRAM}">Instagram @gracexfarrellx</a></p>${cur === 2 ? `
+  <ul class="tabs" aria-label="Tear-off contacts"><li><a href="tel:+442046354212">Agent 020 4635 4212</a></li><li><a href="mailto:info@collectiveagents.co.uk">info@collectiveagents.co.uk</a></li><li><a href="${SPOTLIGHT}">Spotlight</a></li><li><a href="${INSTAGRAM}">Instagram</a></li></ul>` : ''}`);
 
   const order = {
     1: [about, credits, reels, tourSec, skills, contact],

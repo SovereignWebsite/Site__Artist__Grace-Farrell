@@ -1,8 +1,8 @@
 /* Design 1, Footlights: a dark stage and one warm light. The portrait sits in a round spotlight at centre
    stage, the name below it in brass; the page alternates stage-black and programme-cream. */
-:root{--bg:#f6efe6;--surface:#fffaf3;--fg:#21161b;--muted:#5b4a4f;--accent:#7d2148;--on-accent:#fff;--line:#e1d2c3;
+:root{--bg:#110b0e;--surface:#1b1216;--fg:#f3e6da;--muted:#c8b5a6;--accent:#f0c27a;--on-accent:#1b1008;--line:#33242a;
   --bar-bg:#0f0a0c;--bar-fg:#f3e3cf;--stage:#0f0a0c;--brass:#f0c27a;
-  --land:#eadfce;--land-edge:#c4b29d;--stop:#7d2148;--route:#a5793f;--head:var(--serif)}
+  --land:#241a1d;--land-edge:#4c383d;--stop:#f0c27a;--stop-fg:#1b1008;--route:#f0c27a;--head:var(--serif)}
 @media (prefers-color-scheme:dark){:root{--bg:#110b0e;--surface:#1b1216;--fg:#f3e6da;--muted:#c8b5a6;--accent:#f0c27a;--on-accent:#1b1008;--line:#33242a;
   --land:#241a1d;--land-edge:#4c383d;--stop:#f0c27a;--stop-fg:#1b1008;--route:#f0c27a}}
 .cover-spot{display:grid;justify-items:center;text-align:center;min-height:min(100vh,60rem);
@@ -27,3 +27,9 @@
 .reels-sec .note,.reels-sec .meta,.reels-sec .gallery figcaption{color:#cdb8a5}
 .reels-sec a,.contact a{color:#f6d9a8}
 .contact{text-align:center}.contact address{display:inline-block}
+/* round 1: dark all the way down; the reels behind a curtain */
+.credits,.tour{background:var(--stage)}
+.about,.skills{background:var(--surface)}
+.reels-sec{position:relative;border-top:14px solid #5a1020;background:linear-gradient(90deg,#3a0a14 0,#5a1020 3%,transparent 9%,transparent 91%,#5a1020 97%,#3a0a14 100%),var(--stage)}
+.reels-sec::before{content:"";position:absolute;left:0;right:0;top:0;height:28px;background:repeating-linear-gradient(90deg,#6a1426 0 22px,#4a0c1a 22px 44px);border-radius:0 0 50% 50%/0 0 100% 100%}
+.act h3{color:var(--brass)}

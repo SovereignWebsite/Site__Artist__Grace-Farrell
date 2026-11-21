@@ -2,11 +2,11 @@
    straight after it; the credits are torn-off tickets. Kraft paper, typewriter, a red rubber stamp. */
 :root{--bg:#efe5d2;--surface:#f8f1e3;--fg:#1f2a44;--muted:#4a4f5e;--accent:#a8231b;--on-accent:#fff;--line:#c9b99a;
   --bar-bg:#1f2a44;--bar-fg:#f8f1e3;--land:#f8f1e3;--land-edge:#8a7a5c;--stop:#a8231b;--route:#1f2a44;
-  --head:"Courier Prime","Courier New",Courier,var(--mono);--radius:4px}
+  --head:var(--serif);--radius:4px}
 @media (prefers-color-scheme:dark){:root{--bg:#1b1915;--surface:#24211b;--fg:#f0e8d8;--muted:#c4b9a3;--accent:#f0c56c;--on-accent:#1b1915;--line:#4a4336;
   --bar-bg:#11100d;--land:#2a2620;--land-edge:#7a6d55;--stop:#f0c56c;--stop-fg:#1b1915;--route:#f0e8d8}}
 h1,h2{font-weight:700;letter-spacing:-.02em}
-.kicker{font-family:var(--head);letter-spacing:.08em}
+.kicker{letter-spacing:.14em}
 .cover-passport{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:2rem;align-items:center}
 .passport{display:grid;grid-template-columns:minmax(8rem,14rem) 1fr;gap:1.5rem;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:1.5rem;box-shadow:0 10px 30px rgba(0,0,0,.15);position:relative}
 .passport::after{content:"P<GBRFARRELL<<GRACE<<<<<<<<<<<<<<<<<<<<<<<<<<";position:absolute;left:1.5rem;right:1.5rem;bottom:.6rem;font:.72rem/1 var(--mono);letter-spacing:.12em;color:var(--muted);overflow:hidden;white-space:nowrap}
@@ -27,7 +27,7 @@ h1,h2{font-weight:700;letter-spacing:-.02em}
 .cast-stubs li::before,.cast-stubs li::after{content:"";position:absolute;left:-9px;width:16px;height:16px;border-radius:50%;background:var(--bg)}
 .cast-stubs li::before{top:-8px}.cast-stubs li::after{bottom:-8px}
 .cast-stubs .stub-no{font:.75rem var(--mono);color:var(--accent);letter-spacing:.1em}
-.cast-stubs .prod{font-family:var(--head);font-weight:700}
+.cast-stubs .prod{font-weight:700}.cast-stubs .by,.cast-stubs .year,.cast-stubs .stub-no{font-family:var(--mono)}.cast-stubs .by{font-size:.8rem}
 .cast-stubs .year{position:absolute;right:1rem;top:.9rem}
 .note-cols>div{background:var(--surface);border:1px dashed var(--line);padding:.8rem 1rem}
-.btn.primary{font-family:var(--head)}
+

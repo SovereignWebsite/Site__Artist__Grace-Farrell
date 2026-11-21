@@ -1,29 +1,41 @@
-/* Design 1, Footlights: a dark stage and one warm light. The portrait sits in a round spotlight at centre
-   stage, the name below it in brass; the page alternates stage-black and programme-cream. */
-:root{--bg:#f6efe6;--surface:#fffaf3;--fg:#21161b;--muted:#5b4a4f;--accent:#7d2148;--on-accent:#fff;--line:#e1d2c3;
-  --bar-bg:#0f0a0c;--bar-fg:#f3e3cf;--stage:#0f0a0c;--brass:#f0c27a;
-  --land:#eadfce;--land-edge:#c4b29d;--stop:#7d2148;--route:#a5793f;--head:var(--serif)}
-@media (prefers-color-scheme:dark){:root{--bg:#110b0e;--surface:#1b1216;--fg:#f3e6da;--muted:#c8b5a6;--accent:#f0c27a;--on-accent:#1b1008;--line:#33242a;
-  --land:#241a1d;--land-edge:#4c383d;--stop:#f0c27a;--stop-fg:#1b1008;--route:#f0c27a}}
-.cover-spot{display:grid;justify-items:center;text-align:center;min-height:min(100vh,60rem);
-  background:radial-gradient(ellipse 60% 55% at 50% 30%,#5a3a30 0%,#2a1719 45%,var(--stage) 80%);color:#f6e9da;padding-top:3rem!important}
-.cover-spot .cover-photo{width:min(22rem,70vw)}
-.cover-spot .cover-photo img{aspect-ratio:1;border-radius:50%;object-position:50% 25%;box-shadow:0 0 0 6px rgba(240,194,122,.18),0 0 120px 30px rgba(255,200,130,.25)}
-.cover-spot .photo-credit{color:#cdb8a5;text-align:center}
-.cover-spot h1{font-weight:400;font-size:clamp(3.2rem,10vw,7rem);margin-top:1.5rem}
-.cover-spot h1 span{display:inline}
-.cover-spot h1 span:last-child{font-style:italic;color:var(--brass)}
-.cover-spot .kicker{color:var(--brass)}
-.cover-spot .sub{font:italic 1.4rem/1.3 var(--serif);color:#e9d9c8}
-.cover-spot .lead{max-width:38rem;margin-left:auto;margin-right:auto;color:#e9d9c8}
-.cover-spot .cta{justify-content:center}
-.cover-spot .btn.primary{background:var(--brass);color:#1b1008}
-.cover-spot .links a{color:#f6d9a8}
-.about .prose{columns:2 20rem;column-gap:3rem}.about .prose p{max-width:none}
-.credits,.tour{background:var(--surface)}
-.cast-dots .prod{font-style:italic}
-.reels-sec,.contact{background:var(--stage);color:#f3e3cf}
-.reels-sec .kicker,.contact .kicker{color:var(--brass)}
-.reels-sec .note,.reels-sec .meta,.reels-sec .gallery figcaption{color:#cdb8a5}
-.reels-sec a,.contact a{color:#f6d9a8}
-.contact{text-align:center}.contact address{display:inline-block}
+/* Design 2, Fringe flyer: a wall of Edinburgh posters. Heavy condensed type, highlighter yellow and hot pink,
+   every section a flyer pasted up slightly askew, the credits a run of mini posters. */
+:root{--bg:#e9e4d8;--surface:#fffdf6;--fg:#111;--muted:#3b3934;--accent:#b0105f;--on-accent:#fff;--line:#111;
+  --bar-bg:#111;--bar-fg:#fff;--yellow:#ffd400;--pink:#b0105f;--land:#fffdf6;--land-edge:#111;--stop:#b0105f;--route:#111;
+  --head:"Arial Narrow","Roboto Condensed","Helvetica Neue Condensed","Franklin Gothic Medium",Impact,sans-serif;--radius:0}
+@media (prefers-color-scheme:dark){:root{--bg:#1a1a1a;--surface:#242424;--fg:#f5f5f5;--muted:#cfcfcf;--accent:#ff5fa8;--on-accent:#111;--line:#f5f5f5;
+  --pink:#ff5fa8;--land:#2e2e2e;--land-edge:#ffd400;--stop:#ff5fa8;--stop-fg:#111;--route:#ffd400}}
+body{background-color:var(--bg);background-image:radial-gradient(rgba(0,0,0,.07) 1px,transparent 1px);background-size:14px 14px}
+h1,h2{text-transform:uppercase;font-weight:900;letter-spacing:-.01em;line-height:.9}
+h2{font-size:clamp(2.6rem,8vw,5rem)}
+.kicker{color:var(--accent);font-weight:800}
+main>section:not(.cover){background:var(--surface);margin:2.5rem auto;max-width:calc(var(--wide) + 2rem);padding:2rem clamp(1rem,4vw,3rem)!important;border:3px solid var(--fg);box-shadow:8px 8px 0 var(--fg)}
+main>section:nth-of-type(odd):not(.cover){transform:rotate(-.6deg)}
+main>section:nth-of-type(even):not(.cover){transform:rotate(.5deg)}
+@media (prefers-reduced-motion:reduce){main>section{transform:none!important}}
+.cover-poster{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);grid-template-areas:"type photo" "show photo" "strip photo" "cta photo";gap:1rem 2rem;align-items:center;background:var(--yellow);color:#111;border-bottom:6px solid #111}
+.poster-type{grid-area:type}.flyer-show{grid-area:show}.cover-poster .cover-photo{grid-area:photo}.cover-poster .strip{grid-area:strip}.poster-cta{grid-area:cta}
+.cover-poster h1{font-size:clamp(3.4rem,10.5vw,8.5rem);margin:.5rem 0;overflow-wrap:anywhere}
+.cover-poster h1 span:last-child{color:#b0105f}
+.cover-poster .sub{font:900 1.4rem/1.2 var(--head);text-transform:uppercase;color:#111}
+.sticker{display:inline-block;background:#fff;color:#111;border:3px solid #111;padding:.25rem .6rem;transform:rotate(-3deg)}
+.cover-poster .cover-photo img{border:8px solid #fff;outline:3px solid #111;transform:rotate(2.5deg);aspect-ratio:3/4;object-position:50% 25%}
+.cover-poster .photo-credit{color:#111;text-align:right}
+.strip{background:#111;color:#ffd400;padding:.8rem 1rem;font-weight:700;transform:rotate(-1deg)}
+.strip em{color:#fff}
+.cover-poster .btn.primary{background:#b0105f;color:#fff;border:3px solid #111;text-transform:uppercase}
+.cover-poster .links a{color:#111;font-weight:700}
+@media (max-width:50rem){.cover-poster{grid-template-columns:1fr;grid-template-areas:"type" "photo" "show" "strip" "cta"}}
+.cast-flyers{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,13rem),1fr));gap:1rem}
+.cast-flyers li{display:flex;flex-direction:column;gap:.3rem;padding:1rem;border:3px solid #111;background:#fff;color:#111}
+.cast-flyers li:nth-child(4n+1){background:#ffd400}
+.cast-flyers li:nth-child(4n+2){background:#111;color:#fff}
+.cast-flyers li:nth-child(4n+3){background:#b0105f;color:#fff}
+.cast-flyers li:nth-child(odd){transform:rotate(-1.2deg)}.cast-flyers li:nth-child(even){transform:rotate(1deg)}
+.cast-flyers .prod{order:-1;font:900 1.5rem/1 var(--head);text-transform:uppercase}
+.cast-flyers .prod em{font-style:normal}
+.cast-flyers .year,.cast-flyers .by{color:inherit;opacity:1}
+.cast-flyers .year{order:-2;font-size:.9rem}
+.btn.primary{border:3px solid var(--fg);text-transform:uppercase}
+.cover-poster .btn.ghost{color:#111;border-color:#111;text-transform:uppercase;font-weight:800}
+.cover-poster .strip-facts{color:#111}
