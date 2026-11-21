@@ -98,17 +98,27 @@
     } catch { }
   }
 
+  // A conversation: each message as a bubble, the agent's answer under it, in the visitor's own time (grace.b, at
+  // Dinis's request, 21 Nov 2026: "improve the UX of this page").
+  const LABEL = { 'sent': 'Sent, waiting for a reply', 'received': 'Received by the agent', 'acted on': 'Done', 'answered': 'Answered' }
+  const when = t => { try { return new Date(t).toLocaleString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) } catch { return t } }
   function render() {
     const ol = $('#sent'); ol.replaceChildren()
     $('#history').hidden = !ST.items.length
-    for (const it of ST.items) {
-      const li = document.createElement('li')
-      const head = document.createElement('p'); head.className = 'when'
-      head.textContent = it.time.slice(0, 16).replace('T', ' ') + ' UTC · '
-      const st = document.createElement('span'); st.className = 'state s-' + it.state.replace(' ', '-'); st.textContent = it.state; head.append(st)
+    for (const it of [...ST.items].reverse()) {   // oldest first, newest next to the box below
+      const li = document.createElement('li'); li.className = 'thread'
+      const me = document.createElement('div'); me.className = 'bubble me'
       const body = document.createElement('p'); body.textContent = it.preview
-      li.append(head, body)
-      if (it.answer) { const a = document.createElement('blockquote'); a.textContent = it.answer; li.append(a) }
+      const meta = document.createElement('p'); meta.className = 'meta-line'
+      const tm = document.createElement('time'); tm.dateTime = it.time; tm.textContent = when(it.time)
+      const st = document.createElement('span'); st.className = 'state s-' + it.state.replace(' ', '-'); st.textContent = LABEL[it.state] || it.state
+      meta.append(tm, ' · ', st); me.append(body, meta); li.append(me)
+      if (it.answer) {
+        const a = document.createElement('div'); a.className = 'bubble agent'
+        const who = document.createElement('p'); who.className = 'who'; who.textContent = "Grace's site agent"
+        const at = document.createElement('p'); at.textContent = it.answer
+        a.append(who, at); li.append(a)
+      }
       ol.append(li)
     }
   }
@@ -133,6 +143,9 @@
       location.reload()
     })
     render(); refresh()
+    // look for answers while the page is open, and whenever it comes back into view
+    setInterval(refresh, 60000)
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh() })
   }
   // a second link opened in a tab already showing this page changes only the # part: read it as a fresh page
   window.addEventListener('hashchange', () => { if (/(?:^#|&)(k|m)=/.test(location.hash)) location.reload() })

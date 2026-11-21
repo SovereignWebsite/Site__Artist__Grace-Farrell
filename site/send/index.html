@@ -63,22 +63,27 @@
 </header>
 <main id="main" class="doc send" tabindex="-1">
 <p class="kicker">Message</p>
-<h1>Message your site agent</h1>
-<section id="nokey" hidden>
-  <p>To send a message here, scan the QR code the site's owner gave you. There is no other way in: messages without one are not accepted.</p>
-</section>
-<section id="form" class="stack">
-  <p>Check the message, change it if you like, then press Send. It is encrypted and signed on this device before it leaves, so only the site's agent can read it and it knows it came from this browser.</p>
-  <label for="text">Your message</label>
-  <textarea id="text" maxlength="8000" placeholder="Write your message here"></textarea>
-  <div class="send-row"><button id="send" class="btn primary" type="button">Send</button><span id="status" role="status"></span></div>
-  <section id="history" class="stack" hidden>
-    <h2>Sent from this device</h2>
+<h1>Message Grace's site agent</h1>
+<div id="nokey" hidden>
+  <p class="nokey-card">To send a message here, scan the QR code the site's owner gave you. There is no other way in: messages without one are not accepted.</p>
+</div>
+<div id="form" class="stack">
+  <div id="history" class="stack" hidden>
+    <h2>Your messages</h2>
     <ol id="sent"></ol>
-  </section>
-  <p class="note">This device keeps the QR code's details, its own key (<code id="device"></code>) and the list above, so you can follow your messages; none of it leaves this device except your own messages. No cookies. The agent reads its inbox every hour from 10:00 to 22:00 UK time.</p>
-  <div><button id="forget" class="btn ghost" type="button">Forget this device</button></div>
-</section>
+  </div>
+  <div class="composer">
+    <label for="text">New message</label>
+    <textarea id="text" maxlength="8000" placeholder="What would you like changed on your site?"></textarea>
+    <div class="send-row"><button id="send" class="btn primary" type="button">Send</button><span id="status" role="status"></span></div>
+    <p class="note">Encrypted and signed on this device before it leaves: only the site's agent can read it, and it knows it came from you. The agent checks for messages every hour from 10:00 to 22:00 UK time; its answer appears here.</p>
+  </div>
+  <details class="device">
+    <summary>About this device</summary>
+    <p>This device keeps the QR code's details, its own key (<code id="device"></code>) and your messages and answers, so you can follow them here. None of it leaves this device except your own messages. No cookies.</p>
+    <p><button id="forget" class="btn ghost" type="button">Forget this device</button></p>
+  </details>
+</div>
 </main>
 <footer>
   <p class="foot-links"><a href="../start/">Start here</a> <span aria-hidden="true">·</span> <a href="../agents/">Use this site with your AI</a> <span aria-hidden="true">·</span> <a href="../llms.txt">llms.txt</a> <span aria-hidden="true">·</span> <a href="../admin/">How this site was made</a> <span aria-hidden="true">·</span> <a href="../designs/">All five designs</a></p>
