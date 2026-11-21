@@ -19,7 +19,62 @@
   const unb64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0))
   const hex = buf => [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('')
   const unpem = pem => unb64(pem.replace(/-----[^-]+-----/g, '').replace(/\s/g, ''))
-  let CFG = null, ST = null, KEYS = null, ui = {}
+  let CFG = null, ST = null, KEYS = null, ui = {}, ATT = []
+
+  // ---------- images: pasted, dropped or chosen screenshots (Dinis, 21 Nov 2026: "copy and paste of images") ----------
+  // Each image is shrunk on this device before it is sealed: longest side at most 2000 px, WebP (JPEG where the browser
+  // cannot write WebP), quality 0.82, stepping down until it is under 700 KB. A full-screen Retina screenshot comes out
+  // at roughly 40 to 150 KB with text still sharp. The inbox takes a request of up to 6 MB; each image byte costs about
+  // 3.2 bytes of request (base64 three times over), so the pane allows up to 4 images and 1.6 MB of images per request.
+  const MAX_IMAGES = 4, MAX_IMAGE = 700 * 1024, MAX_IMAGES_TOTAL = 1600 * 1024, MAX_REQUEST = 6000000
+  const STEPS = [[2000, 0.82], [1600, 0.72], [1280, 0.62], [1024, 0.55]]
+  const toBlob = (cv, type, q) => new Promise(ok => cv.toBlob(ok, type, q))
+  const dataUrl = blob => new Promise((ok, no) => { const r = new FileReader(); r.onload = () => ok(r.result); r.onerror = () => no(r.error); r.readAsDataURL(blob) })
+  function draw(bmp, max) {
+    const s = Math.min(1, max / Math.max(bmp.width, bmp.height)), cv = document.createElement('canvas')
+    cv.width = Math.max(1, Math.round(bmp.width * s)); cv.height = Math.max(1, Math.round(bmp.height * s))
+    const ctx = cv.getContext('2d'); ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, cv.width, cv.height)   // JPEG has no transparency
+    ctx.drawImage(bmp, 0, 0, cv.width, cv.height); return cv
+  }
+  async function shrink(file) {
+    let bmp; try { bmp = await createImageBitmap(file) } catch { throw new Error('that file is not an image this browser can read') }
+    let out = null
+    for (const [max, q] of STEPS) {
+      const cv = draw(bmp, max)
+      let blob = await toBlob(cv, 'image/webp', q)
+      if (!blob || blob.type !== 'image/webp') blob = await toBlob(cv, 'image/jpeg', q)   // Safari writes PNG when asked for WebP
+      out = { blob, type: blob.type, width: cv.width, height: cv.height }
+      if (blob.size <= MAX_IMAGE) break
+    }
+    if (out.blob.size > MAX_IMAGE) throw new Error('that image is too large even after shrinking it')
+    const thumb = (await toBlob(draw(bmp, 240), 'image/jpeg', 0.6)) || out.blob
+    out.thumb = await dataUrl(thumb); bmp.close?.()
+    return out
+  }
+  async function addImages(files) {
+    const imgs = [...files].filter(f => /^image\//.test(f.type))
+    if (!imgs.length) return false
+    for (const f of imgs) {
+      if (ATT.length >= MAX_IMAGES) { say(`Up to ${MAX_IMAGES} images per request.`, 'bad'); break }
+      try {
+        say('Shrinking the image…')
+        const a = await shrink(f)
+        if (ATT.reduce((n, x) => n + x.blob.size, 0) + a.blob.size > MAX_IMAGES_TOTAL) { say('That is as many images as one request can carry; send these first.', 'bad'); break }
+        ATT.push(a); say(`Image added (${Math.round(a.blob.size / 1024)} KB, ${a.width}×${a.height}).`, 'ok')
+      } catch (e) { say(e.message + '.', 'bad') }
+    }
+    renderAtts(); return true
+  }
+  function renderAtts() {
+    if (!ui.atts) return
+    ui.atts.replaceChildren(); ui.atts.hidden = !ATT.length
+    ATT.forEach((a, i) => {
+      const box = el('div', 'sws-att'), img = el('img'); img.src = a.thumb; img.alt = `Image ${i + 1}, ${a.width} by ${a.height}`
+      const x = el('button', 'sws-att-x', '×'); x.type = 'button'; x.setAttribute('aria-label', `Remove image ${i + 1}`)
+      x.onclick = () => { ATT.splice(i, 1); renderAtts(); ui.text.focus() }
+      box.append(img, x); ui.atts.append(box)
+    })
+  }
 
   // ---------- storage ----------
   const STORE = () => 'sws-send:' + CFG.site
@@ -101,20 +156,26 @@
   // ---------- send and refresh ----------
   async function send() {
     const text = ui.text.value.trim()
-    if (!text) return say('Write a request first.', 'bad')
+    if (!text && !ATT.length) return say('Write a request or add an image first.', 'bad')
     ui.send.disabled = true; say('Encrypting and sending…')
     try {
       if (!(await recipientOk())) throw new Error("the agent's key on this site does not match your QR code")
       const id = hex(crypto.getRandomValues(new Uint8Array(8))), page = location.pathname
-      const items_json = JSON.stringify({ type: 'sws.link/v2', id, site: CFG.site, page, sent_at: new Date().toISOString(), text })
+      const sending = ATT.slice()
+      const images = await Promise.all(sending.map(async a => ({ type: a.type, width: a.width, height: a.height, data: await dataUrl(a.blob) })))
+      const items_json = JSON.stringify({ type: 'sws.link/v2', id, site: CFG.site, page, sent_at: new Date().toISOString(), text, ...(images.length ? { images } : {}) })
       const sig = await S.sign({ name: 'ECDSA', hash: 'SHA-256' }, KEYS.sig, te.encode(items_json))
       const outer = { type: 'sws.link/v2', site: CFG.site, browser: { fp: KEYS.fp, sign: KEYS.pub.sign, enc: KEYS.pub.enc },
                       signed: { alg: 'ECDSA-P256-SHA256-P1363', sig: b64(sig) }, items_json }
-      const r = await fetch(`${CFG.endpoint}/api/vault/append/write/${CFG.vault_id}`, { method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ append_token: ST.k, payload: btoa(await seal(CFG.recipient.encrypt, JSON.stringify(outer))) }), credentials: 'omit' })
+      const body = JSON.stringify({ append_token: ST.k, payload: btoa(await seal(CFG.recipient.encrypt, JSON.stringify(outer))) })
+      if (body.length > MAX_REQUEST) throw new Error('the images are too large together; remove one and send it separately')
+      const r = await fetch(`${CFG.endpoint}/api/vault/append/write/${CFG.vault_id}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body, credentials: 'omit' })
       if (r.status === 404) throw new Error('this QR code no longer works; ask for a new one')
       if (!r.ok) throw new Error(r.status === 413 ? 'the request is too long' : `the inbox answered ${r.status}`)
-      ST.items.unshift({ id, time: new Date().toISOString(), page, preview: text.slice(0, 2000), state: 'sent', answer: null }); save()
+      const item = { id, time: new Date().toISOString(), page, preview: text.slice(0, 2000), state: 'sent', answer: null, thumbs: sending.map(a => a.thumb) }
+      ST.items.unshift(item); save()
+      if (ST.items.length && JSON.stringify(ST).length > 3e6) { for (const it of ST.items.slice(10)) delete it.thumbs; save() }   // keep local storage small
+      ATT = []; renderAtts()
       ui.text.value = ''; say('Sent. You can add more requests; each gets its own answer.', 'ok'); renderThread(true)
     } catch (e) { say('Not sent: ' + e.message + '.', 'bad') } finally { ui.send.disabled = false }
   }
@@ -147,7 +208,9 @@
     if (!items.length) { box.append(el('p', 'sws-muted sws-empty', 'No requests yet. Write one below: a change you want, a question, anything about this page or the site.')); }
     for (const it of items) {
       const t = el('div', 'sws-thread')
-      t.append(el('div', 'sws-mine', it.preview))
+      const mine = el('div', 'sws-mine', it.preview || '')
+      if (it.thumbs && it.thumbs.length) { const th = el('div', 'sws-thumbs'); it.thumbs.forEach((u, i) => { const im = el('img'); im.src = u; im.alt = `Image ${i + 1} you sent`; th.append(im) }); mine.append(th) }
+      t.append(mine)
       const meta = el('div', 'sws-meta sws-r'); const [cls, words] = CHIP[it.state] || CHIP.sent
       const when = it.state === 'received' && it.received_at ? ' ' + localTime(it.received_at) : ''
       meta.append(el('span', '', localTime(it.time) + (it.page && it.page !== '/' ? ' · ' + it.page : '') + ' ·'), el('span', 'sws-chip sws-' + cls, words + when))
@@ -182,7 +245,8 @@
   }
 
   function renderInbox() {
-    ui.onPaste = null
+    // in the inbox, a pasted or dropped image is a screenshot to send; plain text pastes into the box as usual
+    ui.onPaste = e => { const files = [...(e.clipboardData?.files || [])]; if (files.some(f => /^image\//.test(f.type))) { e.preventDefault(); addImages(files) } }
     ui.body.replaceChildren(); ui.foot.hidden = false
     ui.next = el('p', 'sws-next'); ui.thread = el('div', ''); ui.thread.style.display = 'grid'; ui.thread.style.gap = '14px'
     ui.body.append(ui.next, ui.thread)
@@ -200,13 +264,17 @@
     const x = el('button', 'sws-x', '×'); x.type = 'button'; x.setAttribute('aria-label', 'Close messages'); head.append(h, ui.who, x)
     ui.body = el('div', 'sws-body')
     ui.foot = el('div', 'sws-foot')
-    ui.text = el('textarea'); ui.text.id = 'sws-text'; ui.text.rows = 3; ui.text.maxLength = 8000; ui.text.placeholder = 'Write a request. Ctrl+Enter to send.'
+    ui.text = el('textarea'); ui.text.id = 'sws-text'; ui.text.rows = 3; ui.text.maxLength = 8000; ui.text.placeholder = 'Write a request, or paste a screenshot. Ctrl+Enter to send.'
     ui.text.setAttribute('aria-label', 'Your request')
+    ui.atts = el('div', 'sws-atts'); ui.atts.hidden = true; ui.atts.setAttribute('aria-label', 'Images to send')
     const row = el('div', 'sws-row'); ui.send = el('button', 'sws-btn', 'Send'); ui.send.type = 'button'
+    const addImg = el('button', 'sws-btn sws-quiet', 'Add image'), pick = el('input'); addImg.type = 'button'
+    pick.type = 'file'; pick.accept = 'image/*'; pick.multiple = true; pick.hidden = true
+    addImg.onclick = () => pick.click(); pick.onchange = () => { addImages(pick.files); pick.value = '' }
     const forget = el('button', 'sws-btn sws-quiet', 'Forget this device'); forget.type = 'button'
-    row.append(ui.send, forget); ui.footStatus = el('p', 'sws-status')
-    const note = el('p', 'sws-muted', 'Encrypted and signed on this device. It keeps your requests and answers here so you can follow them; nothing else leaves it. No cookies.')
-    ui.foot.append(ui.text, row, ui.footStatus, note)
+    row.append(ui.send, addImg, pick, forget); ui.footStatus = el('p', 'sws-status')
+    const note = el('p', 'sws-muted', 'Encrypted and signed on this device; images are shrunk here first. It keeps your requests and answers here so you can follow them; nothing else leaves it. No cookies.')
+    ui.foot.append(ui.atts, ui.text, row, ui.footStatus, note)
     pane.append(grip, head, ui.body, ui.foot)
     document.body.append(toggle, pane)
 
@@ -228,6 +296,10 @@
     ui.text.addEventListener('keydown', e => { if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) send() })
     forget.onclick = async () => { try { localStorage.removeItem(STORE()) } catch { } try { await tx('readwrite', s => s.delete('me:' + CFG.site)) } catch { } location.reload() }
     document.addEventListener('paste', e => { if (ui.onPaste && document.documentElement.classList.contains('sws-open')) ui.onPaste(e) })
+    // drop a screenshot anywhere on the open pane (the connect screen has its own drop box for the QR code)
+    pane.addEventListener('dragover', e => { if (KEYS && [...(e.dataTransfer?.types || [])].includes('Files')) { e.preventDefault(); pane.classList.add('sws-over') } })
+    pane.addEventListener('dragleave', e => { if (!pane.contains(e.relatedTarget)) pane.classList.remove('sws-over') })
+    pane.addEventListener('drop', e => { pane.classList.remove('sws-over'); if (KEYS && e.dataTransfer?.files?.length) { e.preventDefault(); addImages(e.dataTransfer.files) } })
     ui.open = open
   }
 

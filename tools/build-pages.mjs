@@ -101,7 +101,7 @@ function head({ title, url, css, rel }) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self' https://pki.sgit.ai; connect-src 'self' https://dev.send.sgraph.ai; frame-src https://mediaviewer.spotlight.com https://www.instagram.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://pki.sgit.ai; connect-src 'self' https://dev.send.sgraph.ai; frame-src https://mediaviewer.spotlight.com https://www.instagram.com; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(DESC)}">

@@ -70,3 +70,13 @@ html.sws-open .sws-pane { display: grid; }
 .sws-chip.sws-waiting { color: var(--sws-wait); } .sws-chip.sws-received { color: var(--sws-accent); } .sws-chip.sws-done { color: var(--sws-ok); }
 .sws-status { min-height: 1.2em; font-size: 13px; margin: 0; } .sws-status.sws-bad { color: var(--sws-bad); } .sws-status.sws-ok { color: var(--sws-ok); }
 .sws-empty { text-align: center; padding: 24px 8px; }
+
+/* images to send, and the thumbnails of images sent */
+.sws-atts { display: flex; gap: 8px; flex-wrap: wrap; }
+.sws-att { position: relative; width: 72px; height: 72px; border: 1px solid var(--sws-line); border-radius: 8px; overflow: hidden; background: var(--sws-surface); }
+.sws-att img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sws-att-x { position: absolute; top: 2px; right: 2px; width: 24px; height: 24px; border-radius: 999px; border: 0; background: rgba(0,0,0,.65); color: #fff; font-size: 16px; line-height: 24px; padding: 0; cursor: pointer; }
+.sws-att-x:focus-visible { outline: 3px solid var(--sws-accent); outline-offset: 1px; }
+.sws-thumbs { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.sws-thumbs img { width: 96px; max-height: 72px; object-fit: cover; border-radius: 6px; border: 1px solid var(--sws-line); display: block; }
+.sws-pane.sws-over { outline: 3px dashed var(--sws-accent); outline-offset: -6px; }
