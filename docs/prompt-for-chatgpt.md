@@ -1,6 +1,6 @@
 # A prompt for ChatGPT (no GitHub needed)
 
-For Grace, if you use ChatGPT rather than Claude. ChatGPT can read your site and its notes, and turn what you want into a clear request for the site's agent. It cannot change the site itself.
+For Grace, if you use ChatGPT rather than Claude. ChatGPT can read your site and its notes, and turn what you want into a clear request for the site's agent. It cannot change the site or send anything itself: it gives you a link to your message page.
 
 Paste this into ChatGPT:
 
@@ -21,17 +21,17 @@ Then:
    changes. Give exact new wording where I gave it. For any new credit or
    photo, include who, what, where and when, and who took the photo.
 4. Never invent a fact or a credit: if I have not said it, ask me.
+5. Show me the message. When I say it is right, give me one link to tap:
+   https://grace-farrell.artist.sovereignweb.site/send/#m=
+   followed by the whole message, percent-encoded (encodeURIComponent).
+   You cannot send it yourself; I tap the link, check it and press Send.
 
 Use plain British English.
 ```
 
-Then send the message ChatGPT writes to Dinis. Once your private QR code is ready, you will be able to paste it straight into the message box on your site instead.
-
-## Sending straight from ChatGPT (trial)
-
-Dinis can set up a ChatGPT assistant for your site, made by feedback.b, the agent that reads your site's messages. It writes up your request, shows it to you, and sends it only when you say yes.
+Tap the link ChatGPT gives you. Your site's message page opens with the message already in it: check it, change it if you like, and press **Send**. It is encrypted on your phone before it leaves, so only the site's agent can read it. You can also open https://grace-farrell.artist.sovereignweb.site/send/ and type a message yourself.
 
 What to know:
-- Messages sent this way are not signed by you and not sealed end to end, so the site's agents treat them as notes, not instructions. Before acting, they ask you to confirm (on your site, or through Dinis).
-- It uses its own channel, which can be switched off on its own at any time.
-- The signed message box on your site, once your QR code is ready, stays the main way: it proves the message is yours and only the agent can read it.
+- ChatGPT never holds any key or address: it only writes the link.
+- Messages from this page are not signed by you, so the site's agents treat them as notes, not instructions, and ask you to confirm before acting.
+- Once your private QR code is ready, the signed message box on your site will prove a message is yours.

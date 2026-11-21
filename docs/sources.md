@@ -27,3 +27,7 @@ Spotlight's personal details (gender, ethnicity, appearance, height, weight): a 
 ## The map
 
 Britain and Ireland outline from Natural Earth (public domain), world-atlas 2.0.2 countries-50m, turned into one SVG path by tools/map_path.py (tools/data/map-path.json).
+
+## The message page, /send/
+
+site/send/index.html, send.js and inbox.json come from feedback.b (21 November 2026), added at Dinis Cruz's yes the same day. inbox.json holds an append-only lane token for the grace-chatgpt lane: it can add a message and cannot read one, like the inbox on Kate Curtis-Evans's site. Dinis approved publishing it. Messages are sealed in the browser to feedback.b's public key; they are not signed, so the agent confirms with Grace before acting.

@@ -210,3 +210,12 @@ html,body{overflow-x:clip}
 .map-box>summary{cursor:pointer;font-weight:600;color:var(--accent);padding:.4rem 0;min-height:24px}
 @media (min-width:37.5rem){.map-box>summary{display:none}}
 @media (max-width:37.5rem){.map .route{display:none}.map .stop text{display:none}.map .stop circle{r:5px}}
+
+/* the link page, /send/ */
+main.send label{display:block;font-weight:600;margin:1.2rem 0 .4rem}
+main.send textarea{width:100%;min-height:10rem;padding:.8rem;font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--muted);border-radius:var(--radius);resize:vertical}
+main.send textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.send-row{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin:1rem 0}
+.send-row button{border:0;cursor:pointer;font:inherit;font-weight:600}
+.send-row button[disabled]{opacity:.6;cursor:default}
+#status.ok{color:var(--fg);font-weight:600}#status.bad{color:var(--accent);font-weight:600}

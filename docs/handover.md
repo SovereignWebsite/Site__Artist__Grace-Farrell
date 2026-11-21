@@ -47,7 +47,7 @@ From then on, you instruct the site's agents; until then, Dinis does.
 
 ## Talking to the site's agent
 
-- **Now:** open an issue at https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell/issues/new, or tell Dinis.
+- **Now:** type a message at https://grace-farrell.artist.sovereignweb.site/send/ (or let ChatGPT write it and give you the link: `docs/prompt-for-chatgpt.md`). It is encrypted on your phone; it is not signed, so the agent asks you to confirm before acting. Or tell Dinis.
 - **Soon:** a private QR code, just for you, that lets you send messages to the site's agent from the site itself, signed by your phone and sealed so only the agent can read them, with replies only you can open. It is being built (by feedback.b) for every site; yours is one of the first.
 
 ## Open questions
