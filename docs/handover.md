@@ -47,7 +47,7 @@ From then on, you instruct the site's agents; until then, Dinis does.
 
 ## Talking to the site's agent
 
-- **Your message page:** https://grace-farrell.artist.sovereignweb.site/send/ . Scan the QR code Dinis gives you once, on your phone; from then on you can write there, or let ChatGPT write the message and give you the link (`docs/prompt-for-chatgpt.md`). Messages are encrypted and signed on your phone, and answers appear on the page. The first time, the agent asks you to confirm the phone is yours. Or tell Dinis.
+- **Messages, on every page:** press **Messages** at the bottom right. The first time on a device, drop or paste the QR code image Dinis sends you (or paste its link); your device then makes its own key, so the agent knows messages from it are yours. Write requests there, on any page: it notes the page. Answers come on the agent's hourly rounds, 10:00 to 22:00 UK time, like a slow inbox. ChatGPT can write a request and give you a link that opens the pane with it filled in (`docs/prompt-for-chatgpt.md`). Or tell Dinis.
 
 ## Open questions
 

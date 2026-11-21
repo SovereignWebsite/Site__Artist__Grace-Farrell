@@ -101,7 +101,7 @@ function head({ title, url, css, rel }) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; frame-src https://mediaviewer.spotlight.com https://www.instagram.com; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self' https://pki.sgit.ai; connect-src 'self' https://dev.send.sgraph.ai; frame-src https://mediaviewer.spotlight.com https://www.instagram.com; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(DESC)}">
@@ -127,6 +127,10 @@ function head({ title, url, css, rel }) {
 <link rel="stylesheet" href="${rel}base.css">
 <link rel="stylesheet" href="${css}">
 <script src="${rel}site.js" defer></script>
+<link rel="stylesheet" href="/send/sws-inbox.css">
+<link rel="stylesheet" href="/send/sws-site.css">
+<script type="module" src="/send/qrimage.mjs"></script>
+<script src="/send/sws-inbox.js" data-base="/send/" defer></script>
 </head>`;
 }
 
@@ -327,35 +331,20 @@ for (const name of ['start', 'agents', 'admin']) {
 
 // The link page: a chat assistant writes /send/#m=<message>; Grace checks it and presses Send (site/send/send.js).
 writeFileSync('site/send/index.html', head({ title: `Message Grace's site agent`, url: `${ORIGIN}/send/`, css: '../theme.css', rel: '../' })
-  .replace("frame-src https://mediaviewer.spotlight.com https://www.instagram.com;", "connect-src 'self' https://dev.send.sgraph.ai; frame-src 'none'; object-src 'none';")
+  .replace("frame-src https://mediaviewer.spotlight.com https://www.instagram.com;", "frame-src 'none';")
   .replace('<meta name="referrer"', '<meta name="robots" content="noindex">\n<meta name="referrer"')
-  .replace(/<script src="[^"]*site\.js" defer><\/script>/, '<script src="send.js" defer></script>') + `
+  .replace(/<script src="[^"]*site\.js" defer><\/script>/, '<script src="open-pane.js" defer></script>') + `
 <body class="doc-page">
 <a class="skip" href="#main">Skip to content</a>
 ${bar(HOME, '../', '../')}
 <main id="main" class="doc send" tabindex="-1">
-<p class="kicker">Message</p>
+<p class="kicker">Messages</p>
 <h1>Message Grace's site agent</h1>
-<div id="nokey" hidden>
-  <p class="nokey-card">To send a message here, scan the QR code the site's owner gave you. There is no other way in: messages without one are not accepted.</p>
-</div>
-<div id="form" class="stack">
-  <div id="history" class="stack" hidden>
-    <h2>Your messages</h2>
-    <ol id="sent"></ol>
-  </div>
-  <div class="composer">
-    <label for="text">New message</label>
-    <textarea id="text" maxlength="8000" placeholder="What would you like changed on your site?"></textarea>
-    <div class="send-row"><button id="send" class="btn primary" type="button">Send</button><span id="status" role="status"></span></div>
-    <p class="note">Encrypted and signed on this device before it leaves: only the site's agent can read it, and it knows it came from you. The agent checks for messages every hour from 10:00 to 22:00 UK time; its answer appears here.</p>
-  </div>
-  <details class="device">
-    <summary>About this device</summary>
-    <p>This device keeps the QR code's details, its own key (<code id="device"></code>) and your messages and answers, so you can follow them here. None of it leaves this device except your own messages. No cookies.</p>
-    <p><button id="forget" class="btn ghost" type="button">Forget this device</button></p>
-  </details>
-</div>
+<p>Your messages open in the <strong>Messages</strong> pane, on the right of every page of this site (full screen on a phone). Press <strong>Messages</strong> at the bottom right to open it again.</p>
+<h2>The first time, on each device</h2>
+<p>Drop the QR code image you were sent into the pane, paste it, or paste its link. Your device then makes its own key and keeps it, so the site's agent knows messages from it are yours. Without the QR code the pane does not accept messages.</p>
+<h2>Then</h2>
+<p>Write a request in the pane, on any page: it notes which page you were on. It is encrypted and signed on your device before it leaves. The agent reads its inbox every hour from 10:00 to 22:00 UK time and answers in the pane. Think of it as a slow inbox for lots of little requests.</p>
 </main>
 ${footer('../')}
 </body>

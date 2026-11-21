@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self' https://dev.send.sgraph.ai; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self' https://pki.sgit.ai; connect-src 'self' https://dev.send.sgraph.ai; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="robots" content="noindex">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Message Grace's site agent</title>
@@ -29,7 +29,11 @@
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../base.css">
 <link rel="stylesheet" href="../theme.css">
-<script src="send.js" defer></script>
+<script src="open-pane.js" defer></script>
+<link rel="stylesheet" href="/send/sws-inbox.css">
+<link rel="stylesheet" href="/send/sws-site.css">
+<script type="module" src="/send/qrimage.mjs"></script>
+<script src="/send/sws-inbox.js" data-base="/send/" defer></script>
 </head>
 <body class="doc-page">
 <a class="skip" href="#main">Skip to content</a>
@@ -62,28 +66,13 @@
 </details></div>
 </header>
 <main id="main" class="doc send" tabindex="-1">
-<p class="kicker">Message</p>
+<p class="kicker">Messages</p>
 <h1>Message Grace's site agent</h1>
-<div id="nokey" hidden>
-  <p class="nokey-card">To send a message here, scan the QR code the site's owner gave you. There is no other way in: messages without one are not accepted.</p>
-</div>
-<div id="form" class="stack">
-  <div id="history" class="stack" hidden>
-    <h2>Your messages</h2>
-    <ol id="sent"></ol>
-  </div>
-  <div class="composer">
-    <label for="text">New message</label>
-    <textarea id="text" maxlength="8000" placeholder="What would you like changed on your site?"></textarea>
-    <div class="send-row"><button id="send" class="btn primary" type="button">Send</button><span id="status" role="status"></span></div>
-    <p class="note">Encrypted and signed on this device before it leaves: only the site's agent can read it, and it knows it came from you. The agent checks for messages every hour from 10:00 to 22:00 UK time; its answer appears here.</p>
-  </div>
-  <details class="device">
-    <summary>About this device</summary>
-    <p>This device keeps the QR code's details, its own key (<code id="device"></code>) and your messages and answers, so you can follow them here. None of it leaves this device except your own messages. No cookies.</p>
-    <p><button id="forget" class="btn ghost" type="button">Forget this device</button></p>
-  </details>
-</div>
+<p>Your messages open in the <strong>Messages</strong> pane, on the right of every page of this site (full screen on a phone). Press <strong>Messages</strong> at the bottom right to open it again.</p>
+<h2>The first time, on each device</h2>
+<p>Drop the QR code image you were sent into the pane, paste it, or paste its link. Your device then makes its own key and keeps it, so the site's agent knows messages from it are yours. Without the QR code the pane does not accept messages.</p>
+<h2>Then</h2>
+<p>Write a request in the pane, on any page: it notes which page you were on. It is encrypted and signed on your device before it leaves. The agent reads its inbox every hour from 10:00 to 22:00 UK time and answers in the pane. Think of it as a slow inbox for lots of little requests.</p>
 </main>
 <footer>
   <p class="foot-links"><a href="../start/">Start here</a> <span aria-hidden="true">·</span> <a href="../agents/">Use this site with your AI</a> <span aria-hidden="true">·</span> <a href="../llms.txt">llms.txt</a> <span aria-hidden="true">·</span> <a href="../admin/">How this site was made</a> <span aria-hidden="true">·</span> <a href="../designs/">All five designs</a></p>

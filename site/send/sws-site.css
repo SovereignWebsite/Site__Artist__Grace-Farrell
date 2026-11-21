@@ -1,0 +1,10 @@
+/* The messages pane in Grace's own colours: the pane's --sws-* tokens taken from the design in use. Loaded after
+   sws-inbox.css; the :not(#sws) only raises the rule above that file's dark-mode rule. */
+:root:not(#sws){--sws-bg:var(--bg);--sws-surface:var(--surface);--sws-ink:var(--fg);--sws-muted:color-mix(in srgb,var(--fg) 80%,var(--bg));--sws-line:var(--line);
+  --sws-accent:var(--accent);--sws-accent-ink:var(--on-accent);--sws-mine:var(--accent);--sws-agent:var(--surface);--sws-font:var(--body);
+  --sws-wait:color-mix(in srgb,var(--fg) 85%,var(--bg));--sws-ok:var(--fg);--sws-bad:var(--accent)}
+.sws-mine{color:var(--on-accent)}
+.sws-agent{border:1px solid var(--line)}
+.sws-chip.sws-done,.sws-chip.sws-received{color:var(--fg)}
+.sws-toggle{box-shadow:0 6px 20px rgba(0,0,0,.25)}
+@media print{.sws-toggle,.sws-pane{display:none!important}}

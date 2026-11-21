@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; frame-src https://mediaviewer.spotlight.com https://www.instagram.com; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self' https://pki.sgit.ai; connect-src 'self' https://dev.send.sgraph.ai; frame-src https://mediaviewer.spotlight.com https://www.instagram.com; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Use with your AI: Grace Farrell</title>
 <meta name="description" content="How to use this site through your own AI agent or an LLM.">
@@ -29,6 +29,10 @@
 <link rel="stylesheet" href="../base.css">
 <link rel="stylesheet" href="../theme.css">
 <script src="../site.js" defer></script>
+<link rel="stylesheet" href="/send/sws-inbox.css">
+<link rel="stylesheet" href="/send/sws-site.css">
+<script type="module" src="/send/qrimage.mjs"></script>
+<script src="/send/sws-inbox.js" data-base="/send/" defer></script>
 </head>
 <body class="doc-page">
 <a class="skip" href="#main">Skip to content</a>
