@@ -49,3 +49,6 @@ h2{font-size:clamp(2.4rem,7vw,4.5rem)}
  #skills .note-cols{grid-template-columns:1fr}
  #skills .facts{flex-direction:column;gap:.8rem}
 }
+/* this week's venue on the cover (Dinis via the Messages pane, 21 Nov 2026) */
+.cover-lines .cl-now a{color:#fff;text-decoration:none}.cover-lines .cl-now a:hover,.cover-lines .cl-now a:focus-visible{text-decoration:underline}
+.cover-lines .cl-now .nv-label{display:inline-block;font:700 .7rem/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;background:#ff8fa8;color:#0d0d0d;padding:.1rem .45rem;margin-right:.35rem;vertical-align:middle;text-shadow:none}

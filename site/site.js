@@ -38,9 +38,13 @@ document.querySelectorAll('.frame[data-src]').forEach(function (frame) {
       }
     }
   });
-  if (now) document.querySelectorAll('[data-now-venue]').forEach(function (p) {
-    p.querySelector('.nv-label').textContent = 'This week';
-    p.querySelector('strong').textContent = now.querySelector('strong').textContent;
+  // The venue line (Tour diary's ticket, Editorial's cover): this week's venue, else the next one, else nothing.
+  var next = now;
+  if (!next) document.querySelectorAll('.stops li[data-start]').forEach(function (li) { if (!next && li.getAttribute('data-start') > today) next = li; });
+  document.querySelectorAll('[data-now-venue]').forEach(function (p) {
+    if (!next) { p.hidden = true; return; }
+    p.querySelector('.nv-label').textContent = next === now ? 'This week' : 'Next stop';
+    p.querySelector('strong').textContent = next.querySelector('strong').textContent;
   });
   // Below 600 px the list is enough: the map waits behind "Show the map".
   if (window.matchMedia && window.matchMedia('(max-width: 600px)').matches) document.querySelectorAll('details.map-box').forEach(function (m) { m.open = false; });

@@ -141,7 +141,7 @@ const bar = (cur, rel, home) => `<header class="bar">
   ${family}</div>
 </header>`;
 const footer = (rel) => `<footer>
-  <p class="foot-links"><a href="${rel}start/">Start here</a>${dot}<a href="${rel}agents/">Use this site with your AI</a>${dot}<a href="${rel}llms.txt">llms.txt</a>${dot}<a href="${rel}admin/">How this site was made</a>${dot}<a href="${rel}designs/">All five designs</a></p>
+  <p class="foot-links"><a href="${rel}start/">Start here</a>${dot}<a href="${rel}agents/">Use this site with your AI</a>${dot}<a href="${rel}llms.txt">llms.txt</a>${dot}<a href="${rel}admin/">How this site was made</a>${dot}<a href="${rel}designs/">All five designs</a>${dot}<a href="/send/">Messages</a></p>
   <p>A sovereign website: Grace's own files, history and address. No cookies, no tracking, no third-party scripts. The videos come from Spotlight and Instagram only when you press play. Text licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; photographs remain their photographers'. Source: <a href="https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell">SovereignWebsite/Site__Artist__Grace-Farrell</a>.</p>
 </footer>`;
 
@@ -220,7 +220,7 @@ function page(cur, rel) {
       <h1 id="name"><span>Grace</span> <span>Farrell</span></h1>
       <p class="sub">Actor-singer and soprano</p>
     </div>
-    <ul class="cover-lines" aria-label="In this profile"><li><em>The Crucible</em> at the Gielgud</li><li>Voice of <em>Diablo IV</em></li><li>Debut as Mary Bennet</li><li class="cl-tour">${nowOn}</li></ul>
+    <ul class="cover-lines" aria-label="In this profile"><li><em>The Crucible</em> at the Gielgud</li><li>Voice of <em>Diablo IV</em></li><li>Debut as Mary Bennet</li>${(() => { const v = current(); return v ? `<li class="cl-now" data-now-venue><a href="#tour"><span class="nv-label">${v.start <= todayISO ? 'This week' : 'Next stop'}</span> <strong>${esc(v.town)}</strong></a></li>` : ''; })()}<li class="cl-tour">${nowOn}</li></ul>
   </div>
   <div class="mag-bar">${facts}${cta}</div>
   <div class="standfirst"><p class="lead">${headline}</p></div>
