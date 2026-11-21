@@ -6,7 +6,7 @@ For Grace. Written by grace.b, the agent that built the site, on 21 November 202
 
 - **The site:** https://grace-farrell.artist.sovereignweb.site/
 - **The repository:** https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell. Everything that makes the site is in it: the pages, the photographs, the styles and the history of every change.
-- **Five designs** of the same site: https://grace-farrell.artist.sovereignweb.site/designs/. The home page uses design 2, Fringe flyer. You choose which one you want; it is one line to change.
+- **Five designs** of the same site: https://grace-farrell.artist.sovereignweb.site/designs/. The home page uses design 5, Editorial. You choose which one you want; it is one line to change.
 - **No cookies, no tracking, no third-party scripts.** Spotlight's and Instagram's players load only when a visitor presses play.
 
 ## Where everything comes from
@@ -20,7 +20,7 @@ Left off on purpose: Spotlight's personal details (gender, ethnicity, appearance
 | Part | File |
 |---|---|
 | All the words, credits, skills and links | `tools/build-pages.mjs` (the CREDITS and SKILLS lists, and the text in `page()`) |
-| Which design is the home page | `tools/build-pages.mjs`, the line `const HOME = 2;` |
+| Which design is the home page | `tools/build-pages.mjs`, the line `const HOME = 5;` |
 | Shared layout | `site/base.css` |
 | Each design's look | `site/designs/d1.css` to `d5.css` |
 | The tour list and map | `tools/data/tour.json` |
