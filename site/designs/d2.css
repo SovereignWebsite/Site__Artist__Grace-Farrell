@@ -15,7 +15,8 @@ main>section:nth-of-type(even):not(.cover){transform:rotate(.5deg)}
 @media (prefers-reduced-motion:reduce){main>section{transform:none!important}}
 .cover-poster{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);grid-template-areas:"type photo" "show photo" "strip photo" "cta photo";gap:1rem 2rem;align-items:center;background:var(--yellow);color:#111;border-bottom:6px solid #111}
 .poster-type{grid-area:type}.flyer-show{grid-area:show}.cover-poster .cover-photo{grid-area:photo}.cover-poster .strip{grid-area:strip}.poster-cta{grid-area:cta}
-.cover-poster h1{font-size:clamp(3.4rem,10.5vw,8.5rem);margin:.5rem 0;overflow-wrap:anywhere}
+.poster-type{container-type:inline-size;min-width:0}
+.cover-poster h1{font-size:clamp(2.6rem,8vw,8.5rem);font-size:clamp(2.6rem,17.5cqi,8.5rem);margin:.5rem 0;overflow-wrap:normal;word-break:keep-all;hyphens:none}
 .cover-poster h1 span:last-child{color:#b0105f}
 .cover-poster .sub{font:900 1.4rem/1.2 var(--head);text-transform:uppercase;color:#111}
 .sticker{display:inline-block;background:#fff;color:#111;border:3px solid #111;padding:.25rem .6rem;transform:rotate(-3deg)}
