@@ -35,3 +35,13 @@ h2{font-size:clamp(2.4rem,7vw,4.5rem)}
 .btn.primary{background:var(--fg);color:var(--bg)}
 @media (max-width:50rem){.cover-mag .cover-photo{height:56vh}.cover .cover-photo img{max-height:none}}
 .masthead a{color:#fff}.masthead .btn.primary{background:#fff;color:#0d0d0d}.masthead .btn.ghost{color:#fff}
+@media (max-width:50rem){.cover-mag{grid-template-areas:"hero" "mast" "stand"}.cover-mag .masthead{grid-area:mast;background:#0d0d0d;padding-top:1.2rem}.cover-mag .cover-photo::after{display:none}}
+@media (min-width:60rem){
+ .reels{grid-template-columns:minmax(0,2fr) minmax(0,1fr);align-items:start}
+ main{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr)}
+ main>section,main>.cover-mag{grid-column:1/-1}
+ main>#credits{grid-column:1;padding-right:2rem!important;padding-left:max(1rem,calc((100vw - var(--wide))/2))!important}
+ main>#skills{grid-column:2;border-left:1px solid var(--line);padding-left:2rem!important;padding-right:max(1rem,calc((100vw - var(--wide))/2))!important;background:var(--surface)}
+ #skills .note-cols{grid-template-columns:1fr}
+ #skills .facts{flex-direction:column;gap:.8rem}
+}

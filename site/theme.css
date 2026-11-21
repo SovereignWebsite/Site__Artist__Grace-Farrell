@@ -1,42 +1,47 @@
-/* Design 2, Fringe flyer: a wall of Edinburgh posters. Heavy condensed type, highlighter yellow and hot pink,
-   every section a flyer pasted up slightly askew, the credits a run of mini posters. */
-:root{--bg:#e9e4d8;--surface:#fffdf6;--fg:#111;--muted:#3b3934;--accent:#b0105f;--on-accent:#fff;--line:#111;
-  --bar-bg:#111;--bar-fg:#fff;--yellow:#ffd400;--pink:#b0105f;--land:#fffdf6;--land-edge:#111;--stop:#b0105f;--route:#111;
-  --head:"Arial Narrow","Roboto Condensed","Helvetica Neue Condensed","Franklin Gothic Medium",Impact,sans-serif;--radius:0}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1a1a;--surface:#242424;--fg:#f5f5f5;--muted:#cfcfcf;--accent:#ff5fa8;--on-accent:#111;--line:#f5f5f5;
-  --pink:#ff5fa8;--land:#2e2e2e;--land-edge:#ffd400;--stop:#ff5fa8;--stop-fg:#111;--route:#ffd400}}
-body{background-color:var(--bg);background-image:radial-gradient(rgba(0,0,0,.07) 1px,transparent 1px);background-size:14px 14px}
-h1,h2{text-transform:uppercase;font-weight:900;letter-spacing:-.01em;line-height:.9}
-h2{font-size:clamp(2.6rem,8vw,5rem)}
-.kicker{color:var(--accent);font-weight:800}
-main>section:not(.cover){background:var(--surface);margin:2.5rem auto;max-width:calc(var(--wide) + 2rem);padding:2rem clamp(1rem,4vw,3rem)!important;border:3px solid var(--fg);box-shadow:8px 8px 0 var(--fg)}
-main>section:nth-of-type(odd):not(.cover){transform:rotate(-.6deg)}
-main>section:nth-of-type(even):not(.cover){transform:rotate(.5deg)}
-@media (prefers-reduced-motion:reduce){main>section{transform:none!important}}
-.cover-poster{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);grid-template-areas:"type photo" "show photo" "strip photo" "cta photo";gap:1rem 2rem;align-items:center;background:var(--yellow);color:#111;border-bottom:6px solid #111}
-.poster-type{grid-area:type}.flyer-show{grid-area:show}.cover-poster .cover-photo{grid-area:photo}.cover-poster .strip{grid-area:strip}.poster-cta{grid-area:cta}
-.poster-type{container-type:inline-size;min-width:0}
-.cover-poster h1{font-size:clamp(2.6rem,8vw,8.5rem);font-size:clamp(2.6rem,17.5cqi,8.5rem);margin:.5rem 0;overflow-wrap:normal;word-break:keep-all;hyphens:none}
-.cover-poster h1 span:last-child{color:#b0105f}
-.cover-poster .sub{font:900 1.4rem/1.2 var(--head);text-transform:uppercase;color:#111}
-.sticker{display:inline-block;background:#fff;color:#111;border:3px solid #111;padding:.25rem .6rem;transform:rotate(-3deg)}
-.cover-poster .cover-photo img{border:8px solid #fff;outline:3px solid #111;transform:rotate(2.5deg);aspect-ratio:3/4;object-position:50% 25%}
-.cover-poster .photo-credit{color:#111;text-align:right}
-.strip{background:#111;color:#ffd400;padding:.8rem 1rem;font-weight:700;transform:rotate(-1deg)}
-.strip em{color:#fff}
-.cover-poster .btn.primary{background:#b0105f;color:#fff;border:3px solid #111;text-transform:uppercase}
-.cover-poster .links a{color:#111;font-weight:700}
-@media (max-width:50rem){.cover-poster{grid-template-columns:1fr;grid-template-areas:"type" "photo" "show" "strip" "cta"}}
-.cast-flyers{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,13rem),1fr));gap:1rem}
-.cast-flyers li{display:flex;flex-direction:column;gap:.3rem;padding:1rem;border:3px solid #111;background:#fff;color:#111}
-.cast-flyers li:nth-child(4n+1){background:#ffd400}
-.cast-flyers li:nth-child(4n+2){background:#111;color:#fff}
-.cast-flyers li:nth-child(4n+3){background:#b0105f;color:#fff}
-.cast-flyers li:nth-child(odd){transform:rotate(-1.2deg)}.cast-flyers li:nth-child(even){transform:rotate(1deg)}
-.cast-flyers .prod{order:-1;font:900 1.5rem/1 var(--head);text-transform:uppercase}
-.cast-flyers .prod em{font-style:normal}
-.cast-flyers .year,.cast-flyers .by{color:inherit;opacity:1}
-.cast-flyers .year{order:-2;font-size:.9rem}
-.btn.primary{border:3px solid var(--fg);text-transform:uppercase}
-.cover-poster .btn.ghost{color:#111;border-color:#111;text-transform:uppercase;font-weight:800}
-.cover-poster .strip-facts{color:#111}
+/* Design 5, Editorial: a magazine profile. The portrait fills the screen with the name set over it like a
+   masthead; then a standfirst, two-column text with a pull quote, and the credits as an index. */
+:root{--bg:#fff;--surface:#f4f4f2;--fg:#0d0d0d;--muted:#4d4d4d;--accent:#b3123a;--on-accent:#fff;--line:#d9d9d9;
+  --bar-bg:#fff;--bar-fg:#0d0d0d;--land:#eeeeec;--land-edge:#9a9a9a;--stop:#0d0d0d;--route:#b3123a;
+  --head:"Helvetica Neue",Helvetica,Arial,sans-serif;--radius:0}
+@media (prefers-color-scheme:dark){:root{--bg:#0d0d0d;--surface:#171717;--fg:#f2f2f2;--muted:#b5b5b5;--accent:#ff6b8b;--on-accent:#0d0d0d;--line:#2e2e2e;
+  --bar-bg:#0d0d0d;--bar-fg:#f2f2f2;--land:#1f1f1f;--land-edge:#5a5a5a;--stop:#f2f2f2;--stop-fg:#0d0d0d;--route:#ff6b8b}}
+h1,h2{font-weight:300;letter-spacing:-.03em}
+h2{font-size:clamp(2.4rem,7vw,4.5rem)}
+.kicker{color:var(--muted)}
+.cover-mag{position:relative;padding:0!important;display:grid;grid-template-areas:"hero" "stand"}
+.cover-mag .cover-photo,.cover-mag .masthead{grid-area:hero}.cover-mag .standfirst{grid-area:stand}
+.cover-mag .cover-photo{margin:0;position:relative;height:min(100vh,64rem);overflow:hidden;background:#111}
+.cover-mag .cover-photo img{width:100%;height:100%;object-position:50% 22%}
+.cover-mag .cover-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.82) 0%,rgba(0,0,0,.25) 40%,transparent 65%)}
+.cover-mag .photo-credit{position:absolute;right:1rem;top:.8rem;z-index:2;color:#fff;margin:0;text-shadow:0 1px 3px #000}
+.masthead{position:relative;align-self:end;padding:0 max(1rem,calc((100% - var(--wide))/2)) clamp(1.5rem,5vw,3.5rem);color:#fff;z-index:2}
+.masthead h1{font-size:clamp(4rem,15vw,12rem);font-weight:200;line-height:.85;margin:0}
+.masthead h1 span{display:inline}
+.masthead .kicker{color:#fff}
+.masthead .sub{font:italic 300 1.5rem/1.3 var(--serif);margin-top:.5rem}
+.standfirst{padding:2.5rem max(1rem,calc((100% - var(--wide))/2));display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:2rem;align-items:center;border-bottom:1px solid var(--line)}
+.standfirst .lead{font:300 clamp(1.3rem,2.6vw,1.8rem)/1.35 var(--head);margin:0}
+@media (max-width:50rem){.standfirst{grid-template-columns:1fr}}
+.about .prose{columns:2 18rem;column-gap:2.5rem}.about .prose p{max-width:none}
+.prose p:first-child::first-letter{float:left;font:300 4.4rem/.8 var(--head);margin:.3rem .5rem 0 0;color:var(--accent)}
+.pull{border-left:3px solid var(--accent);padding-left:1rem}
+.reels-sec{background:#0d0d0d;color:#f2f2f2}.reels-sec .kicker,.reels-sec .note,.reels-sec .meta,.reels-sec .gallery figcaption{color:#bdbdbd}.reels-sec a{color:#ff8fa8}
+.cast-index li{display:grid;grid-template-columns:4.5rem minmax(0,1.2fr) minmax(0,1fr);gap:.2rem 1.2rem;padding:1rem 0;border-top:1px solid var(--line);align-items:baseline}
+.cast-index .year{font:200 1.8rem/1 var(--head);color:var(--fg)}
+.cast-index .prod{font:400 1.35rem/1.2 var(--head)}
+.cast-index .role{font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:.82rem}
+.cast-index .by{grid-column:2/-1}
+@media (max-width:40rem){.cast-index li{grid-template-columns:3.5rem 1fr}.cast-index .role,.cast-index .by{grid-column:2}}
+.btn.primary{background:var(--fg);color:var(--bg)}
+@media (max-width:50rem){.cover-mag .cover-photo{height:56vh}.cover .cover-photo img{max-height:none}}
+.masthead a{color:#fff}.masthead .btn.primary{background:#fff;color:#0d0d0d}.masthead .btn.ghost{color:#fff}
+@media (max-width:50rem){.cover-mag{grid-template-areas:"hero" "mast" "stand"}.cover-mag .masthead{grid-area:mast;background:#0d0d0d;padding-top:1.2rem}.cover-mag .cover-photo::after{display:none}}
+@media (min-width:60rem){
+ .reels{grid-template-columns:minmax(0,2fr) minmax(0,1fr);align-items:start}
+ main{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr)}
+ main>section,main>.cover-mag{grid-column:1/-1}
+ main>#credits{grid-column:1;padding-right:2rem!important;padding-left:max(1rem,calc((100vw - var(--wide))/2))!important}
+ main>#skills{grid-column:2;border-left:1px solid var(--line);padding-left:2rem!important;padding-right:max(1rem,calc((100vw - var(--wide))/2))!important;background:var(--surface)}
+ #skills .note-cols{grid-template-columns:1fr}
+ #skills .facts{flex-direction:column;gap:.8rem}
+}

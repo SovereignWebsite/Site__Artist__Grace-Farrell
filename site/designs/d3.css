@@ -10,7 +10,7 @@ main{border-left:1px solid var(--line);border-right:1px solid var(--line);max-wi
 main>section{text-align:center;border-bottom:1px solid var(--line)}
 .kicker{font-family:var(--serif);font-variant:small-caps;text-transform:lowercase;letter-spacing:.2em;font-size:1.05rem;font-weight:400;color:var(--accent)}
 h2{font-weight:400;font-style:italic}
-h2::after{content:"\2766";display:block;font-style:normal;font-size:1.1rem;color:var(--accent);margin:.6rem auto 0}
+h2::after{content:"\2766" / "";display:block;font-style:normal;font-size:1.1rem;color:var(--accent);margin:.6rem auto 0}
 .cover-title{padding-top:4rem!important}
 .cover-title h1{font-weight:400;font-variant:small-caps;letter-spacing:.06em;font-size:clamp(3rem,9vw,5.5rem);margin:1rem 0}
 .cover-title h1 span{display:inline}

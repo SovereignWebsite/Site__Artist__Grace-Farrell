@@ -174,3 +174,10 @@ main.doc a,main.doc code{overflow-wrap:anywhere}
 .fs-title{font:900 clamp(1.4rem,3.5vw,2.2rem)/1.05 var(--head);text-transform:uppercase;margin:.3rem 0!important}
 .fs-title em{font-style:normal}
 .fs-cast{font-size:.9rem}
+
+/* round 2 (design.b.rounds) */
+html,body{overflow-x:clip}
+.bar nav{flex-wrap:wrap;overflow-x:visible;row-gap:.2rem;column-gap:.9rem}
+.cover h1 span{white-space:nowrap}
+.tour-grid.list-only{grid-template-columns:1fr}
+.tour-grid.list-only .stops{columns:3 14rem}

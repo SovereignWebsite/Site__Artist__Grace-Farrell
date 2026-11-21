@@ -4,7 +4,7 @@
 // Grace's Spotlight profile or from Dinis Cruz; see docs/sources.md. Never add one that is not there.
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
 
-const HOME = 2; // the design the home page uses; site/theme.css is a copy of site/designs/d<HOME>.css
+const HOME = 5; // the design the home page uses; site/theme.css is a copy of site/designs/d<HOME>.css
 const ORIGIN = 'https://grace-farrell.artist.sovereignweb.site';
 const NAME = 'Grace Farrell';
 const DESC = 'Grace Farrell, actor-singer and soprano. National Theatre, Les Misérables, BBC Champion, Diablo IV, and the UK tour of Pride and Prejudice* (*sort of). Represented by Collective Agents.';
@@ -142,9 +142,9 @@ const footer = (rel) => `<footer>
 // Each design arranges the same blocks in its own way: its own opening, its own way of showing the credits,
 // its own order and its own section names. The words, photographs and facts are the same in all five.
 const LABELS = {
-  1: { about: 'About', credits: 'Credits', reels: 'On screen', tour: 'On the road', skills: 'Skills', contact: 'Representation' },
-  2: { about: 'Who', credits: 'Shows', reels: 'Watch', tour: 'Touring now', skills: 'Can do', contact: 'Book her' },
-  3: { about: 'Prologue', credits: 'Dramatis personae', reels: 'Interlude', tour: 'The journey', skills: 'Notes on the voice', contact: 'Enquiries' },
+  1: { about: 'The biography', credits: 'The programme', reels: 'On screen', tour: 'On the road', skills: 'Notes', contact: 'Representation' },
+  2: { about: 'The back of the flyer', credits: 'Front of the flyer', reels: 'Watch', tour: 'Touring now', skills: 'Small print', contact: 'Tear off and keep' },
+  3: { about: 'Front matter', credits: 'Performances', reels: 'Interlude', tour: 'The journey', skills: 'Back matter', contact: 'Enquiries' },
   4: { about: 'About me', credits: 'Ticket stubs', reels: 'Footage', tour: 'Where the tour goes', skills: 'Packed for the road', contact: 'Agent' },
   5: { about: 'Profile', credits: 'The work', reels: 'In motion', tour: 'On tour', skills: 'Range', contact: 'Representation' },
 };
@@ -158,7 +158,8 @@ function page(cur, rel) {
   const headline = `Grace is a cover in the 2026 to 2027 UK and Ireland tour of <em>Pride and Prejudice* (*sort&nbsp;of)</em>, and made her debut as Mary Bennet on it. In 2025 she starred as Sue Grimshaw in the international premiere of <em>Falling in Love with Mr Dellamort</em> at the Edinburgh Fringe.`;
   const facts = `<p class="strip-facts">Soprano${dot}range D3 to F6${dot}actor-singer</p>`;
   const cta = `<p class="cta"><a class="btn primary" href="#contact">Contact her agent</a> <a class="btn ghost" href="#reels">Showreel</a> <span class="links"><a href="${SPOTLIGHT}">Spotlight profile</a>${dot}<a href="${INSTAGRAM}">Instagram</a></span></p>`;
-  const sec = (id, cls, title, inner) => `<section id="${id}" class="${cls}" aria-labelledby="${id}-h">\n  <p class="kicker">${L[id]}</p>\n  <h2 id="${id}-h">${title}</h2>\n${inner}\n</section>`;
+  const plain = (t) => t.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').trim().toLowerCase();
+  const sec = (id, cls, title, inner) => `<section id="${id}" class="${cls}" aria-labelledby="${id}-h">\n  ${plain(L[id]) === plain(title) ? '' : `<p class="kicker">${L[id]}</p>`}\n  <h2 id="${id}-h">${title}</h2>\n${inner}\n</section>`;
 
   // the opening, five ways
   const covers = {
@@ -201,7 +202,7 @@ function page(cur, rel) {
       <dl class="id-lines"><div><dt>Occupation</dt><dd>Actor-singer, soprano</dd></div><div><dt>Based</dt><dd>Greater London and the West Midlands</dd></div><div><dt>Languages</dt><dd>English, French, Italian</dd></div></dl>
     </div>
   </div>
-  <div class="cover-aside"><p class="lead">${headline}</p></div>
+  <div class="cover-aside">${tourMap()}<p class="lead">${headline}</p></div>
 </section>`,
     5: `<section class="cover cover-mag" id="top" aria-labelledby="name">
   <figure class="cover-photo">${headshot('100vw', ' fetchpriority="high"')}${credit}</figure>
@@ -263,12 +264,12 @@ function page(cur, rel) {
   const reels = sec('reels', 'reels-sec', { 1: 'Showreel and video', 2: 'Watch her', 3: 'Showreel and song', 4: 'Showreel and video', 5: 'Showreel and video' }[cur], reelsInner);
 
   const tourInner = `  <p class="tour-intro">Grace is a cover in the 2026 to 2027 UK and Ireland tour of Isobel McArthur's Olivier Award-winning comedy, and made her debut as Mary Bennet on it. These are the production's ${tour.venues.length} venues; dates for 2027 are from <a href="https://prideandprejudicesortof.com/tour-dates/">the tour's own page</a>, where tickets are sold.</p>
-  <div class="tour-grid">${tourMap()}${tourList()}</div>
+  <div class="tour-grid${cur === 4 ? ' list-only' : ''}">${cur === 4 ? '' : tourMap()}${tourList()}</div>
   <p class="note map-note">Map: Natural Earth (public domain). Venues already played are faded on the map and marked "played" in the list.</p>`;
   const tourSec = sec('tour', 'tour', `<em>Pride and Prejudice* (*sort of)</em>${cur === 4 ? ', town by town' : ' on tour'}`, tourInner);
 
   const voice = cur === 3 ? `  <p class="voice-line">Voice: soprano, D3 to F6. Instruments: violin, guitar, piano, keyboards.</p>\n` : '';
-  const skills = sec('skills', 'skills', { 1: 'Skills', 2: 'Can do', 3: 'The voice, and the rest', 4: 'Skills', 5: 'Skills' }[cur], `${voice}  <div class="note-cols">${SKILLS.map(([h, xs]) => `<div><h3>${h}</h3><p>${xs.map(esc).join(dot)}</p></div>`).join('')}</div>
+  const skills = sec('skills', 'skills', { 1: 'Skills', 2: 'Can do', 3: 'Instrumentation', 4: 'Skills', 5: 'Skills' }[cur], `${voice}  <div class="note-cols">${SKILLS.map(([h, xs]) => `<div><h3>${h}</h3><p>${xs.map(esc).join(dot)}</p></div>`).join('')}</div>
   <dl class="facts"><div><dt>Playing age</dt><dd>20 to 30</dd></div><div><dt>Nationalities</dt><dd>British, Italian</dd></div><div><dt>Location</dt><dd>Greater London and the West Midlands</dd></div></dl>`);
 
   const contact = sec('contact', 'contact', 'Collective Agents', `  <p>For casting and all enquiries, please contact Grace's agent, Amy McGivern.</p>
@@ -287,7 +288,7 @@ function page(cur, rel) {
     2: [credits, reels, tourSec, about, skills, contact],
     3: [about, credits, skills, reels, tourSec, contact],
     4: [tourSec, credits, reels, about, skills, contact],
-    5: [about, reels, credits, tourSec, skills, contact],
+    5: [about, reels, credits, skills, tourSec, contact],
   }[cur];
 
   return `<body class="design-${cur}">

@@ -33,3 +33,5 @@
 .reels-sec{position:relative;border-top:14px solid #5a1020;background:linear-gradient(90deg,#3a0a14 0,#5a1020 3%,transparent 9%,transparent 91%,#5a1020 97%,#3a0a14 100%),var(--stage)}
 .reels-sec::before{content:"";position:absolute;left:0;right:0;top:0;height:28px;background:repeating-linear-gradient(90deg,#6a1426 0 22px,#4a0c1a 22px 44px);border-radius:0 0 50% 50%/0 0 100% 100%}
 .act h3{color:var(--brass)}
+.about{background:radial-gradient(ellipse 55% 70% at 50% 0%,rgba(240,194,122,.16),transparent 70%),var(--stage)}
+.about h2{color:var(--brass)}

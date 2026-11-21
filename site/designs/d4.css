@@ -9,8 +9,6 @@ h1,h2{font-weight:700;letter-spacing:-.02em}
 .kicker{letter-spacing:.14em}
 .cover-passport{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:2rem;align-items:center}
 .passport{display:grid;grid-template-columns:minmax(8rem,14rem) 1fr;gap:1.5rem;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:1.5rem;box-shadow:0 10px 30px rgba(0,0,0,.15);position:relative}
-.passport::after{content:"P<GBRFARRELL<<GRACE<<<<<<<<<<<<<<<<<<<<<<<<<<";position:absolute;left:1.5rem;right:1.5rem;bottom:.6rem;font:.72rem/1 var(--mono);letter-spacing:.12em;color:var(--muted);overflow:hidden;white-space:nowrap}
-.passport{padding-bottom:2.4rem}
 .passport .cover-photo img{aspect-ratio:3/4;object-position:50% 25%;filter:saturate(.9);border:1px solid var(--line)}
 .passport h1{font-size:clamp(2.2rem,5vw,3.6rem)}
 .passport .kicker{display:inline-block;border:2px solid var(--accent);padding:.15rem .5rem;transform:rotate(-3deg);margin-bottom:1rem}
@@ -31,3 +29,6 @@ h1,h2{font-weight:700;letter-spacing:-.02em}
 .cast-stubs .year{position:absolute;right:1rem;top:.9rem}
 .note-cols>div{background:var(--surface);border:1px dashed var(--line);padding:.8rem 1rem}
 
+.cover-aside .map{max-width:26rem;margin:0 auto 1rem}
+.cover-passport{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+@media (max-width:50rem){.cover-passport{grid-template-columns:1fr}}
