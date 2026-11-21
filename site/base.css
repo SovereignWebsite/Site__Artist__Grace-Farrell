@@ -181,3 +181,21 @@ html,body{overflow-x:clip}
 .cover h1 span{white-space:nowrap}
 .tour-grid.list-only{grid-template-columns:1fr}
 .tour-grid.list-only .stops{columns:3 14rem}
+
+/* round 3 (design.b.rounds): titles under the stills, a quieter header, "this week" */
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.family-credit summary{font-size:1.1rem;padding:.1rem .5rem;min-width:24px;justify-content:center}
+.family-credit summary::after{display:none}
+.chooser summary{padding:.2rem .6rem;font-size:.78rem;border-width:1px}
+.frame{aspect-ratio:auto;background:none;overflow:visible;border-radius:0}
+.frame.playing{aspect-ratio:16/9;background:#000;overflow:hidden;border-radius:var(--radius)}
+.play{position:static;display:block;color:inherit}
+.play img{aspect-ratio:16/9;height:auto;opacity:1;border-radius:var(--radius)}
+.play:hover img,.play:focus-visible img{opacity:.9}
+.reel-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .7rem;padding:.65rem .1rem .2rem;font-size:.92rem}
+.reel-bar .reel-title{position:static;font:600 1.05rem/1.2 var(--head);text-shadow:none;margin-right:auto}
+.reel-bar .icon{width:0;height:0;border-left:10px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent}
+.reel-bar .dur{color:inherit;opacity:.8}
+.play:hover .reel-bar span:not(.reel-title):not(.icon),.play:focus-visible .reel-bar span:not(.reel-title):not(.icon){text-decoration:underline}
+.stops li.now strong::after{content:" (this week)";font-weight:700;font-size:.85em;color:var(--accent)}
+.map .stop.now circle{stroke:var(--fg);stroke-width:3}

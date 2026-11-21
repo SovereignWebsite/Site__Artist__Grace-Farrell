@@ -16,10 +16,12 @@ document.querySelectorAll('.frame[data-src]').forEach(function (frame) {
   });
 });
 
-// The tour: fade the venues whose last night has passed, by the visitor's own clock.
+// The tour: fade the venues whose last night has passed, and mark the one playing this week (the production's
+// dates, not Grace's: she is a cover), by the visitor's own clock.
 (function () {
   var today = new Date().toISOString().slice(0, 10);
   document.querySelectorAll('[data-end]').forEach(function (el) {
     if (el.getAttribute('data-end') < today) el.classList.add('past');
+    else if (el.getAttribute('data-start') <= today) el.classList.add('now');
   });
 })();

@@ -12,7 +12,8 @@
    "when": "from 11 September 2026",
    "lat": 51.734,
    "lon": 0.469,
-   "end": "2026-09-19"
+   "end": "2026-09-19",
+   "start": "2026-09-13"
   },
   {
    "town": "Worthing",
@@ -20,7 +21,8 @@
    "when": "September 2026",
    "lat": 50.812,
    "lon": -0.371,
-   "end": "2026-09-26"
+   "end": "2026-09-26",
+   "start": "2026-09-20"
   },
   {
    "town": "Mold",
@@ -28,7 +30,8 @@
    "when": "September to October 2026",
    "lat": 53.166,
    "lon": -3.134,
-   "end": "2026-10-03"
+   "end": "2026-10-03",
+   "start": "2026-09-27"
   },
   {
    "town": "Buxton",
@@ -36,7 +39,8 @@
    "when": "October 2026",
    "lat": 53.259,
    "lon": -1.912,
-   "end": "2026-10-10"
+   "end": "2026-10-10",
+   "start": "2026-10-04"
   },
   {
    "town": "Liverpool",
@@ -44,7 +48,8 @@
    "when": "October 2026",
    "lat": 53.406,
    "lon": -2.983,
-   "end": "2026-10-17"
+   "end": "2026-10-17",
+   "start": "2026-10-11"
   },
   {
    "town": "Belfast",
@@ -52,7 +57,8 @@
    "when": "October 2026",
    "lat": 54.595,
    "lon": -5.935,
-   "end": "2026-10-24"
+   "end": "2026-10-24",
+   "start": "2026-10-18"
   },
   {
    "town": "Salisbury",
@@ -60,7 +66,8 @@
    "when": "October 2026",
    "lat": 51.07,
    "lon": -1.8,
-   "end": "2026-10-31"
+   "end": "2026-10-31",
+   "start": "2026-10-25"
   },
   {
    "town": "Nottingham",
@@ -68,7 +75,8 @@
    "when": "November 2026",
    "lat": 52.954,
    "lon": -1.159,
-   "end": "2026-11-07"
+   "end": "2026-11-07",
+   "start": "2026-11-01"
   },
   {
    "town": "Cambridge",
@@ -76,7 +84,8 @@
    "when": "November 2026",
    "lat": 52.204,
    "lon": 0.118,
-   "end": "2026-11-14"
+   "end": "2026-11-14",
+   "start": "2026-11-08"
   },
   {
    "town": "Richmond",
@@ -84,7 +93,8 @@
    "when": "16 to 21 November 2026",
    "lat": 51.462,
    "lon": -0.303,
-   "end": "2026-11-21"
+   "end": "2026-11-21",
+   "start": "2026-11-16"
   },
   {
    "town": "Darlington",
@@ -92,7 +102,8 @@
    "when": "23 to 28 November 2026",
    "lat": 54.524,
    "lon": -1.553,
-   "end": "2026-11-28"
+   "end": "2026-11-28",
+   "start": "2026-11-23"
   },
   {
    "town": "Malvern",
@@ -100,7 +111,8 @@
    "when": "30 November to 5 December 2026",
    "lat": 52.11,
    "lon": -2.326,
-   "end": "2026-12-05"
+   "end": "2026-12-05",
+   "start": "2026-11-30"
   },
   {
    "town": "Poole",
@@ -108,7 +120,8 @@
    "when": "26 to 30 January 2027",
    "lat": 50.716,
    "lon": -1.983,
-   "end": "2027-01-30"
+   "end": "2027-01-30",
+   "start": "2027-01-26"
   },
   {
    "town": "Leicester",
@@ -116,7 +129,8 @@
    "when": "1 to 6 February 2027",
    "lat": 52.634,
    "lon": -1.126,
-   "end": "2027-02-06"
+   "end": "2027-02-06",
+   "start": "2027-02-01"
   },
   {
    "town": "Guildford",
@@ -124,7 +138,8 @@
    "when": "9 to 13 February 2027",
    "lat": 51.234,
    "lon": -0.573,
-   "end": "2027-02-13"
+   "end": "2027-02-13",
+   "start": "2027-02-09"
   },
   {
    "town": "Dublin",
@@ -132,7 +147,8 @@
    "when": "16 to 20 February 2027",
    "lat": 53.344,
    "lon": -6.24,
-   "end": "2027-02-20"
+   "end": "2027-02-20",
+   "start": "2027-02-16"
   },
   {
    "town": "Bradford",
@@ -140,7 +156,8 @@
    "when": "23 to 27 February 2027",
    "lat": 53.791,
    "lon": -1.756,
-   "end": "2027-02-27"
+   "end": "2027-02-27",
+   "start": "2027-02-23"
   },
   {
    "town": "Southampton",
@@ -148,7 +165,8 @@
    "when": "3 to 6 March 2027",
    "lat": 50.909,
    "lon": -1.409,
-   "end": "2027-03-06"
+   "end": "2027-03-06",
+   "start": "2027-03-03"
   },
   {
    "town": "Oxford",
@@ -156,7 +174,8 @@
    "when": "8 to 13 March 2027",
    "lat": 51.755,
    "lon": -1.261,
-   "end": "2027-03-13"
+   "end": "2027-03-13",
+   "start": "2027-03-08"
   },
   {
    "town": "Truro",
@@ -164,7 +183,8 @@
    "when": "15 to 20 March 2027",
    "lat": 50.263,
    "lon": -5.051,
-   "end": "2027-03-20"
+   "end": "2027-03-20",
+   "start": "2027-03-15"
   },
   {
    "town": "Birmingham",
@@ -172,7 +192,8 @@
    "when": "22 to 27 March 2027",
    "lat": 52.476,
    "lon": -1.899,
-   "end": "2027-03-27"
+   "end": "2027-03-27",
+   "start": "2027-03-22"
   },
   {
    "town": "Edinburgh",
@@ -180,7 +201,8 @@
    "when": "30 March to 3 April 2027",
    "lat": 55.942,
    "lon": -3.203,
-   "end": "2027-04-03"
+   "end": "2027-04-03",
+   "start": "2027-03-30"
   },
   {
    "town": "Cardiff",
@@ -188,7 +210,8 @@
    "when": "13 to 17 April 2027",
    "lat": 51.465,
    "lon": -3.163,
-   "end": "2027-04-17"
+   "end": "2027-04-17",
+   "start": "2027-04-13"
   },
   {
    "town": "Glasgow",
@@ -196,7 +219,8 @@
    "when": "20 to 24 April 2027",
    "lat": 55.865,
    "lon": -4.253,
-   "end": "2027-04-24"
+   "end": "2027-04-24",
+   "start": "2027-04-20"
   },
   {
    "town": "Blackpool",
@@ -204,7 +228,8 @@
    "when": "26 April to 1 May 2027",
    "lat": 53.818,
    "lon": -3.053,
-   "end": "2027-05-01"
+   "end": "2027-05-01",
+   "start": "2027-04-26"
   },
   {
    "town": "Horsham",
@@ -212,7 +237,8 @@
    "when": "4 to 8 May 2027",
    "lat": 51.063,
    "lon": -0.327,
-   "end": "2027-05-08"
+   "end": "2027-05-08",
+   "start": "2027-05-04"
   }
  ],
  "note": "'end' is the last night, used only to mark a stop as past; for the autumn 2026 stops the page shows the month only (official dates for those were not on the tour page when read)."

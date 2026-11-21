@@ -8,18 +8,18 @@
 body{font-size:18px}
 main{border-left:1px solid var(--line);border-right:1px solid var(--line);max-width:52rem;margin:0 auto;background:var(--surface)}
 main>section{text-align:center;border-bottom:1px solid var(--line)}
-.kicker{font-family:var(--serif);font-variant:small-caps;text-transform:lowercase;letter-spacing:.2em;font-size:1.05rem;font-weight:400;color:var(--accent)}
+.kicker{font-family:var(--serif);text-transform:uppercase;letter-spacing:.2em;font-size:.85rem;font-weight:600;color:var(--accent)}
 h2{font-weight:400;font-style:italic}
 h2::after{content:"\2766" / "";display:block;font-style:normal;font-size:1.1rem;color:var(--accent);margin:.6rem auto 0}
 .cover-title{padding-top:4rem!important}
-.cover-title h1{font-weight:400;font-variant:small-caps;letter-spacing:.06em;font-size:clamp(3rem,9vw,5.5rem);margin:1rem 0}
+.cover-title h1{font-weight:400;letter-spacing:.02em;font-size:clamp(3rem,9vw,5.5rem);margin:1rem 0}
 .cover-title h1 span{display:inline}
 .cover-title .sub{font:italic 1.3rem var(--serif);border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:inline-block;padding:.4rem 1.5rem}
 .oval{width:min(15rem,60vw);margin:2rem auto 1.5rem}
 .oval img{aspect-ratio:3/4;border-radius:50%;object-position:50% 25%;border:1px solid var(--accent);padding:.4rem;background:var(--bg)}
 .cover-title .lead{max-width:32rem;margin:0 auto 1.2rem;font-style:italic}
 .cover-title .cta{justify-content:center}
-.prose{text-align:justify;hyphens:auto}.prose p{margin-left:auto;margin-right:auto}
+.prose{text-align:left}.prose p{margin-left:auto;margin-right:auto}
 .prose p:first-child::first-letter{float:left;font-size:3.6rem;line-height:.85;margin:.35rem .4rem 0 0;color:var(--accent)}
 .cast-personae{columns:2 16rem;column-gap:2.5rem;text-align:left}
 .cast-personae li{break-inside:avoid;margin:0 0 1.1rem}
@@ -29,5 +29,7 @@ h2::after{content:"\2766" / "";display:block;font-style:normal;font-size:1.1rem;
 .reels,.gallery,.tour-grid,.note-cols{text-align:left}
 .tour-intro,.note{max-width:34rem;margin-left:auto;margin-right:auto}
 .facts{justify-content:center}
-.note-cols h3{font-variant:small-caps;font-weight:400;letter-spacing:.08em;font-size:1.15rem}
-.btn.primary{border-radius:0;font-family:var(--serif);font-variant:small-caps;letter-spacing:.08em}
+.note-cols h3{font-weight:600;font-size:1.1rem}
+.btn.primary{border-radius:0;font-family:var(--serif);letter-spacing:.04em}
+.cast-personae .by,.note-cols p,.note,.meta,.stops .when,.gallery figcaption{color:var(--fg);font-size:15px}
+.cast-personae .year{display:block;font:600 .85rem/1.4 var(--serif);color:var(--accent);letter-spacing:.08em}

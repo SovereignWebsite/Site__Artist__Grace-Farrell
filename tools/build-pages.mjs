@@ -50,9 +50,8 @@ const SKILLS = [
 ];
 
 const GALLERY = [
-  ['reel-cream-jacket', 'Grace in a cream corduroy jacket, mid-conversation, eyes wide', 1400, 741],
-  ['reel-white-wall', 'Grace speaking to camera against a white wall', 1400, 788],
-  ['reel-kitchen', 'Grace in a kitchen, looking up, startled', 1400, 753],
+  ['reel-white-wall', 'Grace speaking to camera against a white wall', 1400, 788, 'Showreel still: to camera'],
+  ['reel-kitchen', 'Grace in a kitchen, looking up, startled', 1400, 753, 'Showreel still: in the kitchen scene'],
 ];
 
 // The tour map: Britain and Ireland drawn from Natural Earth (public domain), venues placed by latitude and longitude.
@@ -62,10 +61,10 @@ const xy = (lon, lat) => [((lon - map.lon0) * map.k * map.s), ((map.lat1 - lat) 
 function tourMap() {
   const pts = tour.venues.map((v) => xy(v.lon, v.lat));
   const route = pts.map(([x, y], i) => `${i ? 'L' : 'M'}${x.toFixed(1)} ${y.toFixed(1)}`).join('');
-  const dots = tour.venues.map((v, i) => { const [x, y] = pts[i]; return `<g class="stop" data-end="${v.end}"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="8"/><text aria-hidden="true" x="${x.toFixed(1)}" y="${(y + 3.3).toFixed(1)}">${i + 1}</text><title>${i + 1}. ${esc(v.town)}, ${esc(v.venue)}: ${esc(v.when)}</title></g>`; }).join('');
+  const dots = tour.venues.map((v, i) => { const [x, y] = pts[i]; return `<g class="stop" data-start="${v.start}" data-end="${v.end}"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="8"/><text aria-hidden="true" x="${x.toFixed(1)}" y="${(y + 3.3).toFixed(1)}">${i + 1}</text><title>${i + 1}. ${esc(v.town)}, ${esc(v.venue)}: ${esc(v.when)}</title></g>`; }).join('');
   return `<svg class="map" viewBox="0 0 ${map.w} ${map.h}" role="img" aria-labelledby="map-t"><title id="map-t">Map of Britain and Ireland with the ${tour.venues.length} venues of the tour, numbered in order; the list beside it gives each one.</title><path class="land" d="${map.d}"/><path class="route" d="${route}"/>${dots}</svg>`;
 }
-const tourList = () => `<ol class="stops">${tour.venues.map((v) => `<li data-end="${v.end}"><strong>${esc(v.town)}</strong>, ${esc(v.venue)} <span class="when">${esc(v.when)}</span></li>`).join('')}</ol>`;
+const tourList = () => `<ol class="stops">${tour.venues.map((v) => `<li data-start="${v.start}" data-end="${v.end}"><strong>${esc(v.town)}</strong>, ${esc(v.venue)} <span class="when">${esc(v.when)}</span></li>`).join('')}</ol>`;
 
 const chooser = (cur, rel) => `<details class="chooser">
     <summary>Choose a design</summary>
@@ -76,7 +75,7 @@ const chooser = (cur, rel) => `<details class="chooser">
   </details>`;
 
 const family = `<details class="family-credit">
-  <summary>Sovereign Website</summary>
+  <summary><span aria-hidden="true">⋮</span><span class="vh">Sovereign Website</span></summary>
   <ul>
     <li><a href="/start/">Start here</a></li>
     <li><a href="/agents/">Use with your AI</a></li>
@@ -156,7 +155,7 @@ function page(cur, rel) {
   const credit = '<figcaption class="photo-credit">Photo © Jennie Scott</figcaption>';
   const nowOn = `On tour${dot}<em>Pride and Prejudice* (*sort&nbsp;of)</em>`;
   const headline = `Grace is a cover in the 2026 to 2027 UK and Ireland tour of <em>Pride and Prejudice* (*sort&nbsp;of)</em>, and made her debut as Mary Bennet on it. In 2025 she starred as Sue Grimshaw in the international premiere of <em>Falling in Love with Mr Dellamort</em> at the Edinburgh Fringe.`;
-  const facts = `<p class="strip-facts">Soprano${dot}range D3 to F6${dot}actor-singer</p>`;
+  const facts = `<p class="strip-facts">Range D3 to F6${dot}violin, guitar, piano${dot}English, French, Italian</p>`;
   const cta = `<p class="cta"><a class="btn primary" href="#contact">Contact her agent</a> <a class="btn ghost" href="#reels">Showreel</a> <span class="links"><a href="${SPOTLIGHT}">Spotlight profile</a>${dot}<a href="${INSTAGRAM}">Instagram</a></span></p>`;
   const plain = (t) => t.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').trim().toLowerCase();
   const sec = (id, cls, title, inner) => `<section id="${id}" class="${cls}" aria-labelledby="${id}-h">\n  ${plain(L[id]) === plain(title) ? '' : `<p class="kicker">${L[id]}</p>`}\n  <h2 id="${id}-h">${title}</h2>\n${inner}\n</section>`;
@@ -231,8 +230,8 @@ function page(cur, rel) {
   const creditsInner = {
     1: `<div class="acts">${[['Act one', 'Stage'], ['Act two', 'Screen'], ['Act three', 'Studio']].map(([act, m]) => `<div class="act"><h3><span>${act}</span> ${m}</h3><ol class="cast cast-dots">${c.filter((x) => x.medium === m).map(row1).join('')}</ol></div>`).join('')}</div>`,
     2: `<ol class="cast cast-flyers">${c.map((x) => `<li><span class="year">${x.year}</span><span class="prod"><em>${x.prod}</em></span><span class="role">${x.role}</span><span class="by">${x.by}</span></li>`).join('')}</ol>`,
-    3: `<ol class="cast cast-personae">${c.map((x) => `<li><span class="role">${x.role}</span><span class="prod">in <em>${x.prod}</em></span><span class="by">${x.by}</span></li>`).join('')}</ol>`,
-    4: `<ol class="cast cast-stubs">${[...c].reverse().map((x, i) => `<li><span class="stub-no" aria-hidden="true">No. ${String(i + 1).padStart(3, '0')}</span><span class="prod"><em>${x.prod}</em></span><span class="role">${x.role}</span><span class="by">${x.by}</span><span class="year">${x.year}</span></li>`).join('')}</ol>`,
+    3: `<ol class="cast cast-personae">${c.map((x) => `<li><span class="year">${x.year}</span><span class="role">${x.role}</span><span class="prod">in <em>${x.prod}</em></span><span class="by">${x.by}</span></li>`).join('')}</ol>`,
+    4: `<ol class="cast cast-stubs">${c.map((x, i) => `<li><span class="stub-no" aria-hidden="true">No. ${String(i + 1).padStart(3, '0')}</span><span class="prod"><em>${x.prod}</em></span><span class="role">${x.role}</span><span class="by">${x.by}</span><span class="year">${x.year}</span></li>`).join('')}</ol>`,
     5: `<ol class="cast cast-index">${c.map((x) => `<li><span class="year">${x.year}</span><span class="prod"><em>${x.prod}</em></span><span class="role">${x.role}</span><span class="by">${x.by}</span></li>`).join('')}</ol>`,
   }[cur];
   const credits = sec('credits', 'credits', { 1: 'Credits', 2: 'Shows', 3: 'Dramatis personae', 4: 'Credits', 5: 'Selected credits' }[cur], creditsInner);
@@ -243,24 +242,22 @@ function page(cur, rel) {
       <div class="frame" data-src="${esc(REEL)}" data-title="Grace Farrell: acting showreel">
         <a class="play" href="${esc(REEL)}">
           <img src="${img('reel-cream-jacket', 1400)}" srcset="${img('reel-cream-jacket', 640)} 640w, ${img('reel-cream-jacket', 1400)} 1400w" sizes="(max-width: 50rem) 100vw, 50vw" alt="" width="1400" height="741" loading="lazy" decoding="async">
-          <span class="reel-title">Acting showreel</span>
-          <span class="reel-cta"><span class="icon" aria-hidden="true"></span><span>Play on Spotlight</span><span class="dur">4 min 58 s</span></span>
+          <span class="reel-bar"><span class="reel-title">Acting showreel</span><span class="icon" aria-hidden="true"></span><span>Play on Spotlight</span><span class="dur">4 min 58 s</span></span>
         </a>
       </div>
-      <figcaption class="meta">Still from Grace's acting showreel.</figcaption>
+      <figcaption class="meta">The poster is a still from the showreel, in the cream jacket scene.</figcaption>
     </figure>
     <figure class="reel">
       <div class="frame ig" data-src="${esc(IG_EMBED)}" data-title="Grace Farrell singing, on Instagram">
         <a class="play" href="${esc(IG_POST)}">
           <img src="${img('instagram-microphone', 1296)}" srcset="${img('instagram-microphone', 640)} 640w, ${img('instagram-microphone', 1296)} 1296w" sizes="(max-width: 50rem) 100vw, 50vw" alt="" width="1296" height="729" loading="lazy" decoding="async">
-          <span class="reel-title">At the microphone</span>
-          <span class="reel-cta"><span class="icon" aria-hidden="true"></span><span>Play on Instagram</span></span>
+          <span class="reel-bar"><span class="reel-title">At the microphone</span><span class="icon" aria-hidden="true"></span><span>Play on Instagram</span></span>
         </a>
       </div>
       <figcaption class="meta">Still from the video, Instagram @gracexfarrellx. <a href="${IG_POST}">Open on Instagram</a></figcaption>
     </figure>
   </div>
-  <div class="gallery">${GALLERY.map(([n, alt, w, h]) => `<figure><a href="${img(n, 1400)}"><img src="${img(n, 640)}" srcset="${img(n, 640)} 640w, ${img(n, 1400)} 1400w" sizes="(max-width: 50rem) 100vw, 33vw" alt="${esc(alt)}" width="${w}" height="${h}" loading="lazy" decoding="async"></a><figcaption>Still from Grace's acting showreel</figcaption></figure>`).join('')}</div>`;
+  <div class="gallery">${GALLERY.map(([n, alt, w, h, cap]) => `<figure><a href="${img(n, 1400)}"><img src="${img(n, 640)}" srcset="${img(n, 640)} 640w, ${img(n, 1400)} 1400w" sizes="(max-width: 50rem) 100vw, 33vw" alt="${esc(alt)}" width="${w}" height="${h}" loading="lazy" decoding="async"></a><figcaption>${cap}</figcaption></figure>`).join('')}</div>`;
   const reels = sec('reels', 'reels-sec', { 1: 'Showreel and video', 2: 'Watch her', 3: 'Showreel and song', 4: 'Showreel and video', 5: 'Showreel and video' }[cur], reelsInner);
 
   const tourInner = `  <p class="tour-intro">Grace is a cover in the 2026 to 2027 UK and Ireland tour of Isobel McArthur's Olivier Award-winning comedy, and made her debut as Mary Bennet on it. These are the production's ${tour.venues.length} venues; dates for 2027 are from <a href="https://prideandprejudicesortof.com/tour-dates/">the tour's own page</a>, where tickets are sold.</p>
