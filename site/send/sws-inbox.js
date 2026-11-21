@@ -126,7 +126,9 @@
       for (const env of await r.json()) {
         try {
           const m = await openReply(env), it = ST.items.find(i => i.id === m.re_id); if (!it) continue
-          if (['received', 'acted on', 'answered'].includes(m.state) && it.state !== m.state) { it.state = m.state; changed = true }
+          const RANK = { sent: 0, received: 1, 'acted on': 2, answered: 3 }
+          if (m.state === 'received' && m.at && it.received_at !== m.at) { it.received_at = m.at; changed = true }
+          if (m.state in RANK && RANK[m.state] > (RANK[it.state] || 0)) { it.state = m.state; changed = true }
           if (typeof m.text === 'string' && m.text && it.answer !== m.text) { it.answer = m.text.slice(0, 8000); it.answered_at = m.at; changed = true }
         } catch { }
       }
@@ -137,7 +139,7 @@
   // ---------- UI ----------
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e }
   function say(t, kind) { if (!ui.status) return; ui.status.textContent = t; ui.status.className = 'sws-status' + (kind ? ' sws-' + kind : '') }
-  const CHIP = { sent: ['waiting', 'Waiting for the agent'], received: ['received', 'Received, being worked on'], 'acted on': ['done', 'Done'], answered: ['done', 'Answered'] }
+  const CHIP = { sent: ['waiting', 'Waiting for the agent'], received: ['received', 'Received by the agent'], 'acted on': ['done', 'Done'], answered: ['done', 'Answered'] }
 
   function renderThread(scroll) {
     const box = ui.thread; box.replaceChildren()
@@ -147,7 +149,8 @@
       const t = el('div', 'sws-thread')
       t.append(el('div', 'sws-mine', it.preview))
       const meta = el('div', 'sws-meta sws-r'); const [cls, words] = CHIP[it.state] || CHIP.sent
-      meta.append(el('span', '', localTime(it.time) + (it.page && it.page !== '/' ? ' · ' + it.page : '') + ' ·'), el('span', 'sws-chip sws-' + cls, words))
+      const when = it.state === 'received' && it.received_at ? ' ' + localTime(it.received_at) : ''
+      meta.append(el('span', '', localTime(it.time) + (it.page && it.page !== '/' ? ' · ' + it.page : '') + ' ·'), el('span', 'sws-chip sws-' + cls, words + when))
       t.append(meta)
       if (it.answer) { t.append(el('div', 'sws-agent', it.answer)); t.append(el('div', 'sws-meta', CFG.agent_name + (it.answered_at ? ' · ' + localTime(it.answered_at) : ''))) }
       box.append(t)
