@@ -1,0 +1,17 @@
+/* Design 4, Tour diary: a road map and ticket stubs. Kraft paper, typewriter headings, a red rubber stamp. */
+:root{--bg:#efe5d2;--surface:#f8f1e3;--fg:#1f2a44;--muted:#4a4f5e;--accent:#a8231b;--on-accent:#fff;--line:#c9b99a;
+  --bar-bg:#1f2a44;--bar-fg:#f8f1e3;--land:#f8f1e3;--land-edge:#8a7a5c;--stop:#a8231b;--route:#1f2a44;
+  --head:"Courier Prime","Courier New",Courier,var(--mono);--radius:2px}
+@media (prefers-color-scheme:dark){:root{--bg:#1b1915;--surface:#24211b;--fg:#f0e8d8;--muted:#c4b9a3;--accent:#f0c56c;--on-accent:#1b1915;--line:#3e382d;
+  --bar-bg:#11100d;--land:#2a2620;--land-edge:#7a6d55;--stop:#f0c56c;--stop-fg:#1b1915;--route:#f0e8d8}}
+h1,h2{font-weight:700;letter-spacing:-.02em}
+.kicker{font-family:var(--head);letter-spacing:.08em}
+.cover-photo img{border:10px solid var(--surface);box-shadow:0 8px 24px rgba(0,0,0,.25);transform:rotate(1.2deg)}
+.cover .kicker{display:inline-block;border:2px solid var(--accent);padding:.15rem .5rem;transform:rotate(-2deg)}
+.cast li{background:var(--surface);border:1px dashed var(--line);border-left:4px solid var(--accent);padding:.7rem 1rem;margin-bottom:.6rem}
+.cast .prod{font-family:var(--head)}
+.tour{order:-1}
+.tour .tour-grid{background:var(--surface);border:1px dashed var(--line);padding:1rem}
+.stops li{border-bottom:1px dashed var(--line);padding-bottom:.35rem}
+.note-cols>div{background:var(--surface);border:1px dashed var(--line);padding:.8rem 1rem}
+.btn.primary{font-family:var(--head)}

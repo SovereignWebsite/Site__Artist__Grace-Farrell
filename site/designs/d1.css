@@ -1,0 +1,17 @@
+/* Design 1, Footlights: a dark stage and one warm light. The headshot sits in a spotlight; brass and plum. */
+:root{--bg:#f6efe6;--surface:#fffaf3;--fg:#21161b;--muted:#5b4a4f;--accent:#7d2148;--on-accent:#fff;--line:#e1d2c3;
+  --bar-bg:#160d11;--bar-fg:#f3e3cf;--cover-bg:radial-gradient(ellipse at 30% 35%,#4a2a2c 0%,#1d1115 55%,#0f0a0c 100%);--cover-fg:#f6e9da;
+  --land:#eadfce;--land-edge:#c4b29d;--stop:#7d2148;--route:#a5793f;--head:var(--serif)}
+@media (prefers-color-scheme:dark){:root{--bg:#110b0e;--surface:#1b1216;--fg:#f3e6da;--muted:#c8b5a6;--accent:#f0c27a;--on-accent:#1b1008;--line:#33242a;
+  --land:#241a1d;--land-edge:#4c383d;--stop:#f0c27a;--stop-fg:#1b1008;--route:#f0c27a}}
+.cover{min-height:min(90vh,52rem);background:var(--cover-bg)}
+.cover .kicker{color:#f0c27a}.cover .photo-credit{color:#cdb8a5}.cover .lead{color:#e9d9c8}
+.cover .btn.primary{background:#f0c27a;color:#1b1008}
+.cover .links a{color:#f6d9a8}
+.cover-photo img{box-shadow:0 0 0 1px rgba(240,194,122,.35),0 30px 80px rgba(0,0,0,.6);border-radius:2px}
+.cover h1{font-weight:400;letter-spacing:-.01em}
+.cover h1 span:last-child{font-style:italic;color:#f0c27a}
+.credits{background:var(--surface)}
+.cast .prod{font-style:italic}
+.tour{background:var(--surface)}
+.contact{background:#160d11;color:#f3e3cf}.contact .kicker{color:#f0c27a}.contact a{color:#f6d9a8}

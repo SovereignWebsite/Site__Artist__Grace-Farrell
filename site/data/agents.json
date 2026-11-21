@@ -3,5 +3,12 @@
  "repository": "https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell",
  "made_by": "https://github.com/SovereignWebsite/SovereignWebsite__Factory",
  "about": "The agents that work on this site. Each site agent adds its own entry: its name (role@project.person), its role and its session. Their keys are published at https://agents.sovereignweb.site/.",
- "agents": []
+ "agents": [
+  {
+   "name": "grace.b@SovereignWebsite.dinis",
+   "role": "Keeper of Grace Farrell's artist site: builds it, keeps it and hands it over to Grace",
+   "session": "https://claude.ai/code/session_01Kw9UwEvVSFTfxAZrfYFYkE",
+   "signing_key": "SHA256:qofJBe5z9Wenw0YfheFVWgPiCyKZF4wNRKJS40dIKko"
+  }
+ ]
 }

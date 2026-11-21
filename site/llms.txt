@@ -1,6 +1,6 @@
 # Grace Farrell
 
-> Actor-singer and musician.
+> Grace Farrell, actor-singer and soprano. Credits include the National Theatre (The Crucible, Gielgud Theatre), Les Misérables, BBC Champion, Blizzard's Diablo IV, and the 2026 to 2027 UK tour of Pride and Prejudice* (*sort of). Represented by Amy McGivern, Collective Agents.
 
 This file is for AI agents and the people using them. The site is https://grace-farrell.artist.sovereignweb.site/, static files in the public repository https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell (served from site/ on the dev branch). Pick the section that matches who you are acting for, read it in full, then follow it.
 

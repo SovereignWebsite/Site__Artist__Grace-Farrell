@@ -1,0 +1,19 @@
+/* Design 5, Editorial: a magazine profile. White space, black type, a full-height portrait, hairline rules. */
+:root{--bg:#fff;--surface:#f4f4f2;--fg:#0d0d0d;--muted:#4d4d4d;--accent:#b3123a;--on-accent:#fff;--line:#d9d9d9;
+  --bar-bg:#fff;--bar-fg:#0d0d0d;--land:#eeeeec;--land-edge:#9a9a9a;--stop:#0d0d0d;--route:#b3123a;
+  --head:"Helvetica Neue",Helvetica,Arial,sans-serif;--radius:0}
+@media (prefers-color-scheme:dark){:root{--bg:#0d0d0d;--surface:#171717;--fg:#f2f2f2;--muted:#b5b5b5;--accent:#ff6b8b;--on-accent:#0d0d0d;--line:#2e2e2e;
+  --bar-bg:#0d0d0d;--bar-fg:#f2f2f2;--land:#1f1f1f;--land-edge:#5a5a5a;--stop:#f2f2f2;--stop-fg:#0d0d0d;--route:#ff6b8b}}
+h1,h2{font-weight:300;letter-spacing:-.03em}
+h2{font-size:clamp(2.2rem,6vw,4rem)}
+.cover{grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding-top:0!important;padding-left:0!important;align-items:stretch}
+.cover-photo img{height:100%;max-height:92vh;aspect-ratio:auto}
+.cover-text{align-self:center;padding:2rem 1rem}
+.cover h1{font-size:clamp(3.4rem,10vw,7.5rem);font-weight:200}
+.cover .photo-credit{position:absolute;left:.8rem;bottom:.6rem;color:#fff;text-shadow:0 1px 4px #000;margin:0}
+@media (max-width:50rem){.cover{grid-template-columns:1fr;padding-right:0!important}.cover-text{padding:1rem}.cover-photo img{max-height:none}}
+.about p:first-of-type::first-letter{float:left;font:300 4.2rem/.8 var(--head);margin:.3rem .5rem 0 0;color:var(--accent)}
+.cast li{border-bottom:1px solid var(--line)}
+.cast .role{font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:.85rem}
+.kicker{color:var(--muted)}
+.btn.primary{background:var(--fg);color:var(--bg)}

@@ -1,0 +1,219 @@
+{
+ "production": "Pride and Prejudice* (*sort of), UK and Ireland tour 2026 to 2027",
+ "sources": [
+  "https://prideandprejudicesortof.com/tour-dates/ (read 2026-11-21, lists Richmond onwards)",
+  "https://www.thereviewshub.com/cast-announced-for-pride-and-prejudice-sort-of-uk-tour/ (autumn 2026 venues, names Grace Farrell as cover)",
+  "https://www.whatsonstage.com/news/pride-and-prejudice-sort-of-announces-new-tour-company_1729111/"
+ ],
+ "venues": [
+  {
+   "town": "Chelmsford",
+   "venue": "Chelmsford Theatre",
+   "when": "from 11 September 2026",
+   "lat": 51.734,
+   "lon": 0.469,
+   "end": "2026-09-19"
+  },
+  {
+   "town": "Worthing",
+   "venue": "Connaught Theatre",
+   "when": "September 2026",
+   "lat": 50.812,
+   "lon": -0.371,
+   "end": "2026-09-26"
+  },
+  {
+   "town": "Mold",
+   "venue": "Theatr Clwyd",
+   "when": "September to October 2026",
+   "lat": 53.166,
+   "lon": -3.134,
+   "end": "2026-10-03"
+  },
+  {
+   "town": "Buxton",
+   "venue": "Buxton Opera House",
+   "when": "October 2026",
+   "lat": 53.259,
+   "lon": -1.912,
+   "end": "2026-10-10"
+  },
+  {
+   "town": "Liverpool",
+   "venue": "Liverpool Playhouse",
+   "when": "October 2026",
+   "lat": 53.406,
+   "lon": -2.983,
+   "end": "2026-10-17"
+  },
+  {
+   "town": "Belfast",
+   "venue": "Grand Opera House",
+   "when": "October 2026",
+   "lat": 54.595,
+   "lon": -5.935,
+   "end": "2026-10-24"
+  },
+  {
+   "town": "Salisbury",
+   "venue": "Salisbury Playhouse",
+   "when": "October 2026",
+   "lat": 51.07,
+   "lon": -1.8,
+   "end": "2026-10-31"
+  },
+  {
+   "town": "Nottingham",
+   "venue": "Nottingham Playhouse",
+   "when": "November 2026",
+   "lat": 52.954,
+   "lon": -1.159,
+   "end": "2026-11-07"
+  },
+  {
+   "town": "Cambridge",
+   "venue": "Cambridge Arts Theatre",
+   "when": "November 2026",
+   "lat": 52.204,
+   "lon": 0.118,
+   "end": "2026-11-14"
+  },
+  {
+   "town": "Richmond",
+   "venue": "Richmond Theatre",
+   "when": "16 to 21 November 2026",
+   "lat": 51.462,
+   "lon": -0.303,
+   "end": "2026-11-21"
+  },
+  {
+   "town": "Darlington",
+   "venue": "Darlington Hippodrome",
+   "when": "23 to 28 November 2026",
+   "lat": 54.524,
+   "lon": -1.553,
+   "end": "2026-11-28"
+  },
+  {
+   "town": "Malvern",
+   "venue": "Malvern Festival Theatre",
+   "when": "30 November to 5 December 2026",
+   "lat": 52.11,
+   "lon": -2.326,
+   "end": "2026-12-05"
+  },
+  {
+   "town": "Poole",
+   "venue": "Lighthouse",
+   "when": "26 to 30 January 2027",
+   "lat": 50.716,
+   "lon": -1.983,
+   "end": "2027-01-30"
+  },
+  {
+   "town": "Leicester",
+   "venue": "Curve",
+   "when": "1 to 6 February 2027",
+   "lat": 52.634,
+   "lon": -1.126,
+   "end": "2027-02-06"
+  },
+  {
+   "town": "Guildford",
+   "venue": "Yvonne Arnaud Theatre",
+   "when": "9 to 13 February 2027",
+   "lat": 51.234,
+   "lon": -0.573,
+   "end": "2027-02-13"
+  },
+  {
+   "town": "Dublin",
+   "venue": "Bord Gáis Energy Theatre",
+   "when": "16 to 20 February 2027",
+   "lat": 53.344,
+   "lon": -6.24,
+   "end": "2027-02-20"
+  },
+  {
+   "town": "Bradford",
+   "venue": "Alhambra Theatre",
+   "when": "23 to 27 February 2027",
+   "lat": 53.791,
+   "lon": -1.756,
+   "end": "2027-02-27"
+  },
+  {
+   "town": "Southampton",
+   "venue": "Mayflower Theatre",
+   "when": "3 to 6 March 2027",
+   "lat": 50.909,
+   "lon": -1.409,
+   "end": "2027-03-06"
+  },
+  {
+   "town": "Oxford",
+   "venue": "Oxford Playhouse",
+   "when": "8 to 13 March 2027",
+   "lat": 51.755,
+   "lon": -1.261,
+   "end": "2027-03-13"
+  },
+  {
+   "town": "Truro",
+   "venue": "Hall for Cornwall",
+   "when": "15 to 20 March 2027",
+   "lat": 50.263,
+   "lon": -5.051,
+   "end": "2027-03-20"
+  },
+  {
+   "town": "Birmingham",
+   "venue": "Alexandra Theatre",
+   "when": "22 to 27 March 2027",
+   "lat": 52.476,
+   "lon": -1.899,
+   "end": "2027-03-27"
+  },
+  {
+   "town": "Edinburgh",
+   "venue": "King's Theatre",
+   "when": "30 March to 3 April 2027",
+   "lat": 55.942,
+   "lon": -3.203,
+   "end": "2027-04-03"
+  },
+  {
+   "town": "Cardiff",
+   "venue": "Wales Millennium Centre",
+   "when": "13 to 17 April 2027",
+   "lat": 51.465,
+   "lon": -3.163,
+   "end": "2027-04-17"
+  },
+  {
+   "town": "Glasgow",
+   "venue": "Pavilion Theatre",
+   "when": "20 to 24 April 2027",
+   "lat": 55.865,
+   "lon": -4.253,
+   "end": "2027-04-24"
+  },
+  {
+   "town": "Blackpool",
+   "venue": "Grand Theatre",
+   "when": "26 April to 1 May 2027",
+   "lat": 53.818,
+   "lon": -3.053,
+   "end": "2027-05-01"
+  },
+  {
+   "town": "Horsham",
+   "venue": "The Capitol",
+   "when": "4 to 8 May 2027",
+   "lat": 51.063,
+   "lon": -0.327,
+   "end": "2027-05-08"
+  }
+ ],
+ "note": "'end' is the last night, used only to mark a stop as past; for the autumn 2026 stops the page shows the month only (official dates for those were not on the tour page when read)."
+}

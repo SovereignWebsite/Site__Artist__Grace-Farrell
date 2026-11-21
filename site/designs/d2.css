@@ -1,0 +1,23 @@
+/* Design 2, Fringe flyer: an Edinburgh Fringe poster. Heavy condensed type, hot pink and highlighter yellow. */
+:root{--bg:#f5f1e6;--surface:#fffdf6;--fg:#111;--muted:#3d3a35;--accent:#b0105f;--on-accent:#fff;--line:#1111;
+  --bar-bg:#111;--bar-fg:#fff;--cover-bg:#ffd400;--cover-fg:#111;--land:#fffdf6;--land-edge:#111;--stop:#b0105f;--route:#111;
+  --head:"Arial Narrow","Roboto Condensed","Helvetica Neue Condensed",Impact,"Franklin Gothic Medium",sans-serif;--radius:0}
+@media (prefers-color-scheme:dark){:root{--bg:#121212;--surface:#1b1b1b;--fg:#f5f5f5;--muted:#c9c9c9;--accent:#ff5fa8;--on-accent:#111;--line:#333;
+  --cover-bg:#1b1b1b;--cover-fg:#ffd400;--land:#222;--land-edge:#ffd400;--stop:#ff5fa8;--stop-fg:#111;--route:#ffd400}}
+h1,h2{text-transform:uppercase;font-weight:900;letter-spacing:-.01em}
+h2{font-size:clamp(2.2rem,6vw,3.6rem)}
+.cover{border-bottom:6px solid var(--fg)}
+.cover h1{font-size:clamp(3.6rem,12vw,8rem)}
+.cover h1 span:last-child{color:var(--accent)}
+.cover .kicker{color:var(--fg);background:var(--surface);display:inline-block;padding:.2rem .5rem;border:2px solid var(--fg)}
+.cover .photo-credit{color:var(--fg)}
+.cover-photo img{border:6px solid var(--fg);transform:rotate(-1.5deg)}
+.btn.primary{border:3px solid var(--fg);text-transform:uppercase;letter-spacing:.05em}
+.kicker{color:var(--accent)}
+.cast li{border-bottom:2px solid var(--fg)}
+.cast .prod{text-transform:uppercase;font-weight:800;font-style:normal}
+.cast .prod em{font-style:normal}
+.credits{background:var(--surface)}
+.reels-sec{background:#111;color:#f5f5f5}.reels-sec .note,.reels-sec .meta,.reels-sec .gallery figcaption{color:#cfcfcf}.reels-sec .kicker,.reels-sec .meta a{color:#ffd400}
+.tour{background:var(--cover-bg);color:var(--cover-fg)}.tour .kicker{color:var(--cover-fg)}.tour a{color:var(--cover-fg)}.tour .when,.tour .note{color:var(--cover-fg)}
+.contact{border-top:6px solid var(--fg)}
