@@ -1,4 +1,14 @@
 {
- "about": "Browsers confirmed by Grace (or Dinis) as hers, for the message page /send/. Each entry is a browser's public keys and fingerprint only, as feedback.b receives them; an agent adds one only after Grace or Dinis confirms it. Messages from a listed browser are known to be hers.",
- "browsers": []
+ "about": "Browsers confirmed for the message page /send/, by Grace (the site's owner) or Dinis Cruz. Each entry is a browser's public keys and fingerprint only, as feedback.b receives them, with whose browser it is; an agent adds one only after Grace or Dinis confirms it. Messages signed by a listed browser are known to come from that person.",
+ "browsers": [
+  {
+   "fp": "f6cef9566617a729",
+   "owner": "dinis",
+   "note": "Dinis Cruz's test browser (first message via ChatGPT's link)",
+   "confirmed": "2026-11-21",
+   "confirmed_by": "Dinis Cruz, in grace.b's session and in feedback.b's",
+   "sign": {"crv": "P-256", "kty": "EC", "x": "KfvZ8hK-b53bXA34-1jK8RNMvyxgQI7zVqv0oF2r3Zg", "y": "axRRrglnJHpMTXI0P6pGA27pKNz5lHE7nk8oZ3fqb2M"},
+   "enc": {"crv": "P-256", "kty": "EC", "x": "0fEyVYgCFtV1R9XXJX34_fU8mRfSlc-A3NHRDKx5aWE", "y": "m1YL8-hfVdIoxFC4_TFSDLJ6_KdYURoND_aL2iTGuCM"}
+  }
+ ]
 }
