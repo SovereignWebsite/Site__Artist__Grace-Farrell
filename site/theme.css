@@ -1,17 +1,29 @@
-/* Design 1, Footlights: a dark stage and one warm light. The headshot sits in a spotlight; brass and plum. */
+/* Design 1, Footlights: a dark stage and one warm light. The portrait sits in a round spotlight at centre
+   stage, the name below it in brass; the page alternates stage-black and programme-cream. */
 :root{--bg:#f6efe6;--surface:#fffaf3;--fg:#21161b;--muted:#5b4a4f;--accent:#7d2148;--on-accent:#fff;--line:#e1d2c3;
-  --bar-bg:#160d11;--bar-fg:#f3e3cf;--cover-bg:radial-gradient(ellipse at 30% 35%,#4a2a2c 0%,#1d1115 55%,#0f0a0c 100%);--cover-fg:#f6e9da;
+  --bar-bg:#0f0a0c;--bar-fg:#f3e3cf;--stage:#0f0a0c;--brass:#f0c27a;
   --land:#eadfce;--land-edge:#c4b29d;--stop:#7d2148;--route:#a5793f;--head:var(--serif)}
 @media (prefers-color-scheme:dark){:root{--bg:#110b0e;--surface:#1b1216;--fg:#f3e6da;--muted:#c8b5a6;--accent:#f0c27a;--on-accent:#1b1008;--line:#33242a;
   --land:#241a1d;--land-edge:#4c383d;--stop:#f0c27a;--stop-fg:#1b1008;--route:#f0c27a}}
-.cover{min-height:min(90vh,52rem);background:var(--cover-bg)}
-.cover .kicker{color:#f0c27a}.cover .photo-credit{color:#cdb8a5}.cover .lead{color:#e9d9c8}
-.cover .btn.primary{background:#f0c27a;color:#1b1008}
-.cover .links a{color:#f6d9a8}
-.cover-photo img{box-shadow:0 0 0 1px rgba(240,194,122,.35),0 30px 80px rgba(0,0,0,.6);border-radius:2px}
-.cover h1{font-weight:400;letter-spacing:-.01em}
-.cover h1 span:last-child{font-style:italic;color:#f0c27a}
-.credits{background:var(--surface)}
-.cast .prod{font-style:italic}
-.tour{background:var(--surface)}
-.contact{background:#160d11;color:#f3e3cf}.contact .kicker{color:#f0c27a}.contact a{color:#f6d9a8}
+.cover-spot{display:grid;justify-items:center;text-align:center;min-height:min(100vh,60rem);
+  background:radial-gradient(ellipse 60% 55% at 50% 30%,#5a3a30 0%,#2a1719 45%,var(--stage) 80%);color:#f6e9da;padding-top:3rem!important}
+.cover-spot .cover-photo{width:min(22rem,70vw)}
+.cover-spot .cover-photo img{aspect-ratio:1;border-radius:50%;object-position:50% 25%;box-shadow:0 0 0 6px rgba(240,194,122,.18),0 0 120px 30px rgba(255,200,130,.25)}
+.cover-spot .photo-credit{color:#cdb8a5;text-align:center}
+.cover-spot h1{font-weight:400;font-size:clamp(3.2rem,10vw,7rem);margin-top:1.5rem}
+.cover-spot h1 span{display:inline}
+.cover-spot h1 span:last-child{font-style:italic;color:var(--brass)}
+.cover-spot .kicker{color:var(--brass)}
+.cover-spot .sub{font:italic 1.4rem/1.3 var(--serif);color:#e9d9c8}
+.cover-spot .lead{max-width:38rem;margin-left:auto;margin-right:auto;color:#e9d9c8}
+.cover-spot .cta{justify-content:center}
+.cover-spot .btn.primary{background:var(--brass);color:#1b1008}
+.cover-spot .links a{color:#f6d9a8}
+.about .prose{columns:2 20rem;column-gap:3rem}.about .prose p{max-width:none}
+.credits,.tour{background:var(--surface)}
+.cast-dots .prod{font-style:italic}
+.reels-sec,.contact{background:var(--stage);color:#f3e3cf}
+.reels-sec .kicker,.contact .kicker{color:var(--brass)}
+.reels-sec .note,.reels-sec .meta,.reels-sec .gallery figcaption{color:#cdb8a5}
+.reels-sec a,.contact a{color:#f6d9a8}
+.contact{text-align:center}.contact address{display:inline-block}
