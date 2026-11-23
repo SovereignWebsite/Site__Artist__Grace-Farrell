@@ -72,20 +72,6 @@
      "website": null
     },
     {
-     "name": "Walker Art Gallery",
-     "kind": "Gallery",
-     "osm": "https://www.openstreetmap.org/node/618545413",
-     "metres": 500,
-     "website": "https://www.liverpoolmuseums.org.uk/walker/"
-    },
-    {
-     "name": "Art Gallery Cafe",
-     "kind": "Gallery",
-     "osm": "https://www.openstreetmap.org/node/6299223388",
-     "metres": 510,
-     "website": null
-    },
-    {
      "name": "Ukrainian Meadow",
      "kind": "Park",
      "osm": "https://www.openstreetmap.org/way/878244036",
@@ -112,6 +98,20 @@
      "osm": "https://www.openstreetmap.org/way/1293477001",
      "metres": 650,
      "website": null
+    },
+    {
+     "name": "Cu Cafe",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/1178122538",
+     "metres": 710,
+     "website": null
+    },
+    {
+     "name": "St. Luke's Gardens",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/212010840",
+     "metres": 720,
+     "website": null
     }
    ],
    "read": "2026-11-23",
@@ -133,13 +133,6 @@
      "kind": "Café",
      "osm": "https://www.openstreetmap.org/way/167414126",
      "metres": 130,
-     "website": null
-    },
-    {
-     "name": "Chelmsford Community Bookshop",
-     "kind": "Bookshop",
-     "osm": "https://www.openstreetmap.org/way/167414125",
-     "metres": 150,
      "website": null
     },
     {
@@ -197,6 +190,13 @@
      "osm": "https://www.openstreetmap.org/node/6187836601",
      "metres": 280,
      "website": "https://coffeelink.com/"
+    },
+    {
+     "name": "Shire Hall",
+     "kind": "Attraction",
+     "osm": "https://www.openstreetmap.org/way/90528878",
+     "metres": 280,
+     "website": null
     },
     {
      "name": "Oxfam Bookshop",
@@ -298,13 +298,6 @@
      "website": "https://www.mille-feuille.co.uk/"
     },
     {
-     "name": "Two Faced Twins Art Gallery",
-     "kind": "Gallery",
-     "osm": "https://www.openstreetmap.org/node/9117011236",
-     "metres": 380,
-     "website": null
-    },
-    {
      "name": "The Forge Gallery",
      "kind": "Gallery",
      "osm": "https://www.openstreetmap.org/way/981038675",
@@ -323,6 +316,13 @@
      "kind": "Park",
      "osm": "https://www.openstreetmap.org/way/4790535",
      "metres": 570,
+     "website": null
+    },
+    {
+     "name": "Beach House Grounds",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/825133597",
+     "metres": 590,
      "website": null
     }
    ],
@@ -346,13 +346,6 @@
   },
   "nearby": {
    "places": [
-    {
-     "name": "The Gallery",
-     "kind": "Gallery",
-     "osm": "https://www.openstreetmap.org/node/11854251229",
-     "metres": 480,
-     "website": null
-    },
     {
      "name": "Costa",
      "kind": "Café",
@@ -416,13 +409,6 @@
      "osm": "https://www.openstreetmap.org/node/6423323992",
      "metres": 20,
      "website": "https://www.hargreavesofbuxton.com/our-cafe-tea-rooms"
-    },
-    {
-     "name": "The Carpet Gallery",
-     "kind": "Gallery",
-     "osm": "https://www.openstreetmap.org/node/13528680781",
-     "metres": 50,
-     "website": null
     },
     {
      "name": "Dandelion",
@@ -538,13 +524,6 @@
      "website": null
     },
     {
-     "name": "The Gallery",
-     "kind": "Gallery",
-     "osm": "https://www.openstreetmap.org/way/954085844",
-     "metres": 430,
-     "website": null
-    },
-    {
      "name": "Titanic Memorial Gardens",
      "kind": "Park",
      "osm": "https://www.openstreetmap.org/way/398338288",
@@ -609,45 +588,24 @@
   "nearby": {
    "places": [
     {
-     "name": "Splash of Colour",
-     "kind": "Café",
-     "osm": "https://www.openstreetmap.org/node/10820034643",
-     "metres": 50,
-     "website": null
-    },
-    {
-     "name": "The Wiltshire Gallery",
-     "kind": "Gallery",
-     "osm": "https://www.openstreetmap.org/node/10820034608",
-     "metres": 70,
-     "website": null
-    },
-    {
-     "name": "Ingrid's Gallery Boutique",
-     "kind": "Gallery",
-     "osm": "https://www.openstreetmap.org/node/13817179258",
-     "metres": 180,
-     "website": null
-    },
-    {
-     "name": "Rocketship Bookshop",
-     "kind": "Bookshop",
-     "osm": "https://www.openstreetmap.org/node/364537505",
-     "metres": 210,
-     "website": null
-    },
-    {
-     "name": "Su S Bu Point",
-     "kind": "Café",
-     "osm": "https://www.openstreetmap.org/node/12582333735",
-     "metres": 310,
-     "website": null
-    },
-    {
      "name": "Young Gallery",
      "kind": "Gallery",
-     "osm": "https://www.openstreetmap.org/way/263280623",
-     "metres": 330,
+     "osm": "https://www.openstreetmap.org/node/2952389031",
+     "metres": 220,
+     "website": null
+    },
+    {
+     "name": "Caffè Nero",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/291585734",
+     "metres": 250,
+     "website": "https://www.caffenero.com/uk/stores/salisbury"
+    },
+    {
+     "name": "Coffee#1",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/1342400521",
+     "metres": 290,
      "website": null
     },
     {
@@ -665,13 +623,6 @@
      "website": "https://www.sondercoffee.co.uk/salisbury"
     },
     {
-     "name": "Costa",
-     "kind": "Café",
-     "osm": "https://www.openstreetmap.org/way/261834207",
-     "metres": 350,
-     "website": null
-    },
-    {
      "name": "Vanner Gallery",
      "kind": "Gallery",
      "osm": "https://www.openstreetmap.org/way/293540236",
@@ -679,10 +630,10 @@
      "website": null
     },
     {
-     "name": "Gourmet Coffee",
+     "name": "Ride",
      "kind": "Café",
-     "osm": "https://www.openstreetmap.org/node/13875348045",
-     "metres": 400,
+     "osm": "https://www.openstreetmap.org/way/291444884",
+     "metres": 410,
      "website": null
     },
     {
@@ -705,6 +656,34 @@
      "osm": "https://www.openstreetmap.org/way/261309922",
      "metres": 430,
      "website": "https://www.thewardrobe.org.uk/"
+    },
+    {
+     "name": "Arundells",
+     "kind": "Attraction",
+     "osm": "https://www.openstreetmap.org/way/261309883",
+     "metres": 450,
+     "website": "https://arundells.org/"
+    },
+    {
+     "name": "King's House Cafe",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/2669417522",
+     "metres": 590,
+     "website": null
+    },
+    {
+     "name": "Salisbury Museum",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/way/261309916",
+     "metres": 610,
+     "website": "https://salisburymuseum.org.uk/"
+    },
+    {
+     "name": "The Cloisters",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/227235091",
+     "metres": 640,
+     "website": null
     }
    ],
    "read": "2026-11-23",
@@ -727,13 +706,6 @@
      "osm": "https://www.openstreetmap.org/way/100214079",
      "metres": 200,
      "website": "https://windblowers.com/"
-    },
-    {
-     "name": "Focus Art Gallery",
-     "kind": "Gallery",
-     "osm": "https://www.openstreetmap.org/node/2195883819",
-     "metres": 200,
-     "website": null
     },
     {
      "name": "Lekker",
@@ -811,6 +783,13 @@
      "osm": "https://www.openstreetmap.org/node/12522859225",
      "metres": 580,
      "website": null
+    },
+    {
+     "name": "Bonington Gallery",
+     "kind": "Gallery",
+     "osm": "https://www.openstreetmap.org/node/2965100216",
+     "metres": 610,
+     "website": "https://www.boningtongallery.co.uk/"
     }
    ],
    "read": "2026-11-23",
@@ -820,13 +799,6 @@
  "cambridge": {
   "nearby": {
    "places": [
-    {
-     "name": "The Lawson Gallery",
-     "kind": "Gallery",
-     "osm": "https://www.openstreetmap.org/node/298290442",
-     "metres": 30,
-     "website": null
-    },
     {
      "name": "Benets",
      "kind": "Café",
@@ -917,6 +889,13 @@
      "osm": "https://www.openstreetmap.org/relation/1999158",
      "metres": 360,
      "website": null
+    },
+    {
+     "name": "Corpus Gallery",
+     "kind": "Gallery",
+     "osm": "https://www.openstreetmap.org/node/9560646352",
+     "metres": 470,
+     "website": "https://www.corpus-gallery.com/"
     }
    ],
    "read": "2026-11-23",
@@ -962,13 +941,6 @@
      "website": null
     },
     {
-     "name": "The Old Ship",
-     "kind": "Café",
-     "osm": "https://www.openstreetmap.org/way/432267481",
-     "metres": 360,
-     "website": "https://www.theoldshiprichmond.com/"
-    },
-    {
      "name": "Museum of Richmond",
      "kind": "Museum",
      "osm": "https://www.openstreetmap.org/node/8988952531",
@@ -988,13 +960,6 @@
      "osm": "https://www.openstreetmap.org/way/316361305",
      "metres": 520,
      "website": "https://www.richmond.gov.uk/services/parks_and_open_spaces/find_a_park/bridge_house_gardens"
-    },
-    {
-     "name": "The Victoria Inn",
-     "kind": "Café",
-     "osm": "https://www.openstreetmap.org/way/432808220",
-     "metres": 530,
-     "website": null
     },
     {
      "name": "Rotary Gardens",
@@ -1026,20 +991,6 @@
   "photo": null,
   "nearby": {
    "places": [
-    {
-     "name": "The Old Museum",
-     "kind": "Museum",
-     "osm": "https://www.openstreetmap.org/way/1123014720",
-     "metres": 90,
-     "website": null
-    },
-    {
-     "name": "STRIDE",
-     "kind": "Museum",
-     "osm": "https://www.openstreetmap.org/node/3854427089",
-     "metres": 90,
-     "website": "https://www.wearewithyou.org.uk/local-hubs/darlington-at-stride"
-    },
     {
      "name": "Riverside Park",
      "kind": "Park",
@@ -1076,13 +1027,6 @@
      "website": "https://www2.darlington.gov.uk/art-gallery#/"
     },
     {
-     "name": "Changes Gallery & Gifts",
-     "kind": "Gallery",
-     "osm": "https://www.openstreetmap.org/node/3868975247",
-     "metres": 320,
-     "website": null
-    },
-    {
      "name": "Origins Coffee Lounge",
      "kind": "Café",
      "osm": "https://www.openstreetmap.org/node/3856175877",
@@ -1109,19 +1053,7 @@
   }
  },
  "malvern": {
-  "photo": {
-   "file": "File:Appleyard performing in Priory Park, Malvern - geograph.org.uk - 2585764.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Appleyard_performing_in_Priory_Park,_Malvern_-_geograph.org.uk_-_2585764.jpg",
-   "licence": "CC BY-SA 2.0",
-   "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
-   "author": "Bob Embleton",
-   "category": "Category:Malvern Festival Theatre",
-   "read": "2026-11-23",
-   "size": [
-    1920,
-    1280
-   ]
-  },
+  "photo": null,
   "nearby": {
    "places": [
     {
@@ -1197,52 +1129,39 @@
    ],
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
-  }
+  },
+  "photo_rejected": "File:Appleyard performing in Priory Park, Malvern - geograph.org.uk - 2585764.jpg: identifiable people in front of the venue"
  },
  "poole": {
   "nearby": {
    "places": [
     {
-     "name": "Starfish Luncheonette",
+     "name": "Café Aroma",
      "kind": "Café",
-     "osm": "https://www.openstreetmap.org/way/355362141",
-     "metres": 100,
+     "osm": "https://www.openstreetmap.org/way/353926824",
+     "metres": 40,
      "website": null
     },
     {
-     "name": "Costa",
+     "name": "Caffè Nero",
      "kind": "Café",
-     "osm": "https://www.openstreetmap.org/way/355566653",
-     "metres": 290,
+     "osm": "https://www.openstreetmap.org/way/353926823",
+     "metres": 80,
+     "website": "https://www.caffenero.com/uk/stores/poole"
+    },
+    {
+     "name": "Coffee No. 34",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/355362128",
+     "metres": 90,
      "website": null
     },
     {
-     "name": "Going For Bust",
+     "name": "Coffee#1",
      "kind": "Café",
-     "osm": "https://www.openstreetmap.org/way/355345505",
-     "metres": 350,
-     "website": "http://www.goingforbust.co.uk"
-    },
-    {
-     "name": "No 1 New Street",
-     "kind": "Café",
-     "osm": "https://www.openstreetmap.org/way/354200666",
-     "metres": 390,
-     "website": null
-    },
-    {
-     "name": "Gallery",
-     "kind": "Gallery",
-     "osm": "https://www.openstreetmap.org/way/355290313",
-     "metres": 400,
-     "website": null
-    },
-    {
-     "name": "Quay Cafe",
-     "kind": "Café",
-     "osm": "https://www.openstreetmap.org/way/354960348",
-     "metres": 450,
-     "website": null
+     "osm": "https://www.openstreetmap.org/way/627223922",
+     "metres": 120,
+     "website": "https://www.coffee1.co.uk/locations/poole/"
     },
     {
      "name": "RNLI Lifeboat Museum",
@@ -1285,6 +1204,13 @@
      "osm": "https://www.openstreetmap.org/way/354964712",
      "metres": 560,
      "website": "https://www.boroughofpoole.com/leisure-and-culture/museums-and-local-history/museum/"
+    },
+    {
+     "name": "Costa",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/13175215929",
+     "metres": 880,
+     "website": null
     }
    ],
    "read": "2026-11-23",
@@ -1337,13 +1263,6 @@
      "website": null
     },
     {
-     "name": "Kemble Gallery",
-     "kind": "Gallery",
-     "osm": "https://www.openstreetmap.org/way/474066116",
-     "metres": 490,
-     "website": null
-    },
-    {
      "name": "Mini Pancake Company",
      "kind": "Café",
      "osm": "https://www.openstreetmap.org/way/474076043",
@@ -1376,6 +1295,1110 @@
      "kind": "Café",
      "osm": "https://www.openstreetmap.org/node/13618154688",
      "metres": 720,
+     "website": null
+    }
+   ],
+   "read": "2026-11-23",
+   "source": "OpenStreetMap contributors, via Nominatim"
+  }
+ },
+ "guildford": {
+  "nearby": {
+   "places": [
+    {
+     "name": "Guildford Museum",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/node/343038479",
+     "metres": 40,
+     "website": "https://surreymuseums.org.uk/museum/guildford-museum-and-heritage-services/"
+    },
+    {
+     "name": "Guildford Castle",
+     "kind": "Attraction",
+     "osm": "https://www.openstreetmap.org/way/35954768",
+     "metres": 50,
+     "website": null
+    },
+    {
+     "name": "Caffe Si",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/287759354",
+     "metres": 130,
+     "website": null
+    },
+    {
+     "name": "The Pocket",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/10204463192",
+     "metres": 150,
+     "website": "https://thepocket.uk/"
+    },
+    {
+     "name": "13th Century Undercroft shop",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/node/4880507457",
+     "metres": 160,
+     "website": "https://www.guildford.gov.uk/museum"
+    },
+    {
+     "name": "Guildhall",
+     "kind": "Attraction",
+     "osm": "https://www.openstreetmap.org/node/281435918",
+     "metres": 220,
+     "website": "https://www.guildford.gov.uk/article/18490/The-Guildhall"
+    },
+    {
+     "name": "Harris + Hoole",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/4194330989",
+     "metres": 280,
+     "website": "https://www.harrisandhoole.co.uk/shop/guildford-high-st"
+    },
+    {
+     "name": "Abbot's Hospital",
+     "kind": "Attraction",
+     "osm": "https://www.openstreetmap.org/node/281450454",
+     "metres": 290,
+     "website": "https://www.abbotshospital.org/"
+    },
+    {
+     "name": "Costa",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/1410522972",
+     "metres": 430,
+     "website": "https://www.costa.co.uk/stores/guildford-friary-ctr"
+    },
+    {
+     "name": "Harvey Gallery",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/node/2672753868",
+     "metres": 430,
+     "website": null
+    },
+    {
+     "name": "Oxfam Bookshop",
+     "kind": "Bookshop",
+     "osm": "https://www.openstreetmap.org/node/281467853",
+     "metres": 440,
+     "website": "https://www.oxfam.org.uk/shops/oxfam-bookshop-guildford/"
+    },
+    {
+     "name": "Frida's Coffee House",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/13971955101",
+     "metres": 470,
+     "website": null
+    },
+    {
+     "name": "CafeXpress",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/6284238659",
+     "metres": 640,
+     "website": null
+    },
+    {
+     "name": "Foxenden Quarry",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/25216883",
+     "metres": 670,
+     "website": null
+    }
+   ],
+   "read": "2026-11-23",
+   "source": "OpenStreetMap contributors, via Nominatim"
+  }
+ },
+ "dublin": {
+  "nearby": {
+   "places": [
+    {
+     "name": "Chimney Park",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/312553676",
+     "metres": 110,
+     "website": null
+    },
+    {
+     "name": "Pearse Square",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/38265375",
+     "metres": 150,
+     "website": null
+    },
+    {
+     "name": "Dublin Port Diving Bell and Visitors Centre",
+     "kind": "Attraction",
+     "osm": "https://www.openstreetmap.org/way/1477824172",
+     "metres": 250,
+     "website": "https://www.dublinport.ie/about-dublin-port/a-city-port/"
+    },
+    {
+     "name": "Mr French",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/1412069823",
+     "metres": 310,
+     "website": null
+    },
+    {
+     "name": "Grindstone Specialty Coffee",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/13700920901",
+     "metres": 330,
+     "website": "https://www.brickyard.ie/pages/grindstone"
+    },
+    {
+     "name": "The Convention Centre Dublin",
+     "kind": "Attraction",
+     "osm": "https://www.openstreetmap.org/way/60270053",
+     "metres": 480,
+     "website": "https://www.theccd.ie/"
+    },
+    {
+     "name": "South Dock Street Park",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/48996165",
+     "metres": 510,
+     "website": null
+    },
+    {
+     "name": "SoBo",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/1760992955",
+     "metres": 600,
+     "website": null
+    },
+    {
+     "name": "Jeanie Johnston",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/way/590878259",
+     "metres": 600,
+     "website": "https://jeaniejohnston.ie/"
+    },
+    {
+     "name": "Elizabeth O'Farrell Park",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/128937600",
+     "metres": 610,
+     "website": null
+    },
+    {
+     "name": "Luke Kelly Park",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/273645027",
+     "metres": 650,
+     "website": null
+    },
+    {
+     "name": "EPIC The Irish Emigration Museum",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/node/4427119837",
+     "metres": 710,
+     "website": "https://epicchq.com/"
+    },
+    {
+     "name": "Irish Architectural Archive",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/way/231140810",
+     "metres": 740,
+     "website": "https://iarc.ie/"
+    },
+    {
+     "name": "Merrion Square Park",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/4078069",
+     "metres": 780,
+     "website": null
+    }
+   ],
+   "read": "2026-11-23",
+   "source": "OpenStreetMap contributors, via Nominatim"
+  }
+ },
+ "bradford": {
+  "nearby": {
+   "places": [
+    {
+     "name": "National Science and Media Museum",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/way/159296321",
+     "metres": 40,
+     "website": "https://www.scienceandmediamuseum.org.uk/"
+    },
+    {
+     "name": "Bradford Police Museum",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/node/9388198603",
+     "metres": 280,
+     "website": "https://www.bradfordpolicemuseum.com/"
+    },
+    {
+     "name": "Caffè Nero",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/1148284919",
+     "metres": 380,
+     "website": "https://www.caffenero.com/uk/stores/bradford"
+    },
+    {
+     "name": "Speakers' Corner",
+     "kind": "Attraction",
+     "osm": "https://www.openstreetmap.org/node/5526235060",
+     "metres": 400,
+     "website": "http://www.speakerscornertrust.org/speakers-corner-projects/uk-projects/bradford/"
+    },
+    {
+     "name": "Muffin Break",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/1148329828",
+     "metres": 550,
+     "website": null
+    },
+    {
+     "name": "Costa",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/1115286750",
+     "metres": 610,
+     "website": null
+    },
+    {
+     "name": "The Chai Company",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/1427960620",
+     "metres": 660,
+     "website": null
+    },
+    {
+     "name": "Guzelian Cafe/Bar/Gallery",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/4249974890",
+     "metres": 750,
+     "website": null
+    }
+   ],
+   "read": "2026-11-23",
+   "source": "OpenStreetMap contributors, via Nominatim"
+  }
+ },
+ "southampton": {
+  "nearby": {
+   "places": [
+    {
+     "name": "Sea City Museum Cafe",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/2573542350",
+     "metres": 130,
+     "website": null
+    },
+    {
+     "name": "SeaCity Museum",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/way/251061517",
+     "metres": 140,
+     "website": "https://www.seacitymuseum.co.uk/"
+    },
+    {
+     "name": "West (Watts) Park",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/251431390",
+     "metres": 160,
+     "website": null
+    },
+    {
+     "name": "Southampton City Art Gallery",
+     "kind": "Gallery",
+     "osm": "https://www.openstreetmap.org/node/3961118469",
+     "metres": 190,
+     "website": "https://southamptoncityartgallery.com/"
+    },
+    {
+     "name": "Muse",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/224636037",
+     "metres": 360,
+     "website": null
+    },
+    {
+     "name": "John Hansard Gallery",
+     "kind": "Gallery",
+     "osm": "https://www.openstreetmap.org/way/396969423",
+     "metres": 360,
+     "website": "https://jhg.art"
+    },
+    {
+     "name": "Mettricks Tea & Coffee",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/512076970",
+     "metres": 370,
+     "website": null
+    },
+    {
+     "name": "East (Andrews) Park",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/4635770",
+     "metres": 430,
+     "website": null
+    },
+    {
+     "name": "Starbucks",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/361875398",
+     "metres": 480,
+     "website": "https://www.starbucks.com/store-locator/store/1015203/southampton-above-bar-st-81-above-bar-street-southampton-eng-so-14-7-fg-gb"
+    },
+    {
+     "name": "Happy Bean Coffee Bar",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/195012170",
+     "metres": 510,
+     "website": "happybeancoffeebar.co.uk"
+    },
+    {
+     "name": "Caffè Nero",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/365059981",
+     "metres": 540,
+     "website": "https://www.caffenero.com/uk/stores/southampton-abovebar"
+    },
+    {
+     "name": "Houndwell Park",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/4635736",
+     "metres": 770,
+     "website": null
+    }
+   ],
+   "read": "2026-11-23",
+   "source": "OpenStreetMap contributors, via Nominatim"
+  }
+ },
+ "oxford": {
+  "nearby": {
+   "places": [
+    {
+     "name": "Ashmolean Museum",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/relation/1337584",
+     "metres": 80,
+     "website": "https://www.ashmolean.org/"
+    },
+    {
+     "name": "Last Bookshop",
+     "kind": "Bookshop",
+     "osm": "https://www.openstreetmap.org/node/9158398250",
+     "metres": 120,
+     "website": null
+    },
+    {
+     "name": "Wellington Square Gardens",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/27183575",
+     "metres": 310,
+     "website": null
+    },
+    {
+     "name": "Oxford Castle Motte",
+     "kind": "Attraction",
+     "osm": "https://www.openstreetmap.org/relation/12555899",
+     "metres": 340,
+     "website": null
+    },
+    {
+     "name": "The Last Bookshop",
+     "kind": "Bookshop",
+     "osm": "https://www.openstreetmap.org/way/104111915",
+     "metres": 340,
+     "website": null
+    },
+    {
+     "name": "The Missing Bean",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/537705025",
+     "metres": 390,
+     "website": "https://www.themissingbean.co.uk/pages/turl-street-coffee-shop"
+    },
+    {
+     "name": "Gulp Fiction",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/126102233",
+     "metres": 390,
+     "website": "https://gulpfictionbooks.com/"
+    },
+    {
+     "name": "GAIL's",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/5006702146",
+     "metres": 390,
+     "website": "https://gails.com/pages/jericho"
+    },
+    {
+     "name": "F.R.I.E.N.D.S Café",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/10911020864",
+     "metres": 390,
+     "website": null
+    },
+    {
+     "name": "Museum of the History of Science",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/way/60903336",
+     "metres": 390,
+     "website": "https://hsm.ox.ac.uk/"
+    },
+    {
+     "name": "Oxford Castle and Prison",
+     "kind": "Attraction",
+     "osm": "https://www.openstreetmap.org/way/1076393657",
+     "metres": 390,
+     "website": "https://www.oxfordcastleandprison.co.uk/"
+    },
+    {
+     "name": "Oxfam Bookshop",
+     "kind": "Bookshop",
+     "osm": "https://www.openstreetmap.org/way/537705028",
+     "metres": 390,
+     "website": null
+    },
+    {
+     "name": "The Barn",
+     "kind": "Gallery",
+     "osm": "https://www.openstreetmap.org/way/134119348",
+     "metres": 400,
+     "website": null
+    },
+    {
+     "name": "Taylors",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/126102243",
+     "metres": 410,
+     "website": "https://taylorsoxford.co.uk/"
+    }
+   ],
+   "read": "2026-11-23",
+   "source": "OpenStreetMap contributors, via Nominatim"
+  }
+ },
+ "truro": {
+  "nearby": {
+   "places": [
+    {
+     "name": "The Green Room Cafe",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/11503354730",
+     "metres": 50,
+     "website": null
+    },
+    {
+     "name": "Lemon Street Gallery",
+     "kind": "Gallery",
+     "osm": "https://www.openstreetmap.org/node/9570464857",
+     "metres": 80,
+     "website": "https://lemonstreetgallery.co.uk/"
+    },
+    {
+     "name": "Café Villa",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/1042409221",
+     "metres": 140,
+     "website": null
+    },
+    {
+     "name": "Loading Bay 7",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/9588768013",
+     "metres": 140,
+     "website": null
+    },
+    {
+     "name": "Three Rivers Cafe",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/9577979946",
+     "metres": 170,
+     "website": null
+    },
+    {
+     "name": "Furniss Island",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/251690065",
+     "metres": 260,
+     "website": null
+    },
+    {
+     "name": "Cornwall Museum and Art Gallery",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/way/1041725039",
+     "metres": 290,
+     "website": "https://www.royalcornwallmuseum.org.uk/"
+    },
+    {
+     "name": "Bonython Bookshop",
+     "kind": "Bookshop",
+     "osm": "https://www.openstreetmap.org/node/9592567934",
+     "metres": 330,
+     "website": null
+    },
+    {
+     "name": "Victoria Gardens",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/1063260900",
+     "metres": 520,
+     "website": null
+    },
+    {
+     "name": "Waterfall Gardens",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/295621835",
+     "metres": 600,
+     "website": null
+    },
+    {
+     "name": "Sixth Form Café",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/1047519137",
+     "metres": 610,
+     "website": null
+    },
+    {
+     "name": "Truro School Café",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/1047514879",
+     "metres": 730,
+     "website": null
+    }
+   ],
+   "read": "2026-11-23",
+   "source": "OpenStreetMap contributors, via Nominatim"
+  }
+ },
+ "birmingham": {
+  "nearby": {
+   "places": [
+    {
+     "name": "BOM Cafe",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/3208290621",
+     "metres": 120,
+     "website": "https://www.bom.org.uk/bom-cafe/"
+    },
+    {
+     "name": "Back To Backs",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/way/1217149376",
+     "metres": 220,
+     "website": "https://www.nationaltrust.org.uk/birmingham-back-to-backs"
+    },
+    {
+     "name": "Medicine Bakery",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/2587329578",
+     "metres": 380,
+     "website": null
+    },
+    {
+     "name": "BBC Midlands Visitor Centre",
+     "kind": "Attraction",
+     "osm": "https://www.openstreetmap.org/node/9111296878",
+     "metres": 410,
+     "website": null
+    },
+    {
+     "name": "Damascena Coffee House",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/4829141020",
+     "metres": 530,
+     "website": "https://damascena.co.uk"
+    },
+    {
+     "name": "Centenary Lounge",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/1785327106",
+     "metres": 530,
+     "website": "https://www.centenarylounge.com/"
+    },
+    {
+     "name": "St. Thomas' Peace Garden",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/25093332",
+     "metres": 560,
+     "website": null
+    },
+    {
+     "name": "Carrs Lane Park",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/node/11575176685",
+     "metres": 560,
+     "website": null
+    },
+    {
+     "name": "Birmingham Museum & Art Gallery",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/way/28288365",
+     "metres": 580,
+     "website": null
+    },
+    {
+     "name": "Birmingham Museum and Art Gallery",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/way/406003396",
+     "metres": 640,
+     "website": null
+    },
+    {
+     "name": "The Pre-Raphaelites Gallery",
+     "kind": "Gallery",
+     "osm": "https://www.openstreetmap.org/node/14177461750",
+     "metres": 650,
+     "website": null
+    },
+    {
+     "name": "Digbeth Community Garden",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/308419073",
+     "metres": 670,
+     "website": "https://digbethcommunitygarden.wordpress.com/"
+    },
+    {
+     "name": "BRIG Café at The Warehouse",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/81440685",
+     "metres": 690,
+     "website": "https://www.wearebrig.co.uk/brig-cafe-at-the-warehouse"
+    },
+    {
+     "name": "Second Hand Prose",
+     "kind": "Bookshop",
+     "osm": "https://www.openstreetmap.org/node/14166881074",
+     "metres": 690,
+     "website": "https://www.bmi.org.uk/library"
+    }
+   ],
+   "read": "2026-11-23",
+   "source": "OpenStreetMap contributors, via Nominatim"
+  }
+ },
+ "edinburgh": {
+  "nearby": {
+   "places": [
+    {
+     "name": "Black Rabbit",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/6720646285",
+     "metres": 120,
+     "website": "https://www.blackrabbitedinburgh.co.uk/"
+    },
+    {
+     "name": "Ritual Coffee&Co",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/4680650785",
+     "metres": 150,
+     "website": "https://ritualedinburgh.co.uk/"
+    },
+    {
+     "name": "The Upright Gallery",
+     "kind": "Gallery",
+     "osm": "https://www.openstreetmap.org/node/11476745442",
+     "metres": 270,
+     "website": null
+    },
+    {
+     "name": "Bruntsfield Links",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/4348244",
+     "metres": 320,
+     "website": null
+    },
+    {
+     "name": "The Cafe",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/5958576793",
+     "metres": 500,
+     "website": "https://www.eca.ed.ac.uk/student-life/facilities/cafe"
+    },
+    {
+     "name": "Scott Lawrie Gallery",
+     "kind": "Gallery",
+     "osm": "https://www.openstreetmap.org/node/12670410517",
+     "metres": 510,
+     "website": "https://www.scottlawrie.com/"
+    },
+    {
+     "name": "The Coffee Mill Cafe",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/4548150891",
+     "metres": 530,
+     "website": null
+    },
+    {
+     "name": "The Meadows",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/233760765",
+     "metres": 540,
+     "website": null
+    },
+    {
+     "name": "Coffeat",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/2265827156",
+     "metres": 580,
+     "website": null
+    },
+    {
+     "name": "Zaza's Coffee House",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/2952835386",
+     "metres": 650,
+     "website": null
+    },
+    {
+     "name": "Dury's Battery",
+     "kind": "Attraction",
+     "osm": "https://www.openstreetmap.org/node/6715804583",
+     "metres": 690,
+     "website": null
+    },
+    {
+     "name": "The Edinburgh Bookshop",
+     "kind": "Bookshop",
+     "osm": "https://www.openstreetmap.org/node/1660995244",
+     "metres": 750,
+     "website": "https://www.edinburghbookshop.com/"
+    },
+    {
+     "name": "Thomas Riddell",
+     "kind": "Attraction",
+     "osm": "https://www.openstreetmap.org/node/5827482986",
+     "metres": 810,
+     "website": null
+    }
+   ],
+   "read": "2026-11-23",
+   "source": "OpenStreetMap contributors, via Nominatim"
+  }
+ },
+ "cardiff": {
+  "nearby": {
+   "places": [
+    {
+     "name": "Easy Thali",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/1499971763",
+     "metres": 210,
+     "website": "https://www.easythali.com"
+    },
+    {
+     "name": "Britannia Park",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/node/7404142557",
+     "metres": 360,
+     "website": null
+    },
+    {
+     "name": "Techniquest",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/way/95070217",
+     "metres": 430,
+     "website": "https://www.techniquest.org/"
+    },
+    {
+     "name": "Coffi Co.",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/792008973",
+     "metres": 470,
+     "website": null
+    },
+    {
+     "name": "Canal Park South",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/302746982",
+     "metres": 530,
+     "website": null
+    },
+    {
+     "name": "Windsor Esplanade Park",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/255451395",
+     "metres": 580,
+     "website": null
+    },
+    {
+     "name": "Canal Park",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/60609560",
+     "metres": 650,
+     "website": null
+    },
+    {
+     "name": "Lookout Cafe and Bar",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/4820053921",
+     "metres": 660,
+     "website": null
+    },
+    {
+     "name": "Silurian Park",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/58653796",
+     "metres": 670,
+     "website": null
+    },
+    {
+     "name": "Togayo Cafe",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/4798870746",
+     "metres": 720,
+     "website": null
+    },
+    {
+     "name": "Pocket Park",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/302716326",
+     "metres": 770,
+     "website": null
+    }
+   ],
+   "read": "2026-11-23",
+   "source": "OpenStreetMap contributors, via Nominatim"
+  }
+ },
+ "glasgow": {
+  "nearby": {
+   "places": [
+    {
+     "name": "Benugo",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/11195947571",
+     "metres": 130,
+     "website": null
+    },
+    {
+     "name": "Cafe Hula",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/4869802321",
+     "metres": 290,
+     "website": null
+    },
+    {
+     "name": "National Piping Centre",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/way/154578407",
+     "metres": 320,
+     "website": null
+    },
+    {
+     "name": "Starbucks",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/7239238015",
+     "metres": 390,
+     "website": "https://www.starbucks.com/store-locator/store/2751/glasgow-buchanan-street-136-140-buchanan-street-glasgow-sct-g-1-2-ja-gb"
+    },
+    {
+     "name": "Cenotaph",
+     "kind": "Attraction",
+     "osm": "https://www.openstreetmap.org/way/102149572",
+     "metres": 490,
+     "website": null
+    },
+    {
+     "name": "Gallery of Modern Art",
+     "kind": "Gallery",
+     "osm": "https://www.openstreetmap.org/way/46738888",
+     "metres": 540,
+     "website": "https://www.glasgowlife.org.uk/museums/venues/gallery-of-modern-art-goma"
+    },
+    {
+     "name": "Mackintosh House",
+     "kind": "Attraction",
+     "osm": "https://www.openstreetmap.org/node/12847043301",
+     "metres": 560,
+     "website": null
+    },
+    {
+     "name": "Oxfam Bookshop",
+     "kind": "Bookshop",
+     "osm": "https://www.openstreetmap.org/node/2271894239",
+     "metres": 580,
+     "website": "https://www.oxfam.org.uk/shops/oxfam-bookshop-royal-exchange-square/"
+    },
+    {
+     "name": "Garnethill Park",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/4745134",
+     "metres": 600,
+     "website": null
+    },
+    {
+     "name": "Rottenrow Gardens",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/20448859",
+     "metres": 640,
+     "website": null
+    },
+    {
+     "name": "Tinderbox",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/611389580",
+     "metres": 730,
+     "website": null
+    },
+    {
+     "name": "Thomsons",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/14122840956",
+     "metres": 790,
+     "website": null
+    }
+   ],
+   "read": "2026-11-23",
+   "source": "OpenStreetMap contributors, via Nominatim"
+  }
+ },
+ "blackpool": {
+  "nearby": {
+   "places": [
+    {
+     "name": "JK's Cafe and Grill",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/1137657578",
+     "metres": 40,
+     "website": null
+    },
+    {
+     "name": "The Coffee Pot",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/1137657577",
+     "metres": 50,
+     "website": null
+    },
+    {
+     "name": "Costa",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/1137405735",
+     "metres": 60,
+     "website": null
+    },
+    {
+     "name": "J&R Traditional Fish and Chips",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/146608592",
+     "metres": 110,
+     "website": null
+    },
+    {
+     "name": "Tai Pan Noodle Bar",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/13831152416",
+     "metres": 170,
+     "website": null
+    },
+    {
+     "name": "Grundy Art Gallery",
+     "kind": "Gallery",
+     "osm": "https://www.openstreetmap.org/way/163368239",
+     "metres": 310,
+     "website": "https://www.thegrundy.org/"
+    },
+    {
+     "name": "Comedy Carpet",
+     "kind": "Attraction",
+     "osm": "https://www.openstreetmap.org/way/213926756",
+     "metres": 330,
+     "website": null
+    },
+    {
+     "name": "Munchy's Cafe",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/4537436204",
+     "metres": 340,
+     "website": null
+    },
+    {
+     "name": "Showtown Blackpool",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/node/12906096154",
+     "metres": 350,
+     "website": null
+    }
+   ],
+   "read": "2026-11-23",
+   "source": "OpenStreetMap contributors, via Nominatim"
+  }
+ },
+ "horsham": {
+  "nearby": {
+   "places": [
+    {
+     "name": "Panino",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/507962659",
+     "metres": 80,
+     "website": null
+    },
+    {
+     "name": "Old stocks",
+     "kind": "Attraction",
+     "osm": "https://www.openstreetmap.org/node/508303736",
+     "metres": 90,
+     "website": null
+    },
+    {
+     "name": "Kaspa's",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/way/293288640",
+     "metres": 190,
+     "website": "https://kaspas.co.uk/location/horsham/"
+    },
+    {
+     "name": "Trading Post Coffee Roasters",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/12709428440",
+     "metres": 200,
+     "website": "https://www.tradingpostcoffee.co.uk/pages/trading-post-west-street-horsham"
+    },
+    {
+     "name": "Chai Haus",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/14173390407",
+     "metres": 200,
+     "website": "https://www.chaihaus.uk/"
+    },
+    {
+     "name": "Horsham Museum",
+     "kind": "Museum",
+     "osm": "https://www.openstreetmap.org/way/304683750",
+     "metres": 210,
+     "website": "https://horshammuseum.org/"
+    },
+    {
+     "name": "Cafeology",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/5569864249",
+     "metres": 460,
+     "website": null
+    },
+    {
+     "name": "Horsham Park",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/157995829",
+     "metres": 490,
+     "website": null
+    },
+    {
+     "name": "New Street Gardens",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/300217552",
+     "metres": 520,
+     "website": null
+    },
+    {
+     "name": "The Carriage",
+     "kind": "Café",
+     "osm": "https://www.openstreetmap.org/node/12854179953",
+     "metres": 640,
+     "website": null
+    },
+    {
+     "name": "Barrack Field",
+     "kind": "Park",
+     "osm": "https://www.openstreetmap.org/way/325967234",
+     "metres": 710,
      "website": null
     }
    ],

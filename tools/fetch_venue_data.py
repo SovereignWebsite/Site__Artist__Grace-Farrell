@@ -3,7 +3,8 @@ Commons category, and places within about 600 m from OpenStreetMap (Nominatim). 
 site/images/venues/<slug>-<w>.webp. Run by hand: python3 tools/fetch_venue_data.py   (needs Pillow). Every item keeps
 its source, licence and the date it was read, so nothing on the pages is from memory.
 Nominatim usage policy: at most one request a second, a named user agent, attribution to OpenStreetMap contributors."""
-import json, time, re, io, datetime, urllib.parse, urllib.request, math, sys
+import json, time, re, io, datetime, urllib.parse, urllib.request, math, sys, socket
+socket.setdefaulttimeout(45)
 from PIL import Image
 UA = {'User-Agent': 'grace-farrell-site-build/1.0 (static artist site; github.com/SovereignWebsite/Site__Artist__Grace-Farrell)'}
 TODAY = datetime.date.today().isoformat()
@@ -36,6 +37,9 @@ def photo(v):
                     'category': cat, 'read': TODAY}
     return None
 KINDS = [('cafe', 'Café'), ('museum', 'Museum'), ('gallery', 'Gallery'), ('park', 'Park'), ('attraction', 'Attraction'), ('bookshop', 'Bookshop')]
+# keep only what OpenStreetMap itself says the place is (a name with 'Gallery' in it is not enough)
+TYPES = {'Café': {('amenity', 'cafe')}, 'Museum': {('tourism', 'museum')}, 'Gallery': {('tourism', 'gallery')}, 'Park': {('leisure', 'park'), ('leisure', 'garden')},
+         'Attraction': {('tourism', 'attraction'), ('tourism', 'viewpoint'), ('historic', 'castle'), ('historic', 'monument')}, 'Bookshop': {('shop', 'books')}}
 def nearby(v):
     out, seen, d = [], set(), 0.006
     box = f'{v["lon"]-d*1.6},{v["lat"]+d},{v["lon"]+d*1.6},{v["lat"]-d}'
@@ -44,7 +48,7 @@ def nearby(v):
         res = json.loads(get('https://nominatim.openstreetmap.org/search?' + urllib.parse.urlencode({'q': f'[{q}]', 'viewbox': box, 'bounded': 1, 'format': 'jsonv2', 'limit': 6, 'extratags': 1})))
         for r in res:
             name = r.get('name') or ''
-            if not name or name in seen: continue
+            if not name or re.search(r'vacant|closed|to let', name, re.I) or name in seen or (r.get('category'), r.get('type')) not in TYPES[label]: continue
             la, lo = float(r['lat']), float(r['lon'])
             dist = 6371000 * 2 * math.asin(math.sqrt(math.sin(math.radians(la - v['lat']) / 2) ** 2 + math.cos(math.radians(v['lat'])) * math.cos(math.radians(la)) * math.sin(math.radians(lo - v['lon']) / 2) ** 2))
             seen.add(name)
@@ -55,13 +59,16 @@ def main():
     tour = json.load(open('tools/data/tour.json'))
     try: extra = json.load(open('tools/data/venues-extra.json'))
     except FileNotFoundError: extra = {}
-    only = sys.argv[1:]
+    args = sys.argv[1:]; places_only = '--places-only' in args; photos_only = '--photos-only' in args
+    only = [a for a in args if not a.startswith('--')]
     for v in tour['venues']:
         s = slug(v['town'])
         if only and s not in only: continue
         e = extra.get(s, {})
         print(s, flush=True)
-        try:
+        if places_only: pass
+        else:
+          try:
             ph = photo(v)
             if ph:
                 img = Image.open(io.BytesIO(get(ph['thumb']))).convert('RGB')
@@ -71,9 +78,10 @@ def main():
                 ph['size'] = list(img.size)
                 del ph['thumb']
             e['photo'] = ph
-        except Exception as ex: print('  photo failed:', ex)
-        try: e['nearby'] = nearby(v)
-        except Exception as ex: print('  nearby failed:', ex)
+          except Exception as ex: print('  photo failed:', ex)
+        if not photos_only:
+            try: e['nearby'] = nearby(v)
+            except Exception as ex: print('  nearby failed:', ex)
         extra[s] = e
         json.dump(extra, open('tools/data/venues-extra.json', 'w'), indent=1, ensure_ascii=False)
 if __name__ == '__main__': main()

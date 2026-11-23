@@ -67,7 +67,7 @@ function tourMap() {
 const todayISO = new Date().toISOString().slice(0, 10);
 const current = () => tour.venues.find((v) => v.start <= todayISO && todayISO <= v.end) || tour.venues.find((v) => v.start > todayISO);
 const nowVenue = () => { const v = current(); return v ? `<p class="now-venue" data-now-venue><span class="nv-label">${v.start <= todayISO ? 'This week' : 'Next stop'}</span> <strong>${esc(v.town)}</strong>, ${esc(v.venue)} <span class="when">${esc(v.when)}</span></p>` : ''; };
-const tourList = () => `<ol class="stops">${tour.venues.map((v) => `<li data-start="${v.start}" data-end="${v.end}"><strong>${esc(v.town)}</strong>, ${esc(v.venue)} <span class="when">${esc(v.when)}</span></li>`).join('')}</ol>`;
+const tourList = () => `<ol class="stops">${tour.venues.map((v) => `<li data-start="${v.start}" data-end="${v.end}"><strong><a href="/tour/${v.town.toLowerCase().replace(/[^a-z0-9]+/g, '-')}/">${esc(v.town)}</a></strong>, ${esc(v.venue)} <span class="when">${esc(v.when)}</span></li>`).join('')}</ol>`;
 
 const chooser = (cur, rel) => `<details class="chooser">
     <summary>Choose a design</summary>
@@ -420,7 +420,7 @@ ${footer('../../')}
   mkdirSync('site/tour', { recursive: true })
   for (const [i, v] of V.entries()) {
     const prev = V[i - 1], next = V[i + 1], dir = `site/tour/${v.slug}`; mkdirSync(dir, { recursive: true })
-    const near = v.x.nearby && v.x.nearby.places && v.x.nearby.places.length ? `<ul class="vn-list">${v.x.nearby.places.map((p) => `<li><span class="vn-kind">${esc(p.kind)}</span> <a href="${esc(p.osm)}">${esc(p.name)}</a> <span class="vn-m">${p.metres < 1000 ? p.metres + ' m' : (p.metres / 1000).toFixed(1) + ' km'}</span>${p.website ? ` <a class="vn-web" href="${esc(p.website)}" aria-label="${esc(p.name)} website">website</a>` : ''}</li>`).join('')}</ul><p class="note">From <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL), read ${esc(v.x.nearby.read)}: places within about 600 m, straight-line distance. Check opening times before you go.</p>` : '<p class="note">No nearby places were found in OpenStreetMap for this venue yet.</p>'
+    const near = v.x.nearby && v.x.nearby.places && v.x.nearby.places.length ? `<ul class="vn-list">${v.x.nearby.places.map((p) => `<li><span class="vn-kind">${esc(p.kind)}</span> <a href="${esc(p.osm)}">${esc(p.name)}</a> <span class="vn-m">${p.metres < 1000 ? p.metres + ' m' : (p.metres / 1000).toFixed(1) + ' km'}</span></li>`).join('')}</ul><p class="note">From <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL), read ${esc(v.x.nearby.read)}: places within about 600 m, straight-line distance. Check opening times before you go.</p>` : '<p class="note">No nearby places were found in OpenStreetMap for this venue yet.</p>'
     const stay = `<ul class="vt-links"><li><a href="https://www.google.com/maps/search/hotels/@${v.lat},${v.lon},16z">Hotels near ${esc(v.venue)}</a> (Google Maps)</li><li><a href="https://www.openstreetmap.org/search?query=hotel%20near%20${encodeURIComponent(v.town)}#map=16/${v.lat}/${v.lon}">Hotels on OpenStreetMap</a></li></ul><p class="note">Plain searches, no affiliate links; no recommendation is made.</p>`
     writeFileSync(`${dir}/index.html`, head({ title: `${v.town}, ${v.venue}: ${NAME} on tour`, url: `${ORIGIN}/tour/${v.slug}/`, css: '../../theme.css', rel: '../../' }) + `
 <body class="doc-page">
