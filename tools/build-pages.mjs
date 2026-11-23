@@ -273,7 +273,7 @@ function page(cur, rel) {
 
   const tourInner = `  <p class="tour-intro">Isobel McArthur's Olivier Award-winning comedy tours the UK and Ireland from September 2026 to May 2027. These are the production's ${tour.venues.length} venues; dates for 2027 are from <a href="https://prideandprejudicesortof.com/tour-dates/">the tour's own page</a>, where tickets are sold.</p>
   <div class="tour-grid${cur === 4 ? ' list-only' : ''}">${cur === 4 ? '' : `<details class="map-box" open><summary>Show the map</summary>${tourMap()}</details>`}${tourList()}</div>
-  <p class="tv-link"><a href="${rel}tour/views/">See the tour in six views</a>: timeline, by country, calendar, route, played and to come, and a table.</p>
+  <p class="tv-link"><a href="${rel}tour/">Every stop, with photos and what is near each venue</a>${dot}<a href="${rel}tour/views/">the tour in six views</a></p>
   <p class="note map-note">Map: Natural Earth (public domain). Venues already played are faded on the map and marked "played" in the list.</p>`;
   const tourSec = sec('tour', 'tour', `<em>Pride and Prejudice* (*sort of)</em>${cur === 4 ? ', town by town' : ' on tour'}`, tourInner);
 
@@ -394,6 +394,66 @@ ${sec('table', 'Table', '', table)}
 <p class="note">Autumn 2026 venues show the month only, as the tour's own page no longer lists those dates. Map and venues: <a href="../../#tour">the tour on the home page</a>.</p>
 </main>
 ${footer('../../')}
+</body>
+</html>
+`)
+}
+
+// A page for each venue, and /tour/ listing them (Dinis, 23 Nov 2026, in the Messages pane: "adding pics from the
+// venue and even a nice guide ... on what is near to the venue", "travel instructions from one venue to the other").
+// Photos and places come from tools/data/venues-extra.json (tools/fetch_venue_data.py), each with its source.
+{
+  let extra = {}; try { extra = JSON.parse(readFileSync('tools/data/venues-extra.json', 'utf8')) } catch { }
+  const slug = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+  const V = tour.venues.map((v, i) => ({ ...v, n: i + 1, slug: slug(v.town), x: extra[slug(v.town)] || {} }))
+  const km = (a, b) => { const R = 6371, r = (x) => x * Math.PI / 180, dLa = r(b.lat - a.lat), dLo = r(b.lon - a.lon); const h = Math.sin(dLa / 2) ** 2 + Math.cos(r(a.lat)) * Math.cos(r(b.lat)) * Math.sin(dLo / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(h)) }
+  const IRISH = new Set(['Belfast', 'Dublin'])
+  const credit = (ph) => `Photo: ${esc(ph.author)}, <a href="${esc(ph.page)}">Wikimedia Commons</a>, <a href="${esc(ph.licence_url || ph.page)}">${esc(ph.licence)}</a>`
+  const pic = (v, sizes, lazy) => { const ph = v.x.photo; if (!ph) return ''; const [w, h] = ph.size || [1400, 933]; const H = Math.round(Math.min(1400, w) * h / w); return `<img src="../../images/venues/${v.slug}-1400.webp" srcset="../../images/venues/${v.slug}-640.webp 640w, ../../images/venues/${v.slug}-1400.webp 1400w" sizes="${sizes}" alt="${esc(v.venue)}, ${esc(v.town)}, from outside" width="${Math.min(1400, w)}" height="${H}"${lazy ? ' loading="lazy"' : ''} decoding="async">` }
+  const travel = (a, b) => {
+    const d = Math.round(km(a, b)), maps = `https://www.google.com/maps/dir/?api=1&origin=${a.lat},${a.lon}&destination=${b.lat},${b.lon}&travelmode=transit`
+    const sea = IRISH.has(a.town) !== IRISH.has(b.town)
+    return `<p>${esc(b.town)} is about <strong>${d} km</strong> (${Math.round(d * 0.621371)} miles) from ${esc(a.town)} in a straight line${sea ? ', across the Irish Sea' : ''}.</p>
+<ul class="vt-links"><li><a href="${maps}">Public transport directions</a> (Google Maps)</li><li><a href="https://www.google.com/maps/dir/?api=1&origin=${a.lat},${a.lon}&destination=${b.lat},${b.lon}&travelmode=driving">Driving directions</a> (Google Maps)</li>${sea ? '<li><a href="https://www.directferries.co.uk/">Ferry crossings</a> (Direct Ferries), or fly</li>' : '<li><a href="https://www.nationalrail.co.uk/">Train times</a> (National Rail)</li>'}</ul>
+<p class="note">These open the other site only when you choose them; nothing is sent from this page.</p>`
+  }
+  mkdirSync('site/tour', { recursive: true })
+  for (const [i, v] of V.entries()) {
+    const prev = V[i - 1], next = V[i + 1], dir = `site/tour/${v.slug}`; mkdirSync(dir, { recursive: true })
+    const near = v.x.nearby && v.x.nearby.places && v.x.nearby.places.length ? `<ul class="vn-list">${v.x.nearby.places.map((p) => `<li><span class="vn-kind">${esc(p.kind)}</span> <a href="${esc(p.osm)}">${esc(p.name)}</a> <span class="vn-m">${p.metres < 1000 ? p.metres + ' m' : (p.metres / 1000).toFixed(1) + ' km'}</span>${p.website ? ` <a class="vn-web" href="${esc(p.website)}" aria-label="${esc(p.name)} website">website</a>` : ''}</li>`).join('')}</ul><p class="note">From <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL), read ${esc(v.x.nearby.read)}: places within about 600 m, straight-line distance. Check opening times before you go.</p>` : '<p class="note">No nearby places were found in OpenStreetMap for this venue yet.</p>'
+    const stay = `<ul class="vt-links"><li><a href="https://www.google.com/maps/search/hotels/@${v.lat},${v.lon},16z">Hotels near ${esc(v.venue)}</a> (Google Maps)</li><li><a href="https://www.openstreetmap.org/search?query=hotel%20near%20${encodeURIComponent(v.town)}#map=16/${v.lat}/${v.lon}">Hotels on OpenStreetMap</a></li></ul><p class="note">Plain searches, no affiliate links; no recommendation is made.</p>`
+    writeFileSync(`${dir}/index.html`, head({ title: `${v.town}, ${v.venue}: ${NAME} on tour`, url: `${ORIGIN}/tour/${v.slug}/`, css: '../../theme.css', rel: '../../' }) + `
+<body class="doc-page">
+<a class="skip" href="#main">Skip to content</a>
+${bar(HOME, '../../', '../../')}
+<main id="main" class="doc venue" tabindex="-1">
+<p class="kicker"><a href="../">The tour</a>, stop ${v.n} of ${V.length}</p>
+<h1>${esc(v.town)}</h1>
+<p class="vh-sub"><strong>${esc(v.venue)}</strong> <span class="tv-when" data-start="${v.start}" data-end="${v.end}">${esc(v.when)}</span></p>
+${v.x.photo ? `<figure class="vh-photo">${pic(v, '(max-width: 46rem) 100vw, 46rem', false)}<figcaption>${credit(v.x.photo)}</figcaption></figure>` : ''}
+<p>A stop on the UK and Ireland tour of <em>Pride and Prejudice* (*sort&nbsp;of)</em>. These are the production's dates; Grace is a cover in the company. <a href="https://prideandprejudicesortof.com/tour-dates/">Tickets on the tour's page</a>.</p>
+<section class="vs" aria-labelledby="near-h"><h2 id="near-h">Near the venue</h2>${near}</section>
+${next ? `<section class="vs" aria-labelledby="next-h"><h2 id="next-h">Next stop: <a href="../${next.slug}/">${esc(next.town)}</a></h2>${travel(v, next)}</section>` : '<section class="vs"><h2>The last stop</h2><p>The tour ends here.</p></section>'}
+<section class="vs" aria-labelledby="stay-h"><h2 id="stay-h">Places to stay</h2>${stay}</section>
+<nav class="vp" aria-label="Tour stops">${prev ? `<a href="../${prev.slug}/">← ${esc(prev.town)}</a>` : '<span></span>'}<a href="../">All stops</a>${next ? `<a href="../${next.slug}/">${esc(next.town)} →</a>` : '<span></span>'}</nav>
+</main>
+${footer('../../')}
+</body>
+</html>
+`)
+  }
+  writeFileSync('site/tour/index.html', head({ title: `The tour, stop by stop: ${NAME}`, url: `${ORIGIN}/tour/`, css: '../theme.css', rel: '../' }) + `
+<body class="doc-page">
+<a class="skip" href="#main">Skip to content</a>
+${bar(HOME, '../', '../')}
+<main id="main" class="doc views" tabindex="-1">
+<p class="kicker">On the road</p>
+<h1>The tour, stop by stop</h1>
+<p>All ${V.length} venues of the UK and Ireland tour of <em>Pride and Prejudice* (*sort&nbsp;of)</em>, each with a photo, what is near it, how to get to the next stop, and places to stay. Or see <a href="views/">the tour in six views</a>.</p>
+<ol class="vc-grid">${V.map((v) => `<li data-start="${v.start}" data-end="${v.end}"><a href="${v.slug}/">${v.x.photo ? pic({ ...v, slug: v.slug }, '(max-width: 40rem) 100vw, 20rem', true).replace(/\.\.\/\.\.\/images/g, '../images') : '<span class="vc-nopic" aria-hidden="true"></span>'}<span class="vc-n">${v.n}</span><strong>${esc(v.town)}</strong><span class="vc-venue">${esc(v.venue)}</span><span class="tv-when">${esc(v.when)}</span></a></li>`).join('')}</ol>
+<p class="note">Photos from Wikimedia Commons, each credited on its venue's page. Places near each venue from OpenStreetMap contributors.</p>
+</main>
+${footer('../')}
 </body>
 </html>
 `)

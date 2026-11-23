@@ -294,3 +294,26 @@ section.tv h2{font-size:1.7rem;margin:0 0 .4rem}
 /* doc pages are one column in every design (Editorial's grid is for the home page) */
 main.doc{display:block!important}
 .tickets{display:inline-block;margin-left:.5rem;font-size:.85rem;font-weight:600}
+
+/* venue pages and /tour/ (Dinis, 23 Nov 2026) */
+main.venue h1{margin-bottom:.2rem}
+.vh-sub{font-size:1.15rem;margin:0 0 1rem}.vh-sub .tv-when{display:block}
+.vh-photo{margin:0 0 1.2rem}.vh-photo img{width:100%;border-radius:var(--radius)}
+.vh-photo figcaption,.vc-grid+.note{font-size:.8rem;color:color-mix(in srgb,var(--fg) 82%,var(--bg));margin-top:.3rem}
+section.vs{padding:1rem 0;border-top:1px solid var(--line)}
+section.vs h2{font-size:1.4rem;margin:.4rem 0 .6rem}
+.vn-list{list-style:none;margin:0;padding:0;display:grid;gap:.35rem}
+.vn-list li{display:flex;flex-wrap:wrap;gap:.2rem .6rem;align-items:baseline}
+.vn-kind{font:600 .72rem/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;min-width:6.5rem;color:color-mix(in srgb,var(--fg) 82%,var(--bg))}
+.vn-m{font-size:.85rem;font-variant-numeric:tabular-nums;color:color-mix(in srgb,var(--fg) 82%,var(--bg))}
+.vn-web{font-size:.85rem}
+.vt-links{padding-left:1.2rem}
+.vp{display:flex;justify-content:space-between;gap:1rem;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--line);font-weight:600}
+.vc-grid{list-style:none;margin:1.2rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,15rem),1fr));gap:1rem}
+.vc-grid a{display:grid;gap:.15rem;color:var(--fg);text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);padding-bottom:.7rem;position:relative}
+.vc-grid a>*:not(img):not(.vc-nopic):not(.vc-n){padding:0 .8rem}
+.vc-grid img,.vc-nopic{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;background:var(--line);margin-bottom:.4rem}
+.vc-n{position:absolute;top:.5rem;left:.5rem;background:var(--accent);color:var(--on-accent);font:700 .75rem/1.6rem var(--sans);width:1.6rem;text-align:center;border-radius:50%}
+.vc-grid strong{font-size:1.1rem}.vc-venue{font-size:.9rem}
+.vc-grid a:hover strong,.vc-grid a:focus-visible strong{text-decoration:underline}
+.vc-grid li.past a{opacity:.85}
