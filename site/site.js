@@ -25,12 +25,12 @@ document.querySelectorAll('.frame[data-src]').forEach(function (frame) {
   document.querySelectorAll('[data-end]').forEach(function (el) {
     if (el.getAttribute('data-end') < today) {
       el.classList.add('past');
-      if (el.tagName === 'LI') { var p = document.createElement('span'); p.className = 'played'; p.textContent = ' (played)'; el.querySelector('strong').after(p) }
+      var st = el.tagName === 'LI' && el.querySelector('strong'); if (st) { var p = document.createElement('span'); p.className = 'played'; p.textContent = ' (played)'; st.after(p) }
     }
     else if (el.getAttribute('data-start') <= today) {
       el.classList.add('now');
-      if (el.tagName === 'LI') {
-        now = el;
+      if (el.tagName === 'LI' && el.querySelector('strong')) {
+        if (!now) now = el;
         var tag = document.createElement('span'); tag.className = 'now-tag'; tag.textContent = ' (this week)';
         el.querySelector('strong').after(tag);
         var t = document.createElement('a'); t.className = 'tickets'; t.href = 'https://prideandprejudicesortof.com/tour-dates/'; t.textContent = 'Tickets: on the tour\u2019s page \u2197';

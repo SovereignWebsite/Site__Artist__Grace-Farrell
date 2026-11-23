@@ -273,6 +273,7 @@ function page(cur, rel) {
 
   const tourInner = `  <p class="tour-intro">Isobel McArthur's Olivier Award-winning comedy tours the UK and Ireland from September 2026 to May 2027. These are the production's ${tour.venues.length} venues; dates for 2027 are from <a href="https://prideandprejudicesortof.com/tour-dates/">the tour's own page</a>, where tickets are sold.</p>
   <div class="tour-grid${cur === 4 ? ' list-only' : ''}">${cur === 4 ? '' : `<details class="map-box" open><summary>Show the map</summary>${tourMap()}</details>`}${tourList()}</div>
+  <p class="tv-link"><a href="${rel}tour/views/">See the tour in six views</a>: timeline, by country, calendar, route, played and to come, and a table.</p>
   <p class="note map-note">Map: Natural Earth (public domain). Venues already played are faded on the map and marked "played" in the list.</p>`;
   const tourSec = sec('tour', 'tour', `<em>Pride and Prejudice* (*sort of)</em>${cur === 4 ? ', town by town' : ' on tour'}`, tourInner);
 
@@ -350,6 +351,53 @@ ${footer('../')}
 </body>
 </html>
 `);
+
+// The tour in several views, from the same data as the map (tools/data/tour.json). Dinis, 23 Nov 2026: "create
+// multiple representations of this, in a separate page".
+{
+  const COUNTRY = { Mold: 'Wales', Cardiff: 'Wales', Edinburgh: 'Scotland', Glasgow: 'Scotland', Belfast: 'Northern Ireland', Dublin: 'Ireland' }
+  const country = (v) => COUNTRY[v.town] || 'England'
+  const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  const V = tour.venues.map((v, i) => ({ ...v, n: i + 1, country: country(v) }))
+  const km = (a, b) => { const R = 6371, r = (x) => x * Math.PI / 180, dLa = r(b.lat - a.lat), dLo = r(b.lon - a.lon); const h = Math.sin(dLa / 2) ** 2 + Math.cos(r(a.lat)) * Math.cos(r(b.lat)) * Math.sin(dLo / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(h)) }
+  const legs = V.slice(1).map((v, i) => ({ from: V[i], to: v, km: km(V[i], v) }))
+  const total = legs.reduce((n, l) => n + l.km, 0), longest = Math.max(...legs.map((l) => l.km))
+  const mi = (k) => Math.round(k * 0.621371)
+  const attrs = (v) => `data-start="${v.start}" data-end="${v.end}"`
+  const name = (v) => `<strong>${esc(v.town)}</strong>, ${esc(v.venue)}`
+
+  const timeline = `<ol class="tv-timeline">${V.map((v) => `<li ${attrs(v)}><span class="tv-n" aria-hidden="true">${v.n}</span><span class="tv-when">${esc(v.when)}</span> ${name(v)}</li>`).join('')}</ol>`
+  const groups = ['England', 'Wales', 'Scotland', 'Northern Ireland', 'Ireland'].map((c) => { const xs = V.filter((v) => v.country === c); return `<section class="tv-group"><h3>${c} <span class="tv-count">${xs.length}</span></h3><ul>${xs.map((v) => `<li ${attrs(v)}>${name(v)} <span class="tv-when">${esc(v.when)}</span></li>`).join('')}</ul></section>` }).join('')
+  const months = []; for (let y = 2026, m = 8; y < 2027 || m <= 4; m++) { if (m > 11) { m = 0; y++ } months.push([y, m]); if (y === 2027 && m === 4) break }
+  const calendar = `<div class="tv-cal">${months.map(([y, m]) => { const key = `${y}-${String(m + 1).padStart(2, '0')}`, xs = V.filter((v) => v.start.slice(0, 7) === key || v.end.slice(0, 7) === key); return `<section class="tv-month${xs.length ? '' : ' tv-empty'}"><h3>${MONTHS[m]} ${y}</h3>${xs.length ? `<ul>${xs.map((v) => `<li ${attrs(v)}>${esc(v.town)}</li>`).join('')}</ul>` : '<p>No dates</p>'}</section>` }).join('')}</div>`
+  const route = `<p>About <strong>${Math.round(total).toLocaleString('en-GB')} km</strong> (${mi(total).toLocaleString('en-GB')} miles) from Chelmsford to Horsham, venue to venue in a straight line. The real roads and the ferries to Belfast and Dublin are longer.</p><ol class="tv-legs">${legs.map((l) => `<li><span class="tv-leg">${esc(l.from.town)} to ${esc(l.to.town)}</span><span class="tv-bar" data-w="${(l.km / longest * 100).toFixed(1)}" aria-hidden="true"></span><span class="tv-km">${Math.round(l.km)} km</span></li>`).join('')}</ol>`
+  const status = `<div class="tv-status"><section><h3>Played</h3><ul id="tv-played"></ul></section><section><h3>Still to come</h3><ul id="tv-coming">${V.map((v) => `<li ${attrs(v)}>${name(v)} <span class="tv-when">${esc(v.when)}</span></li>`).join('')}</ul></section></div>`
+  const table = `<div class="tv-tablewrap" tabindex="0" role="region" aria-label="All venues, a table you can scroll"><table class="tv-table"><caption>All ${V.length} venues</caption><thead><tr><th scope="col">No.</th><th scope="col">Town</th><th scope="col">Venue</th><th scope="col">Country</th><th scope="col">Dates</th></tr></thead><tbody>${V.map((v) => `<tr ${attrs(v)}><td>${v.n}</td><th scope="row">${esc(v.town)}</th><td>${esc(v.venue)}</td><td>${v.country}</td><td>${esc(v.when)}</td></tr>`).join('')}</tbody></table></div>`
+
+  const sec = (id, title, intro, body) => `<section class="tv" id="${id}" aria-labelledby="${id}-h"><h2 id="${id}-h">${title}</h2>${intro ? `<p class="note">${intro}</p>` : ''}${body}</section>`
+  mkdirSync('site/tour/views', { recursive: true })
+  writeFileSync('site/tour/views/index.html', head({ title: `The tour in six views: ${NAME}`, url: `${ORIGIN}/tour/views/`, css: '../../theme.css', rel: '../../' }).replace('<script src="../../site.js" defer></script>', '<script src="../../site.js" defer></script>\n<script src="views.js" defer></script>') + `
+<body class="doc-page">
+<a class="skip" href="#main">Skip to content</a>
+${bar(HOME, '../../', '../../')}
+<main id="main" class="doc views" tabindex="-1">
+<p class="kicker">On the road</p>
+<h1>The tour in six views</h1>
+<p>The UK and Ireland tour of <em>Pride and Prejudice* (*sort&nbsp;of)</em>, from September 2026 to May 2027, shown six ways. Every view reads the same list of ${V.length} venues as <a href="../../#tour">the map on the home page</a>. These are the production's venues and dates; Grace is a cover in the company. Tickets are on <a href="https://prideandprejudicesortof.com/tour-dates/">the tour's own page</a>.</p>
+<nav class="tv-nav" aria-label="Views"><a href="#timeline">Timeline</a><a href="#countries">By country</a><a href="#calendar">Calendar</a><a href="#route">Route</a><a href="#played">Played and to come</a><a href="#table">Table</a></nav>
+${sec('timeline', 'Timeline', 'In order, from the first night to the last.', timeline)}
+${sec('countries', 'By country', 'Where the tour plays, nation by nation.', groups)}
+${sec('calendar', 'Calendar', 'Month by month; December 2026 and early January 2027 have no dates.', calendar)}
+${sec('route', 'Route', 'Each leg of the journey, longest bar for the longest leg.', route)}
+${sec('played', 'Played and to come', 'By your own date.', status)}
+${sec('table', 'Table', '', table)}
+<p class="note">Autumn 2026 venues show the month only, as the tour's own page no longer lists those dates. Map and venues: <a href="../../#tour">the tour on the home page</a>.</p>
+</main>
+${footer('../../')}
+</body>
+</html>
+`)
+}
 
 // The side-by-side page.
 writeFileSync('site/designs/index.html', head({ title: `Five designs, ${NAME}`, url: `${ORIGIN}/designs/`, css: 'gallery.css', rel: '../' }).replace(/<script[^>]*><\/script>\n/, '') + `

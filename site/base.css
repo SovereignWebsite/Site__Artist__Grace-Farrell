@@ -256,3 +256,41 @@ main.send .composer textarea{min-height:7rem;background:var(--bg)}
 .nokey-card{padding:1rem;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
 .bubble.me,.bubble.me p,.bubble.me .state{color:var(--on-accent)}
 main.send h2{font-size:1.3rem;margin:1rem 0 0}
+
+/* /tour/views/: the tour in six views (Dinis, 23 Nov 2026) */
+main.views{max-width:var(--wide)}
+.tv-nav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:1rem 0 2rem;padding:.7rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tv-nav a{font-weight:600}
+section.tv{padding:1.5rem 0 2rem;border-bottom:1px solid var(--line)}
+section.tv h2{font-size:1.7rem;margin:0 0 .4rem}
+.tv-when{color:color-mix(in srgb,var(--fg) 82%,var(--bg));font-size:.9rem}
+.tv-timeline{list-style:none;margin:1rem 0 0;padding:0 0 0 1.4rem;border-left:2px solid var(--accent)}
+.tv-timeline li{position:relative;padding:.35rem 0 .35rem .6rem}
+.tv-timeline .tv-n{position:absolute;left:-2.35rem;top:.3rem;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--accent);color:var(--on-accent);font:700 .75rem/1.7rem var(--sans);text-align:center}
+.tv-timeline .tv-when{display:inline-block;min-width:13rem}
+.tv-timeline li.past .tv-n{background:var(--surface);color:var(--fg);border:1px solid var(--line)}
+.tv-timeline li.now{font-weight:600}
+.tv-group{display:inline-block;vertical-align:top;width:min(100%,19rem);margin:0 1.5rem 1.2rem 0}
+.tv-group h3{font-size:1.15rem;margin:.6rem 0 .3rem}.tv-count{font:600 .8rem var(--sans);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.05rem .5rem;vertical-align:middle}
+.tv-group ul,.tv-month ul,.tv-status ul{list-style:none;margin:0;padding:0}.tv-group li,.tv-status li{margin:.3rem 0}
+.tv-cal{display:grid;grid-template-columns:repeat(auto-fill,minmax(10rem,1fr));gap:.8rem;margin-top:1rem}
+.tv-month{border:1px solid var(--line);border-radius:var(--radius);padding:.7rem .8rem;background:var(--surface)}
+.tv-month h3{font-size:1rem;margin:0 0 .4rem}.tv-month li{margin:.15rem 0}.tv-month li.past{opacity:.6}.tv-month.tv-empty p{margin:0;color:color-mix(in srgb,var(--fg) 82%,var(--bg));font-size:.9rem}
+.tv-legs{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.35rem}
+.tv-legs li{display:grid;grid-template-columns:minmax(9rem,14rem) 1fr 4.5rem;gap:.6rem;align-items:center;font-size:.92rem}
+.tv-bar{height:.7rem;border-radius:999px;background:linear-gradient(var(--accent),var(--accent)) 0 0/var(--w,0%) 100% no-repeat,var(--surface);border:1px solid var(--line)}
+.tv-km{text-align:right;font-variant-numeric:tabular-nums}
+@media (max-width:37.5rem){.tv-legs li{grid-template-columns:1fr 4rem}.tv-bar{grid-column:1/-1;order:3}}
+.tv-status{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));gap:1rem 2rem;margin-top:1rem}
+.tv-status h3{font-size:1.15rem;margin:0 0 .4rem}.tv-none{color:color-mix(in srgb,var(--fg) 82%,var(--bg))}
+.tv-tablewrap{overflow-x:auto;margin-top:1rem}
+.tv-table{width:100%;border-collapse:collapse;font-size:.92rem}
+.tv-table caption{text-align:left;font-weight:600;margin-bottom:.4rem}
+.tv-table th,.tv-table td{text-align:left;padding:.4rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+.tv-table thead th{font:600 .75rem/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.tv-table tr.past td,.tv-table tr.past th{color:color-mix(in srgb,var(--fg) 75%,var(--bg))}
+.tv-table tr.now{background:var(--surface);font-weight:600}
+.tv-link{font-weight:600;margin-top:1rem}
+/* doc pages are one column in every design (Editorial's grid is for the home page) */
+main.doc{display:block!important}
+.tickets{display:inline-block;margin-left:.5rem;font-size:.85rem;font-weight:600}
