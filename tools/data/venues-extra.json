@@ -222,7 +222,8 @@
    ],
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
-  }
+  },
+  "photo": null
  },
  "worthing": {
   "nearby": {
@@ -328,6 +329,19 @@
    ],
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
+  },
+  "photo": {
+   "file": "File:Connaught Theatre & Cinema, Worthing 2026-05-07.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Connaught_Theatre_%26_Cinema,_Worthing_2026-05-07.jpg",
+   "licence": "CC0",
+   "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "author": "Andy Li",
+   "category": "Category:Connaught Theatre",
+   "read": "2026-11-23",
+   "size": [
+    1920,
+    1446
+   ]
   }
  },
  "mold": {
@@ -483,6 +497,19 @@
    ],
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
+  },
+  "photo": {
+   "file": "File:Before the singing starts - geograph.org.uk - 4115155.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Before_the_singing_starts_-_geograph.org.uk_-_4115155.jpg",
+   "licence": "CC BY-SA 2.0",
+   "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
+   "author": "Anthony O'Neil",
+   "category": "Category:Buxton Opera House",
+   "read": "2026-11-23",
+   "size": [
+    1920,
+    1372
+   ]
   }
  },
  "belfast": {
@@ -582,6 +609,19 @@
    ],
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
+  },
+  "photo": {
+   "file": "File:Belfast - City Centre - Grand Opera House - NW View - geograph.org.uk - 3979981.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Belfast_-_City_Centre_-_Grand_Opera_House_-_NW_View_-_geograph.org.uk_-_3979981.jpg",
+   "licence": "CC BY-SA 2.0",
+   "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
+   "author": "Suzanne Mischyshyn",
+   "category": "Category:Grand Opera House (Belfast)",
+   "read": "2026-11-23",
+   "size": [
+    1920,
+    1280
+   ]
   }
  },
  "salisbury": {
@@ -688,6 +728,19 @@
    ],
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
+  },
+  "photo": {
+   "file": "File:Salisbury Playhouse.jpeg",
+   "page": "https://commons.wikimedia.org/wiki/File:Salisbury_Playhouse.jpeg",
+   "licence": "CC BY-SA 2.0",
+   "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
+   "author": "Neil Owen",
+   "category": "Category:Salisbury Playhouse",
+   "read": "2026-11-23",
+   "size": [
+    1920,
+    1420
+   ]
   }
  },
  "nottingham": {
@@ -985,7 +1038,9 @@
    ],
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
-  }
+  },
+  "photo": null,
+  "photo_rejected": "File:Richmond 7399-404HM.jpg: a street panorama; the theatre is not clearly shown"
  },
  "darlington": {
   "photo": null,
@@ -1300,7 +1355,9 @@
    ],
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
-  }
+  },
+  "photo": null,
+  "photo_rejected": "File:0212-Leicester-20100617-061.JPG: an auditorium interior, not the venue from outside"
  },
  "guildford": {
   "nearby": {
@@ -1512,7 +1569,9 @@
    ],
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
-  }
+  },
+  "photo": null,
+  "photo_rejected": "File:063 Gilbert 20170216 22 07 34.jpg: a concert with identifiable performers"
  },
  "bradford": {
   "nearby": {
@@ -1668,7 +1727,9 @@
    ],
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
-  }
+  },
+  "photo": null,
+  "photo_rejected": "File:\"The Comedy About A Bank Robbery\" at the Mayflower Theatre.jpg: an auditorium interior with an identifiable audience"
  },
  "oxford": {
   "nearby": {
@@ -1774,6 +1835,19 @@
    ],
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
+  },
+  "photo": {
+   "file": "File:1185150 II 11, BEAUMONT STREET Oxford 20250617 0001.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:1185150_II_11,_BEAUMONT_STREET_Oxford_20250617_0001.jpg",
+   "licence": "CC BY-SA 4.0",
+   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "author": "Tilman2007",
+   "category": "Category:Oxford Playhouse",
+   "read": "2026-11-23",
+   "size": [
+    1920,
+    1255
+   ]
   }
  },
  "truro": {
@@ -1866,6 +1940,19 @@
    ],
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
+  },
+  "photo": {
+   "file": "File:City Hall (2).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:City_Hall_(2).jpg",
+   "licence": "CC BY-SA 3.0",
+   "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "author": "Peter Glyn",
+   "category": "Category:Hall for Cornwall",
+   "read": "2026-11-23",
+   "size": [
+    1920,
+    1440
+   ]
   }
  },
  "birmingham": {
@@ -2248,6 +2335,19 @@
    ],
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
+  },
+  "photo": {
+   "file": "File:Detail of Pavilion Theatre.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Detail_of_Pavilion_Theatre.jpg",
+   "licence": "CC BY-SA 4.0",
+   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "author": "Frayedattheedges",
+   "category": "Category:Pavilion Theatre, Glasgow",
+   "read": "2026-11-23",
+   "size": [
+    1920,
+    1440
+   ]
   }
  },
  "blackpool": {
@@ -2319,6 +2419,19 @@
    ],
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
+  },
+  "photo": {
+   "file": "File:Grand Theatre 2 (3331000187).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Grand_Theatre_2_(3331000187).jpg",
+   "licence": "CC BY 2.0",
+   "licence_url": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Tony Hisgett from Birmingham, UK",
+   "category": "Category:Grand Theatre, Blackpool",
+   "read": "2026-11-23",
+   "size": [
+    1920,
+    957
+   ]
   }
  },
  "horsham": {
@@ -2404,6 +2517,7 @@
    ],
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
-  }
+  },
+  "photo": null
  }
 }
