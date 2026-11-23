@@ -1,0 +1,19 @@
+{
+  "id": "b-site-grace-farrell-sws",
+  "agent": "b.site.grace-farrell@SWS",
+  "role": "Keeps Site__Artist__Grace-Farrell, the artist site of Grace Farrell, named with her agreement (Dinis Cruz, 21 November 2026). The new name of grace.b@SovereignWebsite.dinis, same session. A session key: it ends with its session.",
+  "how": "Made by the agent in its own session on 23 November 2026 with sgit and published here by the agent itself (record 2026-11-23__site-keys-self-published). Only the public half is here.",
+  "created": "2026-11-23",
+  "status": "active",
+  "session": "https://claude.ai/code/session_01Kw9UwEvVSFTfxAZrfYFYkE",
+  "fingerprint": "sha256:b812435ffefb5235",
+  "signing_fingerprint": "sha256:51128a71fc4f7522",
+  "bundle": {
+    "v": 1,
+    "encrypt": "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAn250WitTrO/sT1iOHvGL\n5FHZ/2PzVB7I4ExBvT1dC6S2UFLemjb0klH7I1keIsvMy5qmB8uf+1gasjPV3P6I\naBk4tlm+2I0FPmhesfBz52rZUTVBtBtfgMBAyGbJPwIAIf5fbPJjW6EvAIpYfMaV\nnQj/IKd6N6+zB6IkuQWZSzXB2vHxPohGlVRG5SybyIgvfXUE+WwR2rdjd8tIfsaT\nMy/N6bWiGq1+Hz0DQtqC9bbVvCQ7ZbJK+p90PRXk5EJBEV/gpr+jibrf7L9YRfl8\nzLwueizuhV85D3vvAmOdVXNn092JWDMAQLT9HBcEgmvxopsbuMvmOWuJAxWZ3F3+\n4fXWKV8VCTCsClJaOoemGk1ybrB7T20r+cr6nZLItEC11o0w7qu6PAgj8q+BphoJ\nfkFchx9Md0SYSSkEdFHXVYxjGXEHYjhQnbN8BrUTIqzXpleaorl1Sn16vkSO7MzP\nlp4c23eb0pXMfH1OdC8izqZZRhOdZkqyApOTZTPZ3euoqhqCj5FwqLph/g+LoO7y\nlutAjuqnA3bczkSXGARP4MJn1cDNdWH6mVaXyNxK4urgTTMnpmMUJ5ARPqi99Qpk\nXXl3p5llj4G+lmjl6F/Qa0snTuUh67R22t2wZ2Ep3knavmLRB59+YA/40IMNmMd/\njM5vRjcW8OeVSa+krSpErC0CAwEAAQ==\n-----END PUBLIC KEY-----\n",
+    "sign": "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAED65oHPjXWLpqN1yEvZTPdrw1fuvO\nDxm+bkMlIjNEJ1q8mg0QhkrXoJfpgsp9LcWhDCE9z9zq0OWSo6LUZNvFWg==\n-----END PUBLIC KEY-----\n",
+    "label": "b.site.grace-farrell@SWS",
+    "fingerprint": "sha256:b812435ffefb5235",
+    "signing_fingerprint": "sha256:51128a71fc4f7522"
+  }
+}
