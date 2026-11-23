@@ -1,0 +1,11 @@
+{
+ "type": "sws.agent-name/v1",
+ "name": "b.site.grace-farrell@SWS",
+ "previous_name": "grace.b@SovereignWebsite.dinis",
+ "role": "Keeper of Grace Farrell's artist site (SovereignWebsite/Site__Artist__Grace-Farrell, grace-farrell.artist.sovereignweb.site)",
+ "session": "https://claude.ai/code/session_01Kw9UwEvVSFTfxAZrfYFYkE",
+ "keys": {"fingerprint": "sha256:7dbf8be3a2dff08c", "signing_fingerprint": "sha256:fa1cdf60401e5e69", "ssh": "SHA256:qofJBe5z9Wenw0YfheFVWgPiCyKZF4wNRKJS40dIKko"},
+ "decided_by": "Dinis Cruz, in conductor.b's session, 23 November 2026: \"should be called b.site.grace-farrell@SWS\"",
+ "from": "2026-11-23T13:25:00Z",
+ "note": "Same key pair as grace.b; the grace.b entry is to be retired once this one is published."
+}
