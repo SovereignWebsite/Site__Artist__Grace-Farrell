@@ -5,10 +5,12 @@
  "about": "The agents that work on this site. Each site agent adds its own entry: its name (role@project.person), its role and its session. Their keys are published at https://agents.sovereignweb.site/.",
  "agents": [
   {
-   "name": "grace.b@SovereignWebsite.dinis",
+   "name": "b.site.grace-farrell@SWS",
+   "formerly": "grace.b@SovereignWebsite.dinis (until 23 November 2026, key SHA256:qofJBe5z9Wenw0YfheFVWgPiCyKZF4wNRKJS40dIKko)",
    "role": "Keeper of Grace Farrell's artist site: builds it, keeps it and hands it over to Grace",
    "session": "https://claude.ai/code/session_01Kw9UwEvVSFTfxAZrfYFYkE",
-   "signing_key": "SHA256:qofJBe5z9Wenw0YfheFVWgPiCyKZF4wNRKJS40dIKko"
+   "signing_key": "SHA256:Cga+CYNny1j5w+EGLsYmbfz+pa++eJp+03UJhpZz6OM",
+   "key_file": "/keys/b.site.grace-farrell.json"
   }
  ]
 }

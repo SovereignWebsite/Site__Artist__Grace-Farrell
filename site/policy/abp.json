@@ -34,7 +34,7 @@
     "invent a fact, a price or a customer",
     "add a server, cookies or tracking"
    ],
-   "current": "grace.b@SovereignWebsite.dinis, session https://claude.ai/code/session_01Kw9UwEvVSFTfxAZrfYFYkE, signing key SHA256:qofJBe5z9Wenw0YfheFVWgPiCyKZF4wNRKJS40dIKko (also in data/agents.json)",
+   "current": "b.site.grace-farrell@SWS (formerly grace.b@SovereignWebsite.dinis), session https://claude.ai/code/session_01Kw9UwEvVSFTfxAZrfYFYkE, signing key SHA256:Cga+CYNny1j5w+EGLsYmbfz+pa++eJp+03UJhpZz6OM (also in data/agents.json and keys/b.site.grace-farrell.json)",
    "agents_list": "/data/agents.json"
   },
   "factory": {
