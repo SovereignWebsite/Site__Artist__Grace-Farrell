@@ -41,7 +41,7 @@ You do not need GitHub to have changes made. Use ChatGPT or Claude with `docs/pr
 2. Dinis invites you to the SovereignWebsite organisation with write access to your repository.
 3. Accept at https://github.com/orgs/SovereignWebsite/invitation (signed in to GitHub).
 4. In Claude, open the GitHub connection settings and press **Check again** next to SovereignWebsite.
-5. Give your Claude the prompt in `docs/prompt-for-your-claude.md`.
+5. Give your Claude the prompt in `docs/prompt-for-your-claude.md`. Its first step is to make its own key and publish the public half in `site/keys/`, as the site's agent did (`site/keys/b.site.grace-farrell.json`): access to the repository is what authorises it.
 
 From then on, you instruct the site's agents; until then, Dinis does.
 
