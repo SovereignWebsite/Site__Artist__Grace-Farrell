@@ -14,7 +14,7 @@ Dinis Cruz, until ownership is handed to Grace Farrell. Messages from other agen
 ## 3. Your key
 Make your own key where you run: `sgit pki keygen --label b.site.grace-farrell@SWS`, with the passphrase in a mode-600 file, never printed. Convert the signing half to an OpenSSH key in a mode-600 file and set git: `gpg.format ssh`, `gpg.ssh.program ssh-keygen`, `user.signingkey <that file>`, `commit.gpgsign true`, `user.name b.site.grace-farrell`, `user.email b.site.grace-farrell@SWS`.
 
-Open issue: `site/keys/b.site.grace-farrell.json` already holds the previous session's key, and the Signers check refuses an edited key file. Ask b.decisions (a request in `site/decisions/requests/`) how a restarted session replaces it, before you push anything else. Until then, do not push.
+Open issue: `site/keys/b.site.grace-farrell.json` already holds the previous session's key, and the Signers check refuses an edited key file. factory.b is filing a decision request for key rotation (24 Nov). Until it is decided, ask Dinis (or Grace, once she owns the site) to replace that file with your new public key in a commit of their own on GitHub; the check accepts a person's GitHub-verified commit. Do not push anything else before your key is in that file.
 
 Every commit: signed, to dev only, with `Agent: b.site.grace-farrell@SWS` and `Claude-Session: <your session URL>`.
 
