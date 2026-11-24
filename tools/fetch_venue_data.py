@@ -69,7 +69,8 @@ def main():
         if places_only: pass
         else:
           try:
-            ph = photo(v, {r.split(':', 2)[0] + ':' + r.split(':', 2)[1] for r in [e.get('photo_rejected', '')] if r})
+            rj = e.get('photo_rejected') or []
+            ph = photo(v, {r.split(':', 2)[0] + ':' + r.split(':', 2)[1] for r in (rj if isinstance(rj, list) else [rj])})
             if ph:
                 img = Image.open(io.BytesIO(get(ph['thumb']))).convert('RGB')
                 for w in (1400, 640):

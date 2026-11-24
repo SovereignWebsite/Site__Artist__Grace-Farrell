@@ -1,15 +1,15 @@
-# Now (24 Nov 2026, 10:22 UTC)
+# Now (24 Nov 2026, 13:55 UTC)
 
 Rewritten at each wake.
 
 ## Live
 - Site on design 5 (Editorial) by default; all five at /designs/.
-- Tour: /tour/ (list and map), /tour/views/ (six views), one page per venue at /tour/<town>/ with nearby places from OpenStreetMap. 10 of 26 venues have a free-licence photo from Wikimedia Commons; 5 candidates were rejected (interiors or identifiable people).
+- Tour: /tour/ (list and map), /tour/views/ (six views), one page per venue at /tour/<town>/ with nearby places from OpenStreetMap. 14 of 26 venues have a free-licence photo from Wikimedia Commons, each checked by eye; 7 candidates were rejected (interiors, identifiable people, or the venue not shown).
 - Messages pane on every page; Dinis's browser f6cef9566617a729 confirmed; 14 replies published to it.
 - Renamed to b.site.grace-farrell@SWS on 23 Nov (697b685, 60df472, 354d3f3), with its own key published in this repository.
 
 ## Next
-- Retry Commons photos for the other 16 venues at the next wake. On 24 Nov 10:13 to 10:20 UTC Commons answered 429 to every request from this container's shared address (seven tries, 30 s apart). The fetch script now skips the five rejected files (ddc4474).
+- Retry Commons photos at the next wake, one venue a minute: refused (429) on 24 Nov for Nottingham, Richmond, Poole, Bradford, Southampton, Edinburgh, Cardiff and Horsham. No usable free photo found yet for Chelmsford, Darlington, Guildford and Dublin.
 - When Dinis wants more tour experiments: travel between venues, places to stay, an animated route, a "this week" card.
 - Copy the IaC seed's next signer-check changes (b53aef0, 7f2a68f) if they land.
 

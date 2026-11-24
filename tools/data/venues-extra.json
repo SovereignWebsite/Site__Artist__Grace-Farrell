@@ -953,6 +953,19 @@
    ],
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
+  },
+  "photo": {
+   "file": "File:Cambridge Arts Theatre, St Edward's Passage 2.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Cambridge_Arts_Theatre,_St_Edward%27s_Passage_2.JPG",
+   "licence": "CC BY 3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0",
+   "author": "SlimVirgin (Wikimedia Commons user)",
+   "category": "Category:Cambridge Arts Theatre",
+   "read": "2026-11-24",
+   "size": [
+    1280,
+    960
+   ]
   }
  },
  "richmond": {
@@ -1108,7 +1121,19 @@
   }
  },
  "malvern": {
-  "photo": null,
+  "photo": {
+   "file": "File:Great Malvern theatre - panoramio (1).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Great_Malvern_theatre_-_panoramio_(1).jpg",
+   "licence": "CC BY 3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0",
+   "author": "Tanya Dedyukhina",
+   "category": "Category:Malvern Festival Theatre",
+   "read": "2026-11-24",
+   "size": [
+    1280,
+    960
+   ]
+  },
   "nearby": {
    "places": [
     {
@@ -1356,7 +1381,19 @@
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
   },
-  "photo": null,
+  "photo": {
+   "file": "File:Curve Leicester by night.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Curve_Leicester_by_night.jpg",
+   "licence": "CC BY-SA 3.0",
+   "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "author": "NotFromUtrecht",
+   "category": "Category:Curve (theatre)",
+   "read": "2026-11-24",
+   "size": [
+    1280,
+    564
+   ]
+  },
   "photo_rejected": "File:0212-Leicester-20100617-061.JPG: an auditorium interior, not the venue from outside"
  },
  "guildford": {
@@ -1463,7 +1500,11 @@
    ],
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
-  }
+  },
+  "photo": null,
+  "photo_rejected": [
+   "File:Construction of St Mary's Wharf, Guildford, Surrey - January 2026 - 10.jpg: a building site by the river; the theatre is not clearly shown"
+  ]
  },
  "dublin": {
   "nearby": {
@@ -1571,7 +1612,10 @@
    "source": "OpenStreetMap contributors, via Nominatim"
   },
   "photo": null,
-  "photo_rejected": "File:063 Gilbert 20170216 22 07 34.jpg: a concert with identifiable performers"
+  "photo_rejected": [
+   "File:063 Gilbert 20170216 22 07 34.jpg: a concert with identifiable performers",
+   "File:Bord Gais Theatre TEDxDublin.jpg: a view out from inside the theatre, not the venue from outside"
+  ]
  },
  "bradford": {
   "nearby": {
@@ -2059,6 +2103,19 @@
    ],
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
+  },
+  "photo": {
+   "file": "File:Alexandra Theatre Birmingham.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Alexandra_Theatre_Birmingham.jpg",
+   "licence": "CC BY-SA 3.0",
+   "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "author": "Oosoom",
+   "category": "Category:Alexandra Theatre, Birmingham",
+   "read": "2026-11-24",
+   "size": [
+    1280,
+    776
+   ]
   }
  },
  "edinburgh": {
