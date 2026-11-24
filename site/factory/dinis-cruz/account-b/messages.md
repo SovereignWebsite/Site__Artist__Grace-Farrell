@@ -3,6 +3,7 @@
 What came in and went out, in one line each. Contents of Dinis's sealed messages stay sealed; only the topic is here.
 
 ## 24 Nov 2026
+- 00:57 b.conductor: Dinis's own-keys principle; add an own-key step to Grace's hand-over prompt. Done in bbe9386.
 - 00:33 b.conductor: decision requests are committed in the site's repository; keep this area current. Area built.
 
 ## 23 Nov 2026

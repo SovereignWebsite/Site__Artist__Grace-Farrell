@@ -2,6 +2,7 @@
 
 Dinis Cruz's, in this session unless a record is named.
 
+- 24 Nov: repository access is the moment of authorisation; every agent and owner creates and updates its own keys where it can push (record 2026-11-24__own-keys-principle).
 - 24 Nov: asks are committed in site/decisions/requests/ and sent to b.decisions as a link (record 2026-11-24__decision-requests).
 - 23 Nov: agents publish their keys in their own repositories (record 2026-11-23__site-keys-self-published); no IaC push access for this agent (record 2026-11-23__asks-2-8-31-revised).
 - 23 Nov: rename to b.site.grace-farrell@SWS (via b.conductor).
