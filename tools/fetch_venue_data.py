@@ -25,8 +25,8 @@ def photo(v, skip=()):
     words = [w for w in re.findall(r'[a-z]+', v['venue'].lower()) if w not in ('the', 'theatre', 'house')] or ['theatre']
     cats = [c['title'] for c in cats if all(w in c['title'].lower() for w in words[:2]) and not re.search(r'interior|stage|auditorium', c['title'], re.I)]
     for cat in cats[:3]:
-        time.sleep(1)
-        d = commons({'action': 'query', 'generator': 'categorymembers', 'gcmtitle': cat, 'gcmtype': 'file', 'gcmlimit': 30, 'prop': 'imageinfo', 'iiprop': 'url|extmetadata|size|mime', 'iiurlwidth': 1400})
+        time.sleep(3)
+        d = commons({'action': 'query', 'generator': 'categorymembers', 'gcmtitle': cat, 'gcmtype': 'file', 'gcmlimit': 30, 'prop': 'imageinfo', 'iiprop': 'url|extmetadata|size|mime', 'iiurlwidth': 1280})
         pages = sorted(d.get('query', {}).get('pages', {}).values(), key=lambda p: p['title'])
         for p in pages:
             ii = p['imageinfo'][0]; m = ii['extmetadata']; lic = strip(m.get('LicenseShortName', {}).get('value'))

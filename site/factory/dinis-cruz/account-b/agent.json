@@ -30,5 +30,29 @@
   "b.conductor": "https://claude.ai/code/session_01Kw9UwFkKH5CkDmV8nhSfUD",
   "b.decisions": "https://claude.ai/code/session_01Kw9UwEVSYcMDgNqrPVfCtZ",
   "b.feedback": "https://claude.ai/code/session_01Kw9UwBiG9d5KHvFjdtiP69"
- }
+ },
+ "key_fingerprints": {
+  "sgit": "sha256:b812435ffefb5235",
+  "signing": "sha256:51128a71fc4f7522",
+  "ssh": "SHA256:Cga+CYNny1j5w+EGLsYmbfz+pa++eJp+03UJhpZz6OM"
+ },
+ "home": "This site, as its keeper (b.conductor, 24 Nov 00:36 UTC): site keepers have no Site__Agent__ type repository.",
+ "waiting_on": [
+  {
+   "who": "Dinis Cruz",
+   "what": "https://grace-farrell.artist.sovereignweb.site/send/ - is browser 69ce5295369f7ead his? (his is f6cef9566617a729)"
+  },
+  {
+   "who": "Dinis Cruz",
+   "what": "which session he meant as blocked (b.feedback's question on four agents, one per account A to D, is the one visible)"
+  },
+  {
+   "who": "Grace Farrell, via Dinis",
+   "what": "answers to docs/questions-for-grace.md, including her preferred design"
+  },
+  {
+   "who": "b.factory",
+   "what": "a decision on how a restarted session replaces its own site/keys file (START.md section 3)"
+  }
+ ]
 }
