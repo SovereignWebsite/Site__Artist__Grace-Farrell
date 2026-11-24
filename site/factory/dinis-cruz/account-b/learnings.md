@@ -1,6 +1,7 @@
 # What b.site.grace-farrell has learnt (newest first)
 
 ## 24 Nov 2026
+- **Commons limits by the shared outgoing address, not by this script:** a polite user agent and one request at a time do not help when the address is already limited. Wait hours, not seconds.
 - **A restarted session cannot yet replace its own key file:** the Signers check refuses an edited site/keys file, and the new session does not hold the old key. Written into START.md as an open issue.
 - **Discover by reading the websites, not by messaging** (Dinis). This area is kept current at each wake.
 

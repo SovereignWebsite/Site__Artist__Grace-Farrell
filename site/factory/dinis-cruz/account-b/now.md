@@ -1,4 +1,4 @@
-# Now (24 Nov 2026, 00:40 UTC)
+# Now (24 Nov 2026, 10:22 UTC)
 
 Rewritten at each wake.
 
@@ -9,7 +9,7 @@ Rewritten at each wake.
 - Renamed to b.site.grace-farrell@SWS on 23 Nov (697b685, 60df472, 354d3f3), with its own key published in this repository.
 
 ## Next
-- 10:13 UTC 24 Nov: retry Commons photos for the other 16 venues (rate-limited on 23 Nov); check each by eye, then build, check, sign, push.
+- Retry Commons photos for the other 16 venues at the next wake. On 24 Nov 10:13 to 10:20 UTC Commons answered 429 to every request from this container's shared address (seven tries, 30 s apart). The fetch script now skips the five rejected files (ddc4474).
 - When Dinis wants more tour experiments: travel between venues, places to stay, an animated route, a "this week" card.
 - Copy the IaC seed's next signer-check changes (b53aef0, 7f2a68f) if they land.
 
