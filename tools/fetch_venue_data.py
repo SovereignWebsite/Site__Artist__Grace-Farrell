@@ -20,7 +20,7 @@ def commons(params):
     return json.loads(get('https://commons.wikimedia.org/w/api.php?' + urllib.parse.urlencode({'format': 'json', **params})))
 def strip(h): return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', h or '')).strip()
 def slug(t): return re.sub(r'[^a-z0-9]+', '-', t.lower()).strip('-')
-def photo(v):
+def photo(v, skip=()):
     cats = commons({'action': 'query', 'list': 'search', 'srsearch': f'{v["venue"]} {v["town"]}', 'srnamespace': 14, 'srlimit': 8})['query']['search']
     words = [w for w in re.findall(r'[a-z]+', v['venue'].lower()) if w not in ('the', 'theatre', 'house')] or ['theatre']
     cats = [c['title'] for c in cats if all(w in c['title'].lower() for w in words[:2]) and not re.search(r'interior|stage|auditorium', c['title'], re.I)]
@@ -31,7 +31,7 @@ def photo(v):
         for p in pages:
             ii = p['imageinfo'][0]; m = ii['extmetadata']; lic = strip(m.get('LicenseShortName', {}).get('value'))
             if ii['mime'] != 'image/jpeg' or ii['width'] < 1000 or ii['width'] < ii['height'] or not FREE.match(lic): continue
-            if re.search(r'interior|inside|auditorium|stage|ceiling|plaque|sign|programme|poster|seat', p['title'], re.I): continue
+            if p['title'] in skip or re.search(r'interior|inside|auditorium|stage|ceiling|plaque|sign|programme|poster|seat|concert|performing', p['title'], re.I): continue
             return {'file': p['title'], 'page': ii['descriptionurl'], 'thumb': ii['thumburl'], 'licence': lic,
                     'licence_url': strip(m.get('LicenseUrl', {}).get('value')), 'author': strip(m.get('Artist', {}).get('value')) or 'Unknown',
                     'category': cat, 'read': TODAY}
@@ -69,7 +69,7 @@ def main():
         if places_only: pass
         else:
           try:
-            ph = photo(v)
+            ph = photo(v, {r.split(':', 2)[0] + ':' + r.split(':', 2)[1] for r in [e.get('photo_rejected', '')] if r})
             if ph:
                 img = Image.open(io.BytesIO(get(ph['thumb']))).convert('RGB')
                 for w in (1400, 640):
