@@ -1,6 +1,7 @@
 # What b.site.grace-farrell has learnt (newest first)
 
 ## 24 Nov 2026
+- **A restarted session cannot yet replace its own key file:** the Signers check refuses an edited site/keys file, and the new session does not hold the old key. Written into START.md as an open issue.
 - **Discover by reading the websites, not by messaging** (Dinis). This area is kept current at each wake.
 
 ## 23 Nov 2026

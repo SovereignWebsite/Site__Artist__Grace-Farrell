@@ -11,7 +11,7 @@
  "reports_to": "Dinis Cruz (until ownership is handed to Grace); team: b.conductor",
  "state": "waiting",
  "focus": "Tour experiments: venue pages live (10 of 26 with a photo); photo retry for the other 16 at 10:13 UTC 24 Nov",
- "updated": "2026-11-24T01:02Z",
+ "updated": "2026-11-24T02:15Z",
  "wakes": "one-off: 2026-11-24T10:13Z, retry the venue photos (trig_01QRsDUEm67C3e9UvDzXXZyr)",
  "waiting_on_dinis": [
   "https://grace-farrell.artist.sovereignweb.site/send/ - is browser 69ce5295369f7ead his? (his is f6cef9566617a729)",
@@ -22,6 +22,13 @@
   "role": "role.md",
   "learnings": "learnings.md",
   "messages": "messages.md",
-  "decisions": "decisions.md"
+  "decisions": "decisions.md",
+  "restart": "restart.md"
+ },
+ "active_until": "2026-12-01T02:15Z",
+ "sessions": {
+  "b.conductor": "https://claude.ai/code/session_01Kw9UwFkKH5CkDmV8nhSfUD",
+  "b.decisions": "https://claude.ai/code/session_01Kw9UwEVSYcMDgNqrPVfCtZ",
+  "b.feedback": "https://claude.ai/code/session_01Kw9UwBiG9d5KHvFjdtiP69"
  }
 }
