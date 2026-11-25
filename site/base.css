@@ -317,3 +317,14 @@ section.vs h2{font-size:1.4rem;margin:.4rem 0 .6rem}
 .vc-grid strong{font-size:1.1rem}.vc-venue{font-size:.9rem}
 .vc-grid a:hover strong,.vc-grid a:focus-visible strong{text-decoration:underline}
 .vc-grid li.past a{opacity:.85}
+/* The tour page's "This week" card */
+.tw-wrap{margin:1.2rem 0 1.6rem}
+.tw-card{display:grid;grid-template-columns:minmax(0,1fr);border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.tw-card[hidden]{display:none}
+.tw-pic img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.tw-body{padding:1rem 1.1rem 1.1rem}
+.tw-body h2{margin:.1rem 0 .3rem;font-size:clamp(1.6rem,4vw,2.2rem)}
+.tw-body h2 a{color:var(--fg);text-decoration:none}
+.tw-venue{margin:0 0 .6rem}.tw-venue .when{color:var(--muted)}
+.tw-links{margin:0;padding-left:1.1rem}
+@media (min-width:40rem){.tw-card{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}.tw-pic img{height:100%}}

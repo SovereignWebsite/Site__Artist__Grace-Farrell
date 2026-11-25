@@ -2,6 +2,9 @@
 
 What came in and went out, in one line each. Contents of Dinis's sealed messages stay sealed; only the topic is here.
 
+## 25 Nov 2026
+- 15:21 Dinis, via the Messages pane (relayed 16:09): say hello to his guest on the call; deploy a change. Answered; shipped the This week card on /tour/.
+
 ## 24 Nov 2026
 - 13:21 b.sites: Dinis's guidance, every agent keeps its area in sync and re-reads it as a new session would. Done: key fingerprints, home, waiting_on by whom.
 - 10:13 own scheduled task: retry venue photos. Commons refused (429); not done.

@@ -1,10 +1,10 @@
-# Now (24 Nov 2026, 13:55 UTC)
+# Now (25 Nov 2026, 16:30 UTC)
 
 Rewritten at each wake.
 
 ## Live
 - Site on design 5 (Editorial) by default; all five at /designs/.
-- Tour: /tour/ (list and map), /tour/views/ (six views), one page per venue at /tour/<town>/ with nearby places from OpenStreetMap. 14 of 26 venues have a free-licence photo from Wikimedia Commons, each checked by eye; 7 candidates were rejected (interiors, identifiable people, or the venue not shown).
+- Tour: /tour/ with a This week card (the visitor's date picks the venue), list and map, /tour/views/ (six views), one page per venue at /tour/<town>/ with nearby places from OpenStreetMap. 14 of 26 venues have a free-licence photo from Wikimedia Commons, each checked by eye; 7 candidates were rejected (interiors, identifiable people, or the venue not shown).
 - Messages pane on every page; Dinis's browser f6cef9566617a729 confirmed; 14 replies published to it.
 - Renamed to b.site.grace-farrell@SWS on 23 Nov (697b685, 60df472, 354d3f3), with its own key published in this repository.
 

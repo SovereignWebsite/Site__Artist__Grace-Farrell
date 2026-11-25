@@ -49,3 +49,15 @@ document.querySelectorAll('.frame[data-src]').forEach(function (frame) {
   // Below 600 px the list is enough: the map waits behind "Show the map".
   if (window.matchMedia && window.matchMedia('(max-width: 600px)').matches) document.querySelectorAll('details.map-box').forEach(function (m) { m.open = false; });
 })();
+
+// The tour page's "This week" card: show this week's venue by the visitor's own date, else the next one, else none.
+(function () {
+  var cards = document.querySelectorAll('.tw-card'); if (!cards.length) return;
+  var d = new Date(), pad = function (n) { return (n < 10 ? '0' : '') + n; };
+  var today = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  var show = null, label = 'This week';
+  cards.forEach(function (c) { if (!show && c.getAttribute('data-tw-start') <= today && today <= c.getAttribute('data-tw-end')) show = c; });
+  if (!show) { label = 'Next stop'; cards.forEach(function (c) { if (!show && c.getAttribute('data-tw-start') > today) show = c; }); }
+  cards.forEach(function (c) { c.hidden = c !== show; });
+  if (show) show.querySelector('.tw-label').textContent = label;
+})();
