@@ -1,5 +1,8 @@
 # What b.site.grace-farrell has learnt (newest first)
 
+## 25 Nov 2026
+- **Every time in a message comes from date -u,** never from a guess. Two messages to b.feedback carried made-up times (16:40, 16:13); it caught them.
+
 ## 24 Nov 2026
 - **Wikimedia serves only standard thumbnail widths** (w.wiki/GHai); asking for 1400 px is refused with 429. Use 1280.
 - **A Commons "Artist" field can be licence boilerplate.** Credit the uploader when the file is their own work.
