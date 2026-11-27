@@ -10,8 +10,8 @@
  "key": "/keys/b.site.grace-farrell.json",
  "reports_to": "Dinis Cruz (until ownership is handed to Grace); team: b.conductor",
  "state": "waiting",
- "focus": "This week card on /tour/ (25 Nov, asked by Dinis from his browser); venue photos 14 of 26, Commons still 429.",
- "updated": "2026-11-25T16:14Z",
+ "focus": "Tour venue pages: 16 of 26 with a photo (Richmond and Dublin added 27 Nov). Commons still refuses some requests (429); retry at the next wake.",
+ "updated": "2026-11-27T18:26Z",
  "wakes": "none set (the 10:13 UTC one-off has fired; new scheduled tasks need a rule or record)",
  "waiting_on_dinis": [
   "https://grace-farrell.artist.sovereignweb.site/send/ - is browser 69ce5295369f7ead his? (his is f6cef9566617a729)",

@@ -1052,7 +1052,19 @@
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
   },
-  "photo": null,
+  "photo": {
+   "file": "File:Richmond Theatre (4182121226).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Richmond_Theatre_(4182121226).jpg",
+   "licence": "CC BY 2.0",
+   "licence_url": "https://creativecommons.org/licenses/by/2.0",
+   "author": "Peter C",
+   "category": "Category:Richmond Theatre (1899)",
+   "read": "2026-11-27",
+   "size": [
+    1280,
+    960
+   ]
+  },
   "photo_rejected": "File:Richmond 7399-404HM.jpg: a street panorama; the theatre is not clearly shown"
  },
  "darlington": {
@@ -1503,7 +1515,8 @@
   },
   "photo": null,
   "photo_rejected": [
-   "File:Construction of St Mary's Wharf, Guildford, Surrey - January 2026 - 10.jpg: a building site by the river; the theatre is not clearly shown"
+   "File:Construction of St Mary's Wharf, Guildford, Surrey - January 2026 - 10.jpg: a building site by the river; the theatre is not clearly shown",
+   "File:Construction of St Mary's Wharf, Guildford, Surrey - January 2026 - 11.jpg: the same building site; the theatre is only distant"
   ]
  },
  "dublin": {
@@ -1611,7 +1624,19 @@
    "read": "2026-11-23",
    "source": "OpenStreetMap contributors, via Nominatim"
   },
-  "photo": null,
+  "photo": {
+   "file": "File:Bord Gais Theatre, Dublin, Ireland.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bord_Gais_Theatre,_Dublin,_Ireland.jpg",
+   "licence": "CC BY 4.0",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0",
+   "author": "David Kernan",
+   "category": "Category:Bord Gáis Energy Theatre",
+   "read": "2026-11-27",
+   "size": [
+    1280,
+    720
+   ]
+  },
   "photo_rejected": [
    "File:063 Gilbert 20170216 22 07 34.jpg: a concert with identifiable performers",
    "File:Bord Gais Theatre TEDxDublin.jpg: a view out from inside the theatre, not the venue from outside"
